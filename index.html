@@ -383,6 +383,151 @@
     }
 
     @media (max-width: 980px) { body { padding-bottom: 76px; } }
+
+    /* PROGRAMS SECTION */
+    .programs-section { background: var(--bg); }
+    .programs-accordion {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 48px;
+    }
+    .accordion-item { border-bottom: 1px solid var(--line); }
+    .accordion-item:last-child { border-bottom: none; }
+    .accordion-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 24px;
+      background: var(--panel);
+      cursor: pointer;
+      border: none;
+      text-align: left;
+      gap: 16px;
+      transition: background .2s;
+    }
+    .accordion-header:hover { background: var(--blue-soft); }
+    .accordion-header[aria-expanded="true"] { background: var(--blue-soft); }
+    .accordion-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: clamp(14px, 3.5vw, 17px);
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .acc-num {
+      font-family: var(--en);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--blue);
+      background: var(--blue-soft);
+      border: 1px solid var(--blue);
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: .1em;
+      flex-shrink: 0;
+    }
+    .acc-arrow {
+      flex-shrink: 0;
+      color: var(--sub);
+      transition: transform .3s;
+      width: 20px; height: 20px;
+      stroke: currentColor; fill: none; stroke-width: 2;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .accordion-header[aria-expanded="true"] .acc-arrow { transform: rotate(180deg); }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .45s ease;
+      background: var(--bg);
+    }
+    .acc-desc {
+      font-size: 13px;
+      color: var(--sub);
+      padding: 0 24px 16px;
+    }
+
+    /* PROGRAM CAROUSEL */
+    .program-carousel { padding: 8px 24px 28px; }
+    .carousel-viewport {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-sm);
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    .p-carousel-track {
+      display: flex;
+      transition: transform .35s ease;
+    }
+    .p-carousel-slide {
+      min-width: 100%;
+      flex: 0 0 100%;
+    }
+    .p-carousel-slide img {
+      width: 100%;
+      height: auto;
+      max-height: 540px;
+      object-fit: contain;
+      display: block;
+      background: #fff;
+    }
+    .p-carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(22,35,62,.12);
+      z-index: 2;
+      transition: background .2s;
+    }
+    .p-carousel-btn:hover { background: var(--navy); color: var(--white); }
+    .p-carousel-btn svg {
+      width: 16px; height: 16px;
+      stroke: currentColor; fill: none;
+      stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .p-carousel-prev { left: 10px; }
+    .p-carousel-next { right: 10px; }
+    .p-carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .p-carousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--line);
+      cursor: pointer;
+      border: none;
+      transition: background .2s, transform .2s;
+      padding: 0;
+    }
+    .p-carousel-dot.active {
+      background: var(--blue);
+      transform: scale(1.35);
+    }
+    .p-counter {
+      position: absolute;
+      bottom: 10px; right: 14px;
+      font-size: 11px;
+      font-family: var(--en);
+      color: var(--sub);
+      background: rgba(255,255,255,.85);
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
   </style>
 </head>
 <body>
@@ -431,7 +576,7 @@
         <div class="hero-grid">
           <div>
             <div class="hero-label">FiTNESS UNIVERSITY</div>
-            <h1>健康を、文化として定着させる。</h1>
+            <h1>健康を、<br>文化として定着させる。</h1>
             <div class="hero-honest">
               FiTNESS UNIVERSITYは、課題を抽出し、施策を伴走し、文化として根付くまで動き続けます。
             </div>
@@ -811,6 +956,129 @@
       </div>
     </section>
 
+    <!-- PROGRAMS SECTION -->
+    <section class="section programs-section" id="programs">
+      <div class="container">
+        <div class="section-head fade-in">
+          <span class="label-en">Our Programs</span>
+          <h2>健康経営を支えるプログラム</h2>
+          <p class="section-lead">タイトルをクリックすると、各プログラムの詳細資料をご覧いただけます。</p>
+        </div>
+
+        <div class="programs-accordion fade-in">
+
+          <!-- 01 働くを科学する -->
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span class="accordion-label">
+                <span class="acc-num">01</span>
+                働くを科学する：脳と体の状態
+              </span>
+              <svg class="acc-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p class="acc-desc">ストレスと脳のメカニズムを起点に、「頑張れない」の本質を解説。整っている状態と疲弊した状態の違いを科学的に示します。</p>
+              <div class="program-carousel">
+                <div class="carousel-viewport">
+                  <div class="p-carousel-track">
+                    <div class="p-carousel-slide"><img src="%E5%83%8D%E3%81%8F%E3%82%92%E7%A7%91%E5%AD%A6%E3%81%99%E3%82%8B%EF%BC%9A%E8%84%B3%E3%81%A8%E4%BD%93%E3%81%AE%E7%8A%B6%E6%85%8B.jpg" alt="働くを科学する 1/3" loading="lazy"></div>
+                    <div class="p-carousel-slide"><img src="%E5%83%8D%E3%81%8F%E3%82%92%E7%A7%91%E5%AD%A6%E3%81%99%E3%82%8B%EF%BC%9A%E8%84%B3%E3%81%A8%E4%BD%93%E3%81%AE%E7%8A%B6%E6%85%8B%20%281%29.jpg" alt="働くを科学する 2/3" loading="lazy"></div>
+                    <div class="p-carousel-slide"><img src="%E5%83%8D%E3%81%8F%E3%82%92%E7%A7%91%E5%AD%A6%E3%81%99%E3%82%8B%EF%BC%9A%E8%84%B3%E3%81%A8%E4%BD%93%E3%81%AE%E7%8A%B6%E6%85%8B%20%282%29.jpg" alt="働くを科学する 3/3" loading="lazy"></div>
+                  </div>
+                  <button class="p-carousel-btn p-carousel-prev" aria-label="前へ"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                  <button class="p-carousel-btn p-carousel-next" aria-label="次へ"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                  <span class="p-counter"></span>
+                </div>
+                <div class="p-carousel-dots"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 02 新人研修プログラム -->
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span class="accordion-label">
+                <span class="acc-num">02</span>
+                FiTNESS UNIVERSITY 新人研修プログラム
+              </span>
+              <svg class="acc-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p class="acc-desc">新入社員が入社初期から健康的な働き方の土台を身につける研修。身体・メンタル・習慣形成を統合したカリキュラム設計です。</p>
+              <div class="program-carousel">
+                <div class="carousel-viewport">
+                  <div class="p-carousel-track">
+                    <div class="p-carousel-slide"><img src="FiTNESS%20UNIVERSITY%20%E6%96%B0%E4%BA%BA%E7%A0%94%E4%BF%AE%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0.jpg" alt="新人研修プログラム 1/3" loading="lazy"></div>
+                    <div class="p-carousel-slide"><img src="FiTNESS%20UNIVERSITY%20%E6%96%B0%E4%BA%BA%E7%A0%94%E4%BF%AE%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%20%281%29.jpg" alt="新人研修プログラム 2/3" loading="lazy"></div>
+                    <div class="p-carousel-slide"><img src="FiTNESS%20UNIVERSITY%20%E6%96%B0%E4%BA%BA%E7%A0%94%E4%BF%AE%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%20%282%29.jpg" alt="新人研修プログラム 3/3" loading="lazy"></div>
+                  </div>
+                  <button class="p-carousel-btn p-carousel-prev" aria-label="前へ"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                  <button class="p-carousel-btn p-carousel-next" aria-label="次へ"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                  <span class="p-counter"></span>
+                </div>
+                <div class="p-carousel-dots"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 03 健康セミナー -->
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span class="accordion-label">
+                <span class="acc-num">03</span>
+                健康セミナー提案資料
+              </span>
+              <svg class="acc-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p class="acc-desc">社員の健康を起点に、生産性・定着・組織活性を高めるセミナー設計。「知る」だけでなく「行動に移せる」状態をゴールに設計します。</p>
+              <div class="program-carousel">
+                <div class="carousel-viewport">
+                  <div class="p-carousel-track">
+                    <div class="p-carousel-slide"><img src="%E5%81%A5%E5%BA%B7%E3%82%BB%E3%83%9F%E3%83%8A%E3%83%BC%E6%8F%90%E6%A1%88%E8%B3%87%E6%96%99.jpg" alt="健康セミナー 1/3" loading="lazy"></div>
+                    <div class="p-carousel-slide"><img src="%E5%81%A5%E5%BA%B7%E3%82%BB%E3%83%9F%E3%83%8A%E3%83%BC%E6%8F%90%E6%A1%88%E8%B3%87%E6%96%99%20%281%29.jpg" alt="健康セミナー 2/3" loading="lazy"></div>
+                    <div class="p-carousel-slide"><img src="%E5%81%A5%E5%BA%B7%E3%82%BB%E3%83%9F%E3%83%8A%E3%83%BC%E6%8F%90%E6%A1%88%E8%B3%87%E6%96%99%20%282%29.jpg" alt="健康セミナー 3/3" loading="lazy"></div>
+                  </div>
+                  <button class="p-carousel-btn p-carousel-prev" aria-label="前へ"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                  <button class="p-carousel-btn p-carousel-next" aria-label="次へ"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                  <span class="p-counter"></span>
+                </div>
+                <div class="p-carousel-dots"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 習慣改善プログラム -->
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span class="accordion-label">
+                <span class="acc-num">04</span>
+                習慣改善プログラムのご提案
+              </span>
+              <svg class="acc-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p class="acc-desc">知識提供で終わらせず、行動変容と健康数値改善につなげる3か月プログラム。完全オンライン・ジム通い不要で個人・グループ対応。</p>
+              <div class="program-carousel">
+                <div class="carousel-viewport">
+                  <div class="p-carousel-track">
+                    <div class="p-carousel-slide"><img src="%E7%BF%92%E6%85%A3%E6%94%B9%E5%96%84%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AE%E3%81%94%E6%8F%90%E6%A1%88.jpg" alt="習慣改善プログラム 1/3" loading="lazy"></div>
+                    <div class="p-carousel-slide"><img src="%E7%BF%92%E6%85%A3%E6%94%B9%E5%96%84%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AE%E3%81%94%E6%8F%90%E6%A1%88%20%281%29.jpg" alt="習慣改善プログラム 2/3" loading="lazy"></div>
+                    <div class="p-carousel-slide"><img src="%E7%BF%92%E6%85%A3%E6%94%B9%E5%96%84%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AE%E3%81%94%E6%8F%90%E6%A1%88%20%282%29.jpg" alt="習慣改善プログラム 3/3" loading="lazy"></div>
+                  </div>
+                  <button class="p-carousel-btn p-carousel-prev" aria-label="前へ"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                  <button class="p-carousel-btn p-carousel-next" aria-label="次へ"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                  <span class="p-counter"></span>
+                </div>
+                <div class="p-carousel-dots"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT FORM -->
     <section class="section contact-section" id="contact">
       <div class="container">
@@ -821,7 +1089,9 @@
         </div>
 
         <div class="form-container fade-in">
-          <form action="mailto:fituni.academy@gmail.com" method="POST" enctype="text/plain" class="contact-form">
+          <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+            <input type="hidden" name="access_key" value="1ff00039-7ef6-44e7-aca7-f36cefbc2ba6">
+            <input type="hidden" name="subject" value="FiTNESS UNIVERSITY お問い合わせ">
             <div class="form-group">
               <div class="form-label">
                 会社名・団体名 <span class="optional-tag">任意</span>
@@ -862,7 +1132,7 @@
                 <svg class="icon" viewBox="0 0 24 24" style="margin-right:8px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 入力内容を送信する
               </button>
-              <p class="mail-note">※送信ボタンを押すと、お使いのメールソフトが起動します。</p>
+              <p class="mail-note">※送信後、確認メールをお送りします。</p>
             </div>
           </form>
         </div>
@@ -932,6 +1202,70 @@
         }, { threshold: 0.1 }).observe(contact);
       }
     }
+
+    // Accordion + Program Carousel
+    (function() {
+      function initCarousel(carousel) {
+        const track = carousel.querySelector('.p-carousel-track');
+        const slides = carousel.querySelectorAll('.p-carousel-slide');
+        const dotsWrap = carousel.querySelector('.p-carousel-dots');
+        const counter = carousel.querySelector('.p-counter');
+        const prevBtn = carousel.querySelector('.p-carousel-prev');
+        const nextBtn = carousel.querySelector('.p-carousel-next');
+        let cur = 0;
+        const total = slides.length;
+
+        slides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = 'p-carousel-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', (i + 1) + '枚目');
+          dot.addEventListener('click', () => goTo(i));
+          dotsWrap.appendChild(dot);
+        });
+
+        function updateCounter() {
+          if (counter) counter.textContent = (cur + 1) + ' / ' + total;
+        }
+
+        function goTo(idx) {
+          cur = (idx + total) % total;
+          track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+          dotsWrap.querySelectorAll('.p-carousel-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === cur);
+          });
+          updateCounter();
+        }
+
+        prevBtn.addEventListener('click', () => goTo(cur - 1));
+        nextBtn.addEventListener('click', () => goTo(cur + 1));
+        updateCounter();
+      }
+
+      document.querySelectorAll('.accordion-header').forEach(header => {
+        const item = header.parentElement;
+        const content = item.querySelector('.accordion-content');
+        let initialized = false;
+
+        header.addEventListener('click', () => {
+          const isOpen = header.getAttribute('aria-expanded') === 'true';
+
+          // Close all
+          document.querySelectorAll('.accordion-header').forEach(h => {
+            h.setAttribute('aria-expanded', 'false');
+            h.parentElement.querySelector('.accordion-content').style.maxHeight = '0';
+          });
+
+          if (!isOpen) {
+            header.setAttribute('aria-expanded', 'true');
+            content.style.maxHeight = '800px';
+            if (!initialized) {
+              initCarousel(content.querySelector('.program-carousel'));
+              initialized = true;
+            }
+          }
+        });
+      });
+    })();
 
   </script>
 </body>
