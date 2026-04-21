@@ -245,6 +245,11 @@
       font-family: var(--en); font-size: 10px; font-weight: 700; padding: 4px 10px;
       border-radius: 999px; letter-spacing: .08em;
     }
+    .carousel-img img { width: 100%; height: 100%; object-fit: contain; padding: 16px; }
+    .carousel-item a.carousel-link { display: block; color: inherit; }
+    .carousel-item a.carousel-link:hover .carousel-img { background: var(--blue-soft); }
+    .carousel-item a.carousel-link:hover .carousel-content h3 { color: var(--blue); }
+    .client-tag { display: inline-block; font-family: var(--en); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
 
     /* FIELD NOTES */
     /* スマホでは1カラム縦並びに変更 */
@@ -283,14 +288,22 @@
     .partner-card li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 13px; color: var(--text); line-height: 1.65; display: flex; align-items: baseline; gap: 8px; }
     .partner-card li .icon { color: var(--blue); width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
 
-    /* CONTACT */
-    .contact-box { background: var(--navy); border-radius: var(--radius-lg); padding: 36px 24px; color: var(--white); }
-    .contact-box .label-en { color: rgba(255,255,255,.6); }
-    .contact-box .label-en::before { background: rgba(255,255,255,.4); }
-    .contact-box h2 { color: var(--white); font-size: clamp(20px, 5.5vw, 34px); margin-top: 4px; }
-    .contact-note { font-size: 14px; color: rgba(255,255,255,.75); margin-top: 16px; line-height: 1.85; }
-    .contact-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
-    .contact-actions .btn { width: 100%; }
+    /* CONTACT FORM */
+    .contact-section { background: var(--bg); }
+    .contact-header { text-align: center; max-width: 720px; margin: 0 auto 32px; }
+    .contact-header .label-en { justify-content: center; }
+    .form-container { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 32px 20px; box-shadow: var(--shadow); max-width: 800px; margin: 0 auto; }
+    .form-group { margin-bottom: 24px; display: flex; flex-direction: column; gap: 8px; }
+    .form-label { font-size: 14px; font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 8px; }
+    .required-tag { background: var(--blue); color: var(--white); font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: 700; letter-spacing: 0.05em; line-height: 1; }
+    .optional-tag { background: #e2e8f0; color: var(--sub); font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: 700; letter-spacing: 0.05em; line-height: 1; }
+    .form-control { width: 100%; padding: 14px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: var(--ja); font-size: 16px; color: var(--text); background: #f8fafc; transition: all 0.2s ease; }
+    .form-control::placeholder { color: #94a3b8; }
+    .form-control:focus { outline: none; border-color: var(--blue); background: var(--white); box-shadow: 0 0 0 3px rgba(62,110,168,0.15); }
+    textarea.form-control { min-height: 160px; resize: vertical; }
+    .form-submit { margin-top: 32px; text-align: center; border-top: 1px solid var(--line); padding-top: 32px; }
+    .form-submit .btn { width: 100%; max-width: 320px; min-height: 56px; font-size: 16px; border: none; }
+    .mail-note { font-size: 12px; color: var(--muted); margin-top: 14px; }
 
     /* FOOTER */
     footer { padding: 32px 0 calc(32px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
@@ -334,8 +347,11 @@
       .carousel-track { padding-bottom: 12px; }
       .carousel-item { flex: 0 0 calc(50% - 8px); scroll-snap-align: start; max-width: none; }
       
-      .contact-actions { flex-direction: row; gap: 12px; }
-      .contact-actions .btn { width: auto; }
+      .contact-header { margin-bottom: 48px; }
+      .form-container { padding: 48px 56px; }
+      .form-group { flex-direction: row; align-items: flex-start; gap: 32px; }
+      .form-label { width: 200px; flex-shrink: 0; margin-top: 14px; }
+      .form-control { flex: 1; }
     }
 
     /* DESKTOP ≥ 981px */
@@ -380,11 +396,10 @@
           <li><a href="#fieldnotes">実績</a></li>
           <li><a href="#future">これから</a></li>
           <li><a href="#for-who">対象</a></li>
-          <li><a href="community.html">コミュニティ</a></li>
           <li><a href="mailto:fituni.academy@gmail.com">相談する</a></li>
         </ul>
       </nav>
-      <a href="mailto:fituni.academy@gmail.com" class="btn btn-dark header-cta" style="min-height:38px;padding:0 16px;font-size:13px;">相談する</a>
+      <a href="#contact" class="btn btn-dark header-cta" style="min-height:38px;padding:0 16px;font-size:13px;">相談する</a>
       <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -397,11 +412,10 @@
       <a href="#fieldnotes">実績</a>
       <a href="#future">これから</a>
       <a href="#for-who">対象</a>
-      <a href="community.html">コミュニティ</a>
-      <a href="mailto:fituni.academy@gmail.com">相談する</a>
+      <a href="#contact">相談する</a>
     </nav>
     <div class="mobile-menu-footer">
-      <a href="mailto:fituni.academy@gmail.com" class="btn btn-dark">
+      <a href="#contact" class="btn btn-dark">
         <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
         相談する
       </a>
@@ -534,7 +548,7 @@
                 <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 <span class="compare-col-label">よくあること</span>
               </div>
-              <p>単発のプログラムは楽しんで終わる。次の接点が設計されていない。</p>
+              <p>単発のイベントは楽しんで終わる。次の接点が設計されていない。</p>
             </div>
             <div class="compare-col after">
               <div class="compare-header">
@@ -580,7 +594,7 @@
               <div class="work-card-title"><span class="tag">Area</span><h3>地域・自治体との連携</h3></div>
               <span class="work-idx">02</span>
             </div>
-            <p>地域イベントの企画・運営や自治体との連携を通じて、まちの未来が明るくなるためのサポートを行っています。</p>
+            <p>地域イベントの企画・運営や自治体との連携を通じて、少し先のまちの未来が明るくなるためのサポートを行っています。</p>
             <ul class="work-points">
               <li>入りやすい場をつくることを最優先にする</li>
               <li>イベント単体ではなく、その後の接点まで設計</li>
@@ -626,43 +640,62 @@
       <div class="container">
         <div class="section-head fade-in">
           <span class="label-en">Case Studies</span>
-          <h2>実績例</h2>
-          <p class="section-lead">現在、過去の実績や事例をまとめたコンテンツを準備中です。</p>
+          <h2>実績・導入企業</h2>
+          <p class="section-lead">企業・クリニックへの健康経営支援の実績です。</p>
         </div>
         <div class="carousel-wrapper fade-in">
           <div class="carousel-track">
-            <!-- Item 1 -->
+            <!-- Item 1: もちだ矯正歯科クリニック -->
             <article class="carousel-item">
-              <span class="coming-soon-badge">COMING SOON</span>
-              <div class="carousel-img">
-                <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-              </div>
-              <div class="carousel-content">
-                <h3>企業向け健康支援</h3>
-                <p>導入事例や支援後の変化について、詳細を公開予定です。</p>
-              </div>
+              <a href="https://www.mochida-clinic.com/" target="_blank" rel="noopener" class="carousel-link">
+                <div class="carousel-img">
+                  <img src="mochida_dc.png" alt="もちだ矯正歯科クリニック" />
+                </div>
+                <div class="carousel-content">
+                  <span class="client-tag">B2B</span>
+                  <h3>もちだ矯正歯科クリニック</h3>
+                  <p>スタッフの健康経営推進・コンディショニング支援を実施。</p>
+                </div>
+              </a>
             </article>
-            <!-- Item 2 -->
+            <!-- Item 2: たかこ矯正歯科クリニック -->
             <article class="carousel-item">
-              <span class="coming-soon-badge">COMING SOON</span>
-              <div class="carousel-img">
-                <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-              </div>
-              <div class="carousel-content">
-                <h3>地域イベント連携</h3>
-                <p>イベントの様子や参加者の行動変容の成果を公開予定です。</p>
-              </div>
+              <a href="https://www.takako-kyousei.com/" target="_blank" rel="noopener" class="carousel-link">
+                <div class="carousel-img">
+                  <img src="takako_dc].png" alt="たかこ矯正歯科クリニック" />
+                </div>
+                <div class="carousel-content">
+                  <span class="client-tag">B2B</span>
+                  <h3>たかこ矯正歯科クリニック</h3>
+                  <p>スタッフの健康経営推進・コンディショニング支援を実施。</p>
+                </div>
+              </a>
             </article>
-            <!-- Item 3 -->
+            <!-- Item 3: イズミ電商株式会社 -->
             <article class="carousel-item">
-              <span class="coming-soon-badge">COMING SOON</span>
-              <div class="carousel-img">
-                <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-              </div>
-              <div class="carousel-content">
-                <h3>専門職向けプログラム</h3>
-                <p>現場で機能する人材育成のプロセスと結果を公開予定です。</p>
-              </div>
+              <a href="http://www.izumi-densho.com/" target="_blank" rel="noopener" class="carousel-link">
+                <div class="carousel-img">
+                  <img src="izumidensho.png" alt="イズミ電商株式会社" />
+                </div>
+                <div class="carousel-content">
+                  <span class="client-tag">B2B</span>
+                  <h3>イズミ電商株式会社</h3>
+                  <p>社員向け健康支援プログラムの設計・運用を伴走。</p>
+                </div>
+              </a>
+            </article>
+            <!-- Item 4: 株式会社吉兆堂 -->
+            <article class="carousel-item">
+              <a href="https://www.kitchodo.com/" target="_blank" rel="noopener" class="carousel-link">
+                <div class="carousel-img">
+                  <img src="kitchodo.png" alt="株式会社吉兆堂" />
+                </div>
+                <div class="carousel-content">
+                  <span class="client-tag">B2B</span>
+                  <h3>株式会社吉兆堂</h3>
+                  <p>社員向け健康支援プログラムの設計・運用を伴走。</p>
+                </div>
+              </a>
             </article>
           </div>
         </div>
@@ -778,22 +811,60 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="section" id="contact">
+    <!-- CONTACT FORM -->
+    <section class="section contact-section" id="contact">
       <div class="container">
-        <div class="contact-box fade-in">
-          <div>
-            <span class="label-en">Contact</span>
-            <h2>うまくいかない理由を、<br>一緒にひも解きませんか。</h2>
-            <p class="contact-note">「一生懸命やっているのに続かない」「何から手をつければいいかわからない」。そんな現場のリアルな悩みをお聞かせください。提案や売り込みではなく、一緒に解決の糸口を探すところから始めます。</p>
-          </div>
-          <div class="contact-actions">
-            <a href="mailto:fituni.academy@gmail.com" class="btn btn-white">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              お問い合わせ
-            </a>
-            <a href="#fieldnotes" class="btn btn-outline-white">実績を見る</a>
-          </div>
+        <div class="contact-header fade-in">
+          <span class="label-en">Contact</span>
+          <h2>うまくいかない理由を、<br>一緒にひも解きませんか。</h2>
+          <p class="section-lead">「一生懸命やっているのに続かない」「何から手をつければいいかわからない」。そんな現場のリアルな悩みをお聞かせください。<br>提案や売り込みではなく、一緒に解決の糸口を探すところから始めます。</p>
+        </div>
+
+        <div class="form-container fade-in">
+          <form action="mailto:fituni.academy@gmail.com" method="POST" enctype="text/plain" class="contact-form">
+            <div class="form-group">
+              <div class="form-label">
+                会社名・団体名 <span class="optional-tag">任意</span>
+              </div>
+              <input type="text" name="会社名・団体名" class="form-control" placeholder="例：株式会社 FiTNESS UNIVERSITY">
+            </div>
+
+            <div class="form-group">
+              <div class="form-label">
+                お名前 <span class="required-tag">必須</span>
+              </div>
+              <input type="text" name="お名前" class="form-control" placeholder="健康太郎" required>
+            </div>
+
+            <div class="form-group">
+              <div class="form-label">
+                メールアドレス <span class="required-tag">必須</span>
+              </div>
+              <input type="email" name="メールアドレス" class="form-control" placeholder="例：info@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <div class="form-label">
+                電話番号 <span class="optional-tag">任意</span>
+              </div>
+              <input type="tel" name="電話番号" class="form-control" placeholder="例：03-1234-5678">
+            </div>
+
+            <div class="form-group">
+              <div class="form-label">
+                ご相談内容 <span class="required-tag">必須</span>
+              </div>
+              <textarea name="ご相談内容" class="form-control" placeholder="現状の課題やご相談したい内容をご自由にご記入ください。" required></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-dark">
+                <svg class="icon" viewBox="0 0 24 24" style="margin-right:8px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                入力内容を送信する
+              </button>
+              <p class="mail-note">※送信ボタンを押すと、お使いのメールソフトが起動します。</p>
+            </div>
+          </form>
         </div>
       </div>
     </section>
@@ -810,7 +881,7 @@
   </footer>
 
   <div class="sticky-cta" id="stickyCta">
-    <a href="mailto:fituni.academy@gmail.com" class="btn btn-dark">
+    <a href="#contact" class="btn btn-dark">
       <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
       相談する
     </a>
@@ -861,6 +932,7 @@
         }, { threshold: 0.1 }).observe(contact);
       }
     }
+
   </script>
 </body>
 </html>
