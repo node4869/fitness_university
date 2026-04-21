@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FiTNESS UNIVERSITY | 健康を、社会に実装する</title>
-  <meta name="description" content="健康産業の課題に正直に向き合いながら、企業・地域の現場で機能するヘルスケアを実装してきた組織です。" />
+  <title>FiTNESS UNIVERSITY | 健康を、文化として定着させる</title>
+  <meta name="description" content="健康産業の課題に正直に向き合いながら、企業・地域の現場で機能するヘルスケアを実装し、文化として定着させる組織です。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;800&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet" />
@@ -45,35 +45,43 @@
     a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
     ul { list-style: none; }
 
+    /* SVG Utilities */
+    .icon {
+      width: 24px; height: 24px;
+      stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none;
+      display: inline-block; vertical-align: middle;
+    }
+    .icon-lg { width: 36px; height: 36px; stroke-width: 1.5; }
+
     .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
     .section { padding: 56px 0; }
 
-    h1,h2,h3 { font-weight: 800; color: var(--navy); line-height: 1.3; letter-spacing: -0.02em; }
-    h1 { font-size: clamp(26px, 7.5vw, 58px); }
-    h2 { font-size: clamp(22px, 5.8vw, 40px); }
+    h1,h2,h3 { font-weight: 800; color: var(--navy); line-height: 1.35; letter-spacing: -0.02em; }
+    h1 { font-size: clamp(26px, 7.5vw, 58px); word-break: auto-phrase; }
+    h2 { font-size: clamp(22px, 5.8vw, 40px); word-break: auto-phrase; }
     h3 { font-size: clamp(16px, 4.2vw, 19px); }
 
     .label-en {
       display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--en); font-size: 18px; font-weight: 700;
+      font-family: var(--en); font-size: 14px; font-weight: 700;
       color: var(--blue); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px;
     }
     .label-en::before { content: ""; width: 16px; height: 1.5px; background: var(--blue); flex-shrink: 0; }
 
     .tag {
-      display: inline-block; font-family: var(--en); font-size: 18px; font-weight: 700;
+      display: inline-block; font-family: var(--en); font-size: 12px; font-weight: 700;
       letter-spacing: .12em; text-transform: uppercase;
-      padding: 3px 9px; border-radius: 999px;
+      padding: 4px 10px; border-radius: 999px;
       border: 1px solid rgba(168,132,67,.35); color: var(--gold); margin-bottom: 10px;
     }
 
     .section-head { margin-bottom: 28px; }
-    .section-lead { color: var(--sub); font-size: clamp(18px, 3.8vw, 18px); margin-top: 12px; line-height: 1.9; }
+    .section-lead { color: var(--sub); font-size: clamp(15px, 3.8vw, 18px); margin-top: 12px; line-height: 1.9; }
 
     .btn {
-      display: inline-flex; align-items: center; justify-content: center;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       min-height: 48px; padding: 0 24px; border-radius: 999px;
-      font-family: var(--ja); font-size: 18px; font-weight: 700;
+      font-family: var(--ja); font-size: 16px; font-weight: 700;
       border: 1.5px solid transparent; transition: all .22s ease;
       cursor: pointer; white-space: nowrap; -webkit-tap-highlight-color: transparent;
     }
@@ -136,144 +144,165 @@
       margin-top: 20px; padding: 16px;
       background: rgba(62,110,168,.05); border-left: 2.5px solid var(--blue);
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      font-size: 13px; color: var(--sub); line-height: 1.85;
+      font-size: 14px; color: var(--sub); line-height: 1.85;
     }
     .hero-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
     .hero-actions .btn { width: 100%; }
 
-    .hero-status { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 24px; }
-    .status-item { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 12px 10px; text-align: center; }
-    .status-item .s-num { font-family: var(--en); font-size: 15px; font-weight: 800; color: var(--navy); line-height: 1.2; }
-    .status-item .s-label { font-size: 18px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+    /* スマホでは1カラム縦並びに変更 */
+    .hero-status { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 24px; }
+    .status-item { 
+      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm); 
+      padding: 16px; display: flex; align-items: center; gap: 16px;
+    }
+    .status-icon-wrap {
+      width: 44px; height: 44px; border-radius: 50%; background: var(--blue-soft); color: var(--blue);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .status-text { display: flex; flex-direction: column; }
+    .status-item .s-num { font-family: var(--en); font-size: 16px; font-weight: 800; color: var(--navy); line-height: 1.2; }
+    .status-item .s-label { font-size: 14px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
 
-    .hero-card { margin-top: 28px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 22px 18px; box-shadow: var(--shadow); }
-    .hero-card-title { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 18px; line-height: 1.5; }
+    .hero-card { margin-top: 28px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px 20px; box-shadow: var(--shadow); }
+    .hero-card-title { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 20px; line-height: 1.5; }
     .step-list { display: grid; gap: 0; }
-    .step-row { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .step-row { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; padding: 16px 0; border-bottom: 1px solid var(--line); }
     .step-row:first-child { padding-top: 0; }
     .step-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .step-num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-family: var(--en); font-size: 18px; font-weight: 800; color: var(--blue); background: var(--blue-soft); border: 1px solid rgba(62,110,168,.2); flex-shrink: 0; }
-    .step-row strong { display: block; font-size: 13px; color: var(--navy); margin-bottom: 3px; }
-    .step-row p { font-size: 12px; color: var(--sub); line-height: 1.75; }
+    .step-num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-family: var(--en); font-size: 14px; font-weight: 800; color: var(--blue); background: var(--blue-soft); border: 1px solid rgba(62,110,168,.2); flex-shrink: 0; }
+    .step-row strong { display: block; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+    .step-row p { font-size: 13px; color: var(--sub); line-height: 1.75; }
 
     /* HONEST SECTION */
     .honest-section { background: var(--navy); color: var(--white); }
     .honest-section .label-en { color: rgba(255,255,255,.6); }
     .honest-section .label-en::before { background: rgba(255,255,255,.4); }
     .honest-section h2 { color: var(--white); }
-    .honest-section .section-lead { color: rgba(255,255,255,.65); }
+    .honest-section .section-lead { color: rgba(255,255,255,.75); }
 
-    .compare-grid { display: grid; gap: 12px; margin-top: 28px; }
-    .compare-item { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(255,255,255,.1); }
-    .compare-col { padding: 16px 14px; }
-    .compare-col.before { background: rgba(255,255,255,.04); border-right: 1px solid rgba(255,255,255,.08); }
+    /* スマホでは1カラム縦並びに変更 */
+    .compare-grid { display: grid; gap: 16px; margin-top: 32px; grid-template-columns: 1fr; }
+    .compare-item { border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(255,255,255,.1); display: grid; grid-template-columns: 1fr; }
+    .compare-col { padding: 20px; }
+    .compare-col.before { background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.08); }
     .compare-col.after { background: rgba(62,110,168,.18); }
-    .compare-col-label { font-family: var(--en); font-size: 18px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; display: block; }
-    .compare-col.before .compare-col-label { color: rgba(255,255,255,.35); }
-    .compare-col.after .compare-col-label { color: rgba(100,160,230,.9); }
-    .compare-col p { font-size: 13px; line-height: 1.75; }
-    .compare-col.before p { color: rgba(255,255,255,.45); }
+    
+    .compare-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .compare-header .icon { width: 20px; height: 20px; flex-shrink: 0; }
+    .compare-col.before .icon { color: #f87171; } /* 赤色系のバツ */
+    .compare-col.after .icon { color: #4ade80; } /* 緑色系のチェック */
+
+    .compare-col-label { font-family: var(--ja); font-size: 15px; font-weight: 700; display: block; }
+    .compare-col.before .compare-col-label { color: rgba(255,255,255,.6); }
+    .compare-col.after .compare-col-label { color: rgba(255,255,255,.95); }
+    .compare-col p { font-size: 14px; line-height: 1.75; }
+    .compare-col.before p { color: rgba(255,255,255,.5); }
     .compare-col.after p { color: rgba(255,255,255,.9); }
 
     /* WHAT WE DO */
     .work-section { background: var(--bg); }
-    .work-grid { display: grid; gap: 10px; }
-    .work-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 18px; }
-    .work-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+    /* スマホでは1カラム縦並びに変更 */
+    .work-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    .work-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 20px; }
+    
+    .work-icon { 
+      width: 48px; height: 48px; border-radius: 12px; background: var(--blue-soft); color: var(--blue);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+    }
+    
+    .work-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 12px; }
+    .work-card-title { display: flex; flex-direction: column; gap: 8px; }
     .work-idx { font-family: var(--en); font-size: 18px; font-weight: 700; color: var(--muted); flex-shrink: 0; margin-top: 2px; }
-    .work-card p { font-size: 13px; color: var(--sub); line-height: 1.8; }
-    .work-points { margin-top: 14px; display: grid; gap: 0; }
-    .work-points li { padding: 8px 0; border-top: 1px solid var(--line); font-size: 12px; color: var(--text); line-height: 1.65; display: flex; align-items: baseline; gap: 7px; }
+    .work-card p { font-size: 14px; color: var(--sub); line-height: 1.8; }
+    .work-points { margin-top: 16px; display: grid; gap: 0; }
+    .work-points li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 13px; color: var(--text); line-height: 1.65; display: flex; align-items: baseline; gap: 7px; }
     .work-points li::before { content: "—"; color: var(--blue); font-weight: 700; flex-shrink: 0; }
 
+    /* CAROUSEL (実績例) */
+    .works-carousel-section { overflow: hidden; background: var(--white); }
+    .carousel-wrapper {
+      margin-top: 24px; width: 100vw; margin-left: calc(50% - 50vw); padding: 0 20px;
+    }
+    .carousel-track {
+      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 24px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .carousel-item {
+      scroll-snap-align: center; flex: 0 0 calc(85% - 16px); max-width: 360px;
+      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+      overflow: hidden; position: relative;
+    }
+    .carousel-img {
+      aspect-ratio: 16 / 9; background: var(--bg); border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center; color: var(--muted);
+    }
+    .carousel-content { padding: 20px; }
+    .carousel-content h3 { font-size: 16px; margin-bottom: 8px; }
+    .carousel-content p { font-size: 13px; color: var(--sub); line-height: 1.6; }
+    .coming-soon-badge {
+      position: absolute; top: 12px; left: 12px; background: var(--navy); color: var(--white);
+      font-family: var(--en); font-size: 10px; font-weight: 700; padding: 4px 10px;
+      border-radius: 999px; letter-spacing: .08em;
+    }
+
     /* FIELD NOTES */
-    .fieldnotes-grid { display: grid; gap: 10px; }
-    .fieldnote { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 18px; }
-    .fieldnote-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
-    .fieldnote h3 { font-size: 15px; }
-    .fieldnote-area { font-family: var(--en); font-size: 18px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0; }
-    .fieldnote p { font-size: 13px; color: var(--sub); line-height: 1.8; }
-    .fieldnote-takeaway { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--navy); font-weight: 500; line-height: 1.7; }
-    .fieldnote-takeaway::before { content: "気づき "; font-weight: 700; color: var(--blue); }
+    /* スマホでは1カラム縦並びに変更 */
+    .fieldnotes-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    .fieldnote { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 20px; }
+    .fieldnote-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .fieldnote h3 { font-size: 16px; }
+    .fieldnote-area { font-family: var(--en); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; white-space: nowrap; flex-shrink: 0; }
+    .fieldnote p { font-size: 14px; color: var(--sub); line-height: 1.8; }
+    .fieldnote-takeaway { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--navy); font-weight: 500; line-height: 1.7; display: flex; gap: 8px; align-items: flex-start; }
+    .fieldnote-takeaway .icon { color: var(--blue); flex-shrink: 0; margin-top: 2px; width: 18px; height: 18px; }
 
     /* FUTURE */
     .future-section { background: linear-gradient(170deg, #f2f7ff 0%, var(--bg) 100%); position: relative; overflow: hidden; }
     .future-section::before { content: ""; position: absolute; bottom: -80px; right: -60px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(62,110,168,.08) 0%, transparent 70%); pointer-events: none; }
-    .future-intro { font-size: clamp(18px, 4vw, 18px); color: var(--sub); line-height: 2; margin-top: 14px; }
+    .future-intro { font-size: clamp(15px, 4vw, 16px); color: var(--sub); line-height: 2; margin-top: 16px; }
     .future-intro strong { color: var(--navy); font-weight: 700; }
-    .future-points { display: grid; gap: 10px; margin-top: 24px; }
-    .future-point { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 16px; display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start; }
-    .future-icon { width: 28px; height: 28px; border-radius: 8px; background: var(--blue-soft); display: grid; place-items: center; font-size: 14px; flex-shrink: 0; }
-    .future-point h3 { font-size: 14px; margin-bottom: 4px; }
-    .future-point p { font-size: 12px; color: var(--sub); line-height: 1.75; }
+    .future-points { display: grid; gap: 12px; margin-top: 28px; grid-template-columns: 1fr; }
+    .future-point { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 16px; display: grid; grid-template-columns: 36px 1fr; gap: 16px; align-items: start; }
+    .future-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--blue-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .future-point h3 { font-size: 15px; margin-bottom: 6px; }
+    .future-point p { font-size: 13px; color: var(--sub); line-height: 1.75; }
 
     /* FOR WHO */
-    .partner-grid { display: grid; gap: 10px; }
-    .partner-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 18px; }
-    .partner-card h3 { font-size: 15px; margin-bottom: 8px; }
-    .partner-card p { font-size: 13px; color: var(--sub); line-height: 1.8; }
-    .partner-card ul { margin-top: 12px; display: grid; gap: 0; }
-    .partner-card li { padding: 8px 0; border-top: 1px solid var(--line); font-size: 12px; color: var(--text); line-height: 1.65; display: flex; align-items: baseline; gap: 7px; }
-    .partner-card li::before { content: "·"; color: var(--blue); font-size: 18px; line-height: 1; flex-shrink: 0; }
+    .partner-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    .partner-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 20px; }
+    
+    .partner-icon {
+      width: 48px; height: 48px; border-radius: 50%; background: var(--bg); border: 1px solid var(--line); color: var(--navy);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+    }
+
+    .partner-card h3 { font-size: 16px; margin-bottom: 10px; }
+    .partner-card p { font-size: 14px; color: var(--sub); line-height: 1.8; }
+    .partner-card ul { margin-top: 16px; display: grid; gap: 0; }
+    .partner-card li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 13px; color: var(--text); line-height: 1.65; display: flex; align-items: baseline; gap: 8px; }
+    .partner-card li .icon { color: var(--blue); width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
 
     /* CONTACT */
-    .contact-box { background: var(--navy); border-radius: var(--radius-lg); padding: 32px 20px; color: var(--white); }
+    .contact-box { background: var(--navy); border-radius: var(--radius-lg); padding: 36px 24px; color: var(--white); }
     .contact-box .label-en { color: rgba(255,255,255,.6); }
     .contact-box .label-en::before { background: rgba(255,255,255,.4); }
     .contact-box h2 { color: var(--white); font-size: clamp(20px, 5.5vw, 34px); margin-top: 4px; }
-    .contact-note { font-size: 13px; color: rgba(255,255,255,.6); margin-top: 12px; line-height: 1.85; }
-    .contact-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
+    .contact-note { font-size: 14px; color: rgba(255,255,255,.75); margin-top: 16px; line-height: 1.85; }
+    .contact-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
     .contact-actions .btn { width: 100%; }
 
-    /* CONTACT FORM */
-    .contact-form { margin-top: 28px; display: grid; gap: 14px; }
-    .contact-form .form-row { display: grid; gap: 14px; }
-    .form-field { display: flex; flex-direction: column; gap: 6px; }
-    .form-field label { font-size: 12px; font-weight: 700; color: rgba(255,255,255,.7); letter-spacing: .06em; }
-    .form-field label .required { color: #7fb3e8; margin-left: 4px; font-weight: 400; }
-    .form-field input,
-    .form-field select,
-    .form-field textarea {
-      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
-      border-radius: var(--radius-sm); padding: 12px 14px;
-      color: var(--white); font-family: var(--ja); font-size: 14px; line-height: 1.6;
-      transition: border-color .2s, background .2s; outline: none; width: 100%;
-      -webkit-appearance: none; appearance: none;
-    }
-    .form-field input::placeholder,
-    .form-field textarea::placeholder { color: rgba(255,255,255,.3); }
-    .form-field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,.5)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
-    .form-field select option { background: var(--navy-soft); color: var(--white); }
-    .form-field input:focus,
-    .form-field select:focus,
-    .form-field textarea:focus { border-color: rgba(100,160,230,.7); background: rgba(255,255,255,.12); }
-    .form-field textarea { resize: vertical; min-height: 120px; }
-    .form-submit { margin-top: 6px; }
-    .form-submit .btn { width: 100%; font-size: 15px; min-height: 52px; }
-    .form-success { display: none; text-align: center; padding: 28px 20px; }
-    .form-success .success-icon { font-size: 32px; margin-bottom: 12px; }
-    .form-success p { color: rgba(255,255,255,.8); font-size: 14px; line-height: 1.85; }
-    .form-success strong { color: var(--white); display: block; font-size: 17px; margin-bottom: 8px; }
-
-    @media (min-width: 600px) {
-      .contact-form .form-row { grid-template-columns: 1fr 1fr; }
-    }
-    @media (min-width: 981px) {
-      .contact-box { padding: 40px; }
-      .contact-form .form-row { grid-template-columns: 1fr 1fr; }
-    }
-
     /* FOOTER */
-    footer { padding: 28px 0 calc(28px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
+    footer { padding: 32px 0 calc(32px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
     .footer-inner { display: flex; flex-direction: column; gap: 8px; }
-    .footer-logo { font-family: var(--en); font-size: 18px; font-weight: 800; color: var(--navy); letter-spacing: .06em; }
-    .footer-copy { font-size: 18px; color: var(--muted); }
+    .footer-logo { font-family: var(--en); font-size: 16px; font-weight: 800; color: var(--navy); letter-spacing: .06em; }
+    .footer-copy { font-size: 13px; color: var(--muted); }
 
     /* STICKY CTA */
     .sticky-cta {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 80;
-      padding: 10px 20px calc(10px + env(safe-area-inset-bottom));
-      background: rgba(255,255,255,.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(255,255,255,.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       border-top: 1px solid var(--line); transition: transform .3s ease;
     }
     .sticky-cta .btn { width: 100%; }
@@ -291,10 +320,22 @@
       .hero { padding: 52px 0 60px; }
       .hero-actions { flex-direction: row; gap: 12px; }
       .hero-actions .btn { width: auto; }
-      .work-grid, .fieldnotes-grid, .partner-grid { grid-template-columns: repeat(2, 1fr); }
+      
+      /* タブレット以上でカラムを横並びに */
+      .hero-status { grid-template-columns: repeat(3, 1fr); }
+      .status-item { flex-direction: column; align-items: center; text-align: center; gap: 12px; padding: 20px 16px; }
+      
+      .compare-item { grid-template-columns: 1fr 1fr; }
+      .compare-col.before { border-bottom: none; border-right: 1px solid rgba(255,255,255,.08); }
+
+      .work-grid, .fieldnotes-grid, .partner-grid, .future-points { grid-template-columns: repeat(2, 1fr); }
+      
+      .carousel-wrapper { width: 100%; margin-left: 0; padding: 0; }
+      .carousel-track { padding-bottom: 12px; }
+      .carousel-item { flex: 0 0 calc(50% - 8px); scroll-snap-align: start; max-width: none; }
+      
       .contact-actions { flex-direction: row; gap: 12px; }
       .contact-actions .btn { width: auto; }
-      .future-points { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* DESKTOP ≥ 981px */
@@ -317,16 +358,15 @@
       .hero-actions .btn { width: auto; }
       .compare-grid { grid-template-columns: repeat(2, 1fr); }
       .work-grid { grid-template-columns: repeat(2, 1fr); }
-      .fieldnotes-grid { grid-template-columns: repeat(2, 1fr); }
-      .partner-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-box { padding: 40px; }
-      .contact-actions { flex-direction: row; gap: 12px; }
-      .contact-actions .btn { width: auto; }
+      .carousel-item { flex: 0 0 calc(33.333% - 11px); }
+      .contact-box { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; padding: 48px 48px; }
+      .contact-actions { flex-direction: column; margin-top: 0; min-width: 200px; }
+      .contact-actions .btn { width: 100%; }
       .future-points { grid-template-columns: repeat(3, 1fr); }
       .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; }
     }
 
-    @media (max-width: 980px) { body { padding-bottom: 68px; } }
+    @media (max-width: 980px) { body { padding-bottom: 76px; } }
   </style>
 </head>
 <body>
@@ -341,10 +381,10 @@
           <li><a href="#future">これから</a></li>
           <li><a href="#for-who">対象</a></li>
           <li><a href="community.html">コミュニティ</a></li>
-          <li><a href="#contact">相談する</a></li>
+          <li><a href="mailto:fituni.academy@gmail.com">相談する</a></li>
         </ul>
       </nav>
-      <a href="#contact" class="btn btn-dark header-cta" style="min-height:38px;padding:0 16px;font-size:12px;">相談する</a>
+      <a href="mailto:fituni.academy@gmail.com" class="btn btn-dark header-cta" style="min-height:38px;padding:0 16px;font-size:13px;">相談する</a>
       <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -358,10 +398,13 @@
       <a href="#future">これから</a>
       <a href="#for-who">対象</a>
       <a href="community.html">コミュニティ</a>
-      <a href="#contact">相談する</a>
+      <a href="mailto:fituni.academy@gmail.com">相談する</a>
     </nav>
     <div class="mobile-menu-footer">
-      <a href="#contact" class="btn btn-dark">相談する</a>
+      <a href="mailto:fituni.academy@gmail.com" class="btn btn-dark">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        相談する
+      </a>
       <a href="#what" class="btn btn-ghost">取り組みを見る</a>
     </div>
   </div>
@@ -374,52 +417,68 @@
         <div class="hero-grid">
           <div>
             <div class="hero-label">FiTNESS UNIVERSITY</div>
-            <h1>健康を、<br>現場に届く形で<br>実装してきた。</h1>
+            <h1>健康を、<br>文化として定着させる。</h1>
             <div class="hero-honest">
-              健康施策は実施自体が目的になりやすい。私たちは機能したかどうかを問い続け、企業・地域の現場で動いてきた。
+              FiTNESS UNIVERSITYは、課題を抽出し、施策を伴走し、文化として根付くまで動き続けます。
             </div>
             <div class="hero-actions">
               <a href="#fieldnotes" class="btn btn-dark">実績を見る</a>
               <a href="#what" class="btn btn-ghost">取り組みを見る</a>
             </div>
+            
             <div class="hero-status">
               <div class="status-item">
-                <div class="s-num">4</div>
-                <div class="s-label">実装領域</div>
+                <div class="status-icon-wrap">
+                  <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <div class="status-text">
+                  <div class="s-num">伴走</div>
+                  <div class="s-label">設計〜運用まで</div>
+                </div>
               </div>
               <div class="status-item">
-                <div class="s-num">伴走</div>
-                <div class="s-label">設計〜運用まで</div>
+                <div class="status-icon-wrap">
+                  <svg class="icon icon-lg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="status-text">
+                  <div class="s-num">継続</div>
+                  <div class="s-label">単発では終わらない</div>
+                </div>
               </div>
               <div class="status-item">
-                <div class="s-num">継続</div>
-                <div class="s-label">単発では終わらない</div>
+                <div class="status-icon-wrap">
+                  <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                </div>
+                <div class="status-text">
+                  <div class="s-num">再現</div>
+                  <div class="s-label">誰でも機能するように</div>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="hero-card">
-            <div class="hero-card-title">私たちが「実装」と呼ぶのは、こういうことです。</div>
+            <div class="hero-card-title">私たちが考える、「健康の実装」</div>
             <div class="step-list">
               <div class="step-row">
                 <div class="step-num">01</div>
                 <div>
                   <strong>課題を曖昧にしない</strong>
-                  <p>なぜ機能しなかったか、何が本当の課題かから入ります。</p>
+                  <p>なぜ機能しないかを明確に整理します。</p>
                 </div>
               </div>
               <div class="step-row">
                 <div class="step-num">02</div>
                 <div>
                   <strong>運用まで引き受ける</strong>
-                  <p>計画を渡して終わりにしません。面倒な調整や細部の運用まで並走します。</p>
+                  <p>提案だけでなく調整や運用もサポートします。</p>
                 </div>
               </div>
               <div class="step-row">
                 <div class="step-num">03</div>
                 <div>
                   <strong>変化を確認してから次へ</strong>
-                  <p>反応・継続率・行動の変化を見て、改善してから次のステップに進みます。</p>
+                  <p>やりっぱなしにせず、改善して進みます。</p>
                 </div>
               </div>
             </div>
@@ -433,48 +492,56 @@
       <div class="container">
         <div class="section-head fade-in">
           <span class="label-en">Honestly Speaking</span>
-          <h2>健康産業には、<br>正直に言うと足りないものがある。</h2>
-          <p class="section-lead">悪意はないけれど、単発で終わる。見映えはいいけれど、現場に残らない。私たちはその構造に気づき、別のやり方を積み上げてきました。</p>
+          <h2>頑張っているのに変わらないのは、<br>担当者のせいではありません。</h2>
+          <p class="section-lead">健康施策が定着しないのは、個人の熱量や能力の不足ではなく、「定着する仕組み」と「学べる環境」がないからです。私たちはその構造に気づき、別のやり方を積み上げてきました。</p>
         </div>
         <div class="compare-grid">
           <div class="compare-item fade-in">
             <div class="compare-col before">
-              <span class="compare-col-label">よくあること</span>
-              <p>イベントや研修を実施して完了とする。その後の変化は追わない。</p>
+              <div class="compare-header">
+                <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span class="compare-col-label">よくあること</span>
+              </div>
+              <p>イベントや研修を実施して完了。その後の変化は追わない。</p>
             </div>
             <div class="compare-col after">
-              <span class="compare-col-label">私たちがやること</span>
+              <div class="compare-header">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="compare-col-label">私たちがやること</span>
+              </div>
               <p>継続率・行動の変化まで確認し、次の改善につなげる。</p>
             </div>
           </div>
           <div class="compare-item fade-in">
             <div class="compare-col before">
-              <span class="compare-col-label">よくあること</span>
+              <div class="compare-header">
+                <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span class="compare-col-label">よくあること</span>
+              </div>
               <p>専門家が専門家のための発信をする。一般の人には届きにくい。</p>
             </div>
             <div class="compare-col after">
-              <span class="compare-col-label">私たちがやること</span>
-              <p>専門性を「現場で使える形」に変換する。わかりやすさと実効性を両立。</p>
+              <div class="compare-header">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="compare-col-label">私たちがやること</span>
+              </div>
+              <p>専門性を「現場で使える形」に変換する。わかりやすさと実効性を両立する。</p>
             </div>
           </div>
           <div class="compare-item fade-in">
             <div class="compare-col before">
-              <span class="compare-col-label">よくあること</span>
-              <p>イベントは楽しんでもらって終わる。次の接点が設計されていない。</p>
+              <div class="compare-header">
+                <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span class="compare-col-label">よくあること</span>
+              </div>
+              <p>単発のイベントは楽しんで終わる。次の接点が設計されていない。</p>
             </div>
             <div class="compare-col after">
-              <span class="compare-col-label">私たちがやること</span>
+              <div class="compare-header">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="compare-col-label">私たちがやること</span>
+              </div>
               <p>イベントを入口として、その後の行動変容につながる導線を設計する。</p>
-            </div>
-          </div>
-          <div class="compare-item fade-in">
-            <div class="compare-col before">
-              <span class="compare-col-label">よくあること</span>
-              <p>担当者の熱量に依存した施策が多く、担当者が変わると続かなくなる。</p>
-            </div>
-            <div class="compare-col after">
-              <span class="compare-col-label">私たちがやること</span>
-              <p>仕組みとして機能するよう設計する。属人性を減らし、根づく形にする。</p>
             </div>
           </div>
         </div>
@@ -491,44 +558,56 @@
         </div>
         <div class="work-grid">
           <article class="work-card fade-in">
+            <div class="work-icon">
+              <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22"></line><line x1="15" y1="22" x2="15" y2="22"></line><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line><line x1="9" y1="18" x2="9" y2="18.01"></line><line x1="15" y1="18" x2="15" y2="18.01"></line></svg>
+            </div>
             <div class="work-card-top">
-              <div><span class="tag">B2B</span><h3>企業への健康支援</h3></div>
+              <div class="work-card-title"><span class="tag">B2B</span><h3>企業への健康支援</h3></div>
               <span class="work-idx">01</span>
             </div>
             <p>健康経営の推進、社員向け研修・コンディショニング支援を行っています。整理から効果確認まで伴走します。</p>
             <ul class="work-points">
               <li>課題の整理から運用まで一貫して関わる</li>
               <li>継続できる設計にこだわる</li>
-              <li>生産性・離職・参加率など、現場で見える指標で評価する</li>
+              <li>生産性・離職・参加率など、現場指標で評価</li>
             </ul>
           </article>
           <article class="work-card fade-in">
+            <div class="work-icon">
+              <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
             <div class="work-card-top">
-              <div><span class="tag">Area</span><h3>地域・自治体との連携</h3></div>
+              <div class="work-card-title"><span class="tag">Area</span><h3>地域・自治体との連携</h3></div>
               <span class="work-idx">02</span>
             </div>
-            <p>地域イベントの企画・運営、自治体や団体との連携を通じて、健康を「参加しやすい形」で届けています。</p>
+            <p>地域イベントの企画・運営や自治体との連携を通じて、少し先のまちの未来が明るくなるためのサポートを行っています。</p>
             <ul class="work-points">
               <li>入りやすい場をつくることを最優先にする</li>
-              <li>イベント単体ではなく、その後の接点まで設計する</li>
+              <li>イベント単体ではなく、その後の接点まで設計</li>
               <li>地域特性に合わせた形で展開できるよう整える</li>
             </ul>
           </article>
           <article class="work-card fade-in">
+            <div class="work-icon">
+              <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+            </div>
             <div class="work-card-top">
-              <div><span class="tag">Pro</span><h3>専門職の育成と機会づくり</h3></div>
+              <div class="work-card-title"><span class="tag">Pro</span><h3>専門職の育成と機会づくり</h3></div>
               <span class="work-idx">03</span>
             </div>
             <p>資格・知識はあるが活躍の場が見えない専門職に対して、実践の場と事業の接点を提供しています。</p>
             <ul class="work-points">
-              <li>「学んで終わり」にならない実践機会を用意する</li>
+              <li>「学んで終わり」にならない実践機会を用意</li>
               <li>専門性を社会で使える形に変換する支援をする</li>
               <li>仕事として成立する出口を設計する</li>
             </ul>
           </article>
           <article class="work-card fade-in">
+            <div class="work-icon">
+              <svg class="icon icon-lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </div>
             <div class="work-card-top">
-              <div><span class="tag">Dev</span><h3>プログラム・商品の開発</h3></div>
+              <div class="work-card-title"><span class="tag">Dev</span><h3>プログラム・商品の開発</h3></div>
               <span class="work-idx">04</span>
             </div>
             <p>現場から得た知見をもとに、再現性のある健康プログラムや提供モデルを開発しています。</p>
@@ -542,12 +621,60 @@
       </div>
     </section>
 
+    <!-- WORKS CAROUSEL -->
+    <section class="section works-carousel-section" id="works">
+      <div class="container">
+        <div class="section-head fade-in">
+          <span class="label-en">Case Studies</span>
+          <h2>実績例</h2>
+          <p class="section-lead">現在、過去の実績や事例をまとめたコンテンツを準備中です。</p>
+        </div>
+        <div class="carousel-wrapper fade-in">
+          <div class="carousel-track">
+            <!-- Item 1 -->
+            <article class="carousel-item">
+              <span class="coming-soon-badge">COMING SOON</span>
+              <div class="carousel-img">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              </div>
+              <div class="carousel-content">
+                <h3>企業向け健康支援</h3>
+                <p>導入事例や支援後の変化について、詳細を公開予定です。</p>
+              </div>
+            </article>
+            <!-- Item 2 -->
+            <article class="carousel-item">
+              <span class="coming-soon-badge">COMING SOON</span>
+              <div class="carousel-img">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              </div>
+              <div class="carousel-content">
+                <h3>地域イベント連携</h3>
+                <p>イベントの様子や参加者の行動変容の成果を公開予定です。</p>
+              </div>
+            </article>
+            <!-- Item 3 -->
+            <article class="carousel-item">
+              <span class="coming-soon-badge">COMING SOON</span>
+              <div class="carousel-img">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              </div>
+              <div class="carousel-content">
+                <h3>専門職向けプログラム</h3>
+                <p>現場で機能する人材育成のプロセスと結果を公開予定です。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FIELD NOTES -->
     <section class="section" id="fieldnotes">
       <div class="container">
         <div class="section-head fade-in">
           <span class="label-en">Field Notes</span>
-          <h2>実際に起きたこと、気づいたこと。</h2>
+          <h2>実際に起きたこと、<br>気づいたこと。</h2>
           <p class="section-lead">現場で何が起きて、何を学んだかをそのまま書いています。</p>
         </div>
         <div class="fieldnotes-grid">
@@ -556,32 +683,22 @@
               <h3>企業向け健康支援の伴走</h3>
               <span class="fieldnote-area">B2B</span>
             </div>
-            <p>企業で「なぜ過去の施策が続かなかったか」を整理。担当者の熱量に依存していたこと、ゴールが曖昧だったことが見えてきたため、仕組みとして設計し直しました。</p>
-            <div class="fieldnote-takeaway">実施より設計。担当者が変わっても続く仕組みを先につくることが、継続につながった。</div>
+            <p>過去の施策が続かなかった理由を整理すると、「担当者任せになっていたこと」が浮き彫りになりました。個人の熱量や頑張りに依存せず、組織全体で回る仕組みとして設計し直しました。</p>
+            <div class="fieldnote-takeaway">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+              <div>実施より設計。担当者が変わっても続く仕組みを先につくることが継続につながった。</div>
+            </div>
           </article>
           <article class="fieldnote fade-in">
             <div class="fieldnote-head">
               <h3>地域イベントの設計と継続</h3>
               <span class="fieldnote-area">Area</span>
             </div>
-            <p>地域イベントを単発で終わらせないために、参加後の行動変容につながる導線をあらかじめ設計しました。「楽しかった」で終わる体験を、次の一歩につなげる場として機能させることを意識しました。</p>
-            <div class="fieldnote-takeaway">入口の設計だけでなく、出口を最初から決めておくことで継続率が変わった。</div>
-          </article>
-          <article class="fieldnote fade-in">
-            <div class="fieldnote-head">
-              <h3>専門職の実践機会の創出</h3>
-              <span class="fieldnote-area">Pro</span>
+            <p>地域イベントを単発で終わらせないために、参加後の行動変容につながる導線をあらかじめ設計しました。「楽しかった」で終わる体験を、次の一歩につなげる場として機能させます。</p>
+            <div class="fieldnote-takeaway">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+              <div>入口の設計だけでなく、出口を最初から決めておくことで継続率が変わった。</div>
             </div>
-            <p>資格・知識はあるが活躍の場が見えないという専門職と、健康支援を必要とする現場をつなぐ取り組みを行っています。学びが仕事につながる出口を設計することで、双方にとっての価値が生まれています。</p>
-            <div class="fieldnote-takeaway">専門職の「伝えたい」と現場の「わかりやすく届けてほしい」はズレていることが多い。そのギャップを埋める役割が必要。</div>
-          </article>
-          <article class="fieldnote fade-in">
-            <div class="fieldnote-head">
-              <h3>プログラムの仕組み化と展開</h3>
-              <span class="fieldnote-area">Dev</span>
-            </div>
-            <p>現場で効果があったアプローチを、再現できる形に整理しました。属人的な「この人だからできた」を減らし、別の現場や担当者でも機能するように設計し直すプロセスを繰り返しています。</p>
-            <div class="fieldnote-takeaway">再現可能な形にするためには、「なぜうまくいったか」を言語化する工程が欠かせない。</div>
           </article>
         </div>
       </div>
@@ -600,24 +717,24 @@
         </p>
         <div class="future-points">
           <div class="future-point fade-in">
-            <div class="future-icon">🔁</div>
+            <div class="future-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
             <div>
-              <h3>継続が前提の設計</h3>
-              <p>単発施策ではなく、継続できる形を最初から設計する。</p>
+              <h3>伴走：運用まで引き受ける</h3>
+              <p>提案して終わりではなく、面倒な調整や現場での運用まで共に走り、確実に機能するまでサポートします。</p>
             </div>
           </div>
           <div class="future-point fade-in">
-            <div class="future-icon">🔗</div>
+            <div class="future-icon"><svg class="icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg></div>
             <div>
-              <h3>専門職と現場をつなぐ</h3>
-              <p>専門知識を持つ人が活躍できる出口をつくることが、健康支援の質と量を上げる。</p>
+              <h3>継続：続くことが前提の設計</h3>
+              <p>単発のイベントや施策で終わらせず、日常に溶け込み、無理なく続く形を最初から設計します。</p>
             </div>
           </div>
           <div class="future-point fade-in">
-            <div class="future-icon">📐</div>
+            <div class="future-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></div>
             <div>
-              <h3>再現できる形へ</h3>
-              <p>現場で機能したことを言語化・仕組み化し、別の地域や組織でも展開できる状態をつくる。</p>
+              <h3>再現：誰もが機能する形へ</h3>
+              <p>特定の人のスキルや熱量に依存せず、言語化・仕組み化することで、別の現場でも機能する状態をつくります。</p>
             </div>
           </div>
         </div>
@@ -634,21 +751,27 @@
         </div>
         <div class="partner-grid">
           <article class="partner-card fade-in">
+            <div class="partner-icon">
+              <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+            </div>
             <h3>企業の健康経営担当者の方へ</h3>
             <p>「施策はやっているけど、効いているか正直わからない」「続かない」という状況に向き合っている方と取り組みたい。</p>
             <ul>
-              <li>過去の施策がなぜ続かなかったかを一緒に整理できます</li>
-              <li>全社展開より「まず一部署で機能させる」ことを大切にします</li>
-              <li>担当者が変わっても回る仕組みづくりを支援します</li>
+              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>過去の施策がなぜ続かなかったかを一緒に整理</li>
+              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>全社展開より「まず一部署で機能させる」</li>
+              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>担当者が変わっても回る仕組みづくり</li>
             </ul>
           </article>
           <article class="partner-card fade-in">
+            <div class="partner-icon">
+              <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
             <h3>地域・自治体の担当者の方へ</h3>
-            <p>「イベントは開催できるが、次につながらない」「住民への健康アプローチが単発になっている」という課題を持つ方と動いてきました。</p>
+            <p>「イベントは開催できるが、次につながらない」「住民へのアプローチが単発になっている」という課題を持つ方と動きたい。</p>
             <ul>
-              <li>地域特性に合わせた入口設計を一緒に考えます</li>
-              <li>単発開催後の継続導線まで最初から設計します</li>
-              <li>地域の専門職や団体との連携もコーディネートできます</li>
+              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>地域特性に合わせた入口設計</li>
+              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>単発開催後の継続導線まで最初から設計</li>
+              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>地域の専門職や団体との連携も可能</li>
             </ul>
           </article>
         </div>
@@ -659,57 +782,16 @@
     <section class="section" id="contact">
       <div class="container">
         <div class="contact-box fade-in">
-          <span class="label-en">Contact</span>
-          <h2>まず、課題を話してみてください。</h2>
-          <p class="contact-note">提案や売り込みから始めません。「うまくいかなかった経緯」「今どこで詰まっているか」を聞かせていただくところから始めます。</p>
-
-          <!-- 送信完了メッセージ -->
-          <div class="form-success" id="formSuccess">
-            <div class="success-icon">✓</div>
-            <strong>送信しました。ありがとうございます。</strong>
-            <p>内容を確認のうえ、数日以内にご連絡いたします。</p>
+          <div>
+            <span class="label-en">Contact</span>
+            <h2>うまくいかない理由を、<br>一緒にひも解きませんか。</h2>
+            <p class="contact-note">「一生懸命やっているのに続かない」「何から手をつければいいかわからない」。そんな現場のリアルな悩みをお聞かせください。提案や売り込みではなく、一緒に解決の糸口を探すところから始めます。</p>
           </div>
-
-          <!-- お問い合わせフォーム -->
-          <!-- Formspree: https://formspree.io でアカウント作成後、YOUR_FORM_ID を置き換えてください -->
-          <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="name">お名前<span class="required">必須</span></label>
-                <input type="text" id="name" name="name" placeholder="山田 太郎" required autocomplete="name" />
-              </div>
-              <div class="form-field">
-                <label for="email">メールアドレス<span class="required">必須</span></label>
-                <input type="email" id="email" name="email" placeholder="example@email.com" required autocomplete="email" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="org">会社名・団体名</label>
-                <input type="text" id="org" name="organization" placeholder="株式会社〇〇" autocomplete="organization" />
-              </div>
-              <div class="form-field">
-                <label for="category">ご相談の種別<span class="required">必須</span></label>
-                <select id="category" name="category" required>
-                  <option value="" disabled selected>選択してください</option>
-                  <option value="B2B｜企業への健康支援">B2B｜企業への健康支援</option>
-                  <option value="Area｜地域・自治体との連携">Area｜地域・自治体との連携</option>
-                  <option value="Pro｜専門職の育成・就業">Pro｜専門職の育成・就業</option>
-                  <option value="Dev｜プログラム・商品開発">Dev｜プログラム・商品開発</option>
-                  <option value="その他">その他</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-field">
-              <label for="message">ご相談内容<span class="required">必須</span></label>
-              <textarea id="message" name="message" placeholder="現在の課題や状況、ご質問などをお気軽にお書きください。" required></textarea>
-            </div>
-            <div class="form-submit">
-              <button type="submit" class="btn btn-white">送信する →</button>
-            </div>
-          </form>
-
-          <div class="contact-actions" style="margin-top:20px;">
+          <div class="contact-actions">
+            <a href="mailto:fituni.academy@gmail.com" class="btn btn-white">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              お問い合わせ
+            </a>
             <a href="#fieldnotes" class="btn btn-outline-white">実績を見る</a>
           </div>
         </div>
@@ -728,7 +810,10 @@
   </footer>
 
   <div class="sticky-cta" id="stickyCta">
-    <a href="#contact" class="btn btn-dark">相談する</a>
+    <a href="mailto:fituni.academy@gmail.com" class="btn btn-dark">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      相談する
+    </a>
   </div>
 
   <script>
@@ -775,37 +860,6 @@
           stickyCta.style.transform = entries[0].isIntersecting ? 'translateY(120%)' : '';
         }, { threshold: 0.1 }).observe(contact);
       }
-    }
-
-    // Contact form: Formspree AJAX submission
-    const contactForm = document.getElementById('contactForm');
-    const formSuccess = document.getElementById('formSuccess');
-    if (contactForm) {
-      contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const btn = contactForm.querySelector('[type="submit"]');
-        btn.disabled = true;
-        btn.textContent = '送信中…';
-        try {
-          const res = await fetch(contactForm.action, {
-            method: 'POST',
-            body: new FormData(contactForm),
-            headers: { 'Accept': 'application/json' }
-          });
-          if (res.ok) {
-            contactForm.style.display = 'none';
-            formSuccess.style.display = 'block';
-          } else {
-            btn.disabled = false;
-            btn.textContent = '送信する →';
-            alert('送信に失敗しました。時間をおいて再度お試しください。');
-          }
-        } catch {
-          btn.disabled = false;
-          btn.textContent = '送信する →';
-          alert('ネットワークエラーが発生しました。');
-        }
-      });
     }
   </script>
 </body>
