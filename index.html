@@ -225,6 +225,44 @@
     .contact-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
     .contact-actions .btn { width: 100%; }
 
+    /* CONTACT FORM */
+    .contact-form { margin-top: 28px; display: grid; gap: 14px; }
+    .contact-form .form-row { display: grid; gap: 14px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field label { font-size: 12px; font-weight: 700; color: rgba(255,255,255,.7); letter-spacing: .06em; }
+    .form-field label .required { color: #7fb3e8; margin-left: 4px; font-weight: 400; }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius-sm); padding: 12px 14px;
+      color: var(--white); font-family: var(--ja); font-size: 14px; line-height: 1.6;
+      transition: border-color .2s, background .2s; outline: none; width: 100%;
+      -webkit-appearance: none; appearance: none;
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder { color: rgba(255,255,255,.3); }
+    .form-field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,.5)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+    .form-field select option { background: var(--navy-soft); color: var(--white); }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus { border-color: rgba(100,160,230,.7); background: rgba(255,255,255,.12); }
+    .form-field textarea { resize: vertical; min-height: 120px; }
+    .form-submit { margin-top: 6px; }
+    .form-submit .btn { width: 100%; font-size: 15px; min-height: 52px; }
+    .form-success { display: none; text-align: center; padding: 28px 20px; }
+    .form-success .success-icon { font-size: 32px; margin-bottom: 12px; }
+    .form-success p { color: rgba(255,255,255,.8); font-size: 14px; line-height: 1.85; }
+    .form-success strong { color: var(--white); display: block; font-size: 17px; margin-bottom: 8px; }
+
+    @media (min-width: 600px) {
+      .contact-form .form-row { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 981px) {
+      .contact-box { padding: 40px; }
+      .contact-form .form-row { grid-template-columns: 1fr 1fr; }
+    }
+
     /* FOOTER */
     footer { padding: 28px 0 calc(28px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
     .footer-inner { display: flex; flex-direction: column; gap: 8px; }
@@ -281,9 +319,9 @@
       .work-grid { grid-template-columns: repeat(2, 1fr); }
       .fieldnotes-grid { grid-template-columns: repeat(2, 1fr); }
       .partner-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-box { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; padding: 40px 40px; }
-      .contact-actions { flex-direction: column; margin-top: 0; min-width: 180px; }
-      .contact-actions .btn { width: 100%; }
+      .contact-box { padding: 40px; }
+      .contact-actions { flex-direction: row; gap: 12px; }
+      .contact-actions .btn { width: auto; }
       .future-points { grid-template-columns: repeat(3, 1fr); }
       .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; }
     }
@@ -303,10 +341,10 @@
           <li><a href="#future">これから</a></li>
           <li><a href="#for-who">対象</a></li>
           <li><a href="community.html">コミュニティ</a></li>
-          <li><a href="mailto:fituni.academy@gmail.com">相談する</a></li>
+          <li><a href="#contact">相談する</a></li>
         </ul>
       </nav>
-      <a href="mailto:fituni.academy@gmail.com" class="btn btn-dark header-cta" style="min-height:38px;padding:0 16px;font-size:12px;">相談する</a>
+      <a href="#contact" class="btn btn-dark header-cta" style="min-height:38px;padding:0 16px;font-size:12px;">相談する</a>
       <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -320,10 +358,10 @@
       <a href="#future">これから</a>
       <a href="#for-who">対象</a>
       <a href="community.html">コミュニティ</a>
-      <a href="mailto:fituni.academy@gmail.com">相談する</a>
+      <a href="#contact">相談する</a>
     </nav>
     <div class="mobile-menu-footer">
-      <a href="mailto:fituni.academy@gmail.com" class="btn btn-dark">相談する</a>
+      <a href="#contact" class="btn btn-dark">相談する</a>
       <a href="#what" class="btn btn-ghost">取り組みを見る</a>
     </div>
   </div>
@@ -621,13 +659,57 @@
     <section class="section" id="contact">
       <div class="container">
         <div class="contact-box fade-in">
-          <div>
-            <span class="label-en">Contact</span>
-            <h2>まず、課題を話してみてください。</h2>
-            <p class="contact-note">提案や売り込みから始めません。「うまくいかなかった経緯」「今どこで詰まっているか」を聞かせていただくところから始めます。</p>
+          <span class="label-en">Contact</span>
+          <h2>まず、課題を話してみてください。</h2>
+          <p class="contact-note">提案や売り込みから始めません。「うまくいかなかった経緯」「今どこで詰まっているか」を聞かせていただくところから始めます。</p>
+
+          <!-- 送信完了メッセージ -->
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">✓</div>
+            <strong>送信しました。ありがとうございます。</strong>
+            <p>内容を確認のうえ、数日以内にご連絡いたします。</p>
           </div>
-          <div class="contact-actions">
-            <a href="mailto:fituni.academy@gmail.com" class="btn btn-white">お問い合わせ</a>
+
+          <!-- お問い合わせフォーム -->
+          <!-- Formspree: https://formspree.io でアカウント作成後、YOUR_FORM_ID を置き換えてください -->
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">お名前<span class="required">必須</span></label>
+                <input type="text" id="name" name="name" placeholder="山田 太郎" required autocomplete="name" />
+              </div>
+              <div class="form-field">
+                <label for="email">メールアドレス<span class="required">必須</span></label>
+                <input type="email" id="email" name="email" placeholder="example@email.com" required autocomplete="email" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="org">会社名・団体名</label>
+                <input type="text" id="org" name="organization" placeholder="株式会社〇〇" autocomplete="organization" />
+              </div>
+              <div class="form-field">
+                <label for="category">ご相談の種別<span class="required">必須</span></label>
+                <select id="category" name="category" required>
+                  <option value="" disabled selected>選択してください</option>
+                  <option value="B2B｜企業への健康支援">B2B｜企業への健康支援</option>
+                  <option value="Area｜地域・自治体との連携">Area｜地域・自治体との連携</option>
+                  <option value="Pro｜専門職の育成・就業">Pro｜専門職の育成・就業</option>
+                  <option value="Dev｜プログラム・商品開発">Dev｜プログラム・商品開発</option>
+                  <option value="その他">その他</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="message">ご相談内容<span class="required">必須</span></label>
+              <textarea id="message" name="message" placeholder="現在の課題や状況、ご質問などをお気軽にお書きください。" required></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn btn-white">送信する →</button>
+            </div>
+          </form>
+
+          <div class="contact-actions" style="margin-top:20px;">
             <a href="#fieldnotes" class="btn btn-outline-white">実績を見る</a>
           </div>
         </div>
@@ -646,7 +728,7 @@
   </footer>
 
   <div class="sticky-cta" id="stickyCta">
-    <a href="mailto:fituni.academy@gmail.com" class="btn btn-dark">相談する</a>
+    <a href="#contact" class="btn btn-dark">相談する</a>
   </div>
 
   <script>
@@ -693,6 +775,37 @@
           stickyCta.style.transform = entries[0].isIntersecting ? 'translateY(120%)' : '';
         }, { threshold: 0.1 }).observe(contact);
       }
+    }
+
+    // Contact form: Formspree AJAX submission
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = contactForm.querySelector('[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = '送信中…';
+        try {
+          const res = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            contactForm.style.display = 'none';
+            formSuccess.style.display = 'block';
+          } else {
+            btn.disabled = false;
+            btn.textContent = '送信する →';
+            alert('送信に失敗しました。時間をおいて再度お試しください。');
+          }
+        } catch {
+          btn.disabled = false;
+          btn.textContent = '送信する →';
+          alert('ネットワークエラーが発生しました。');
+        }
+      });
     }
   </script>
 </body>
