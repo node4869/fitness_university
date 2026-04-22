@@ -538,6 +538,66 @@
       padding: 2px 8px;
       border-radius: 20px;
     }
+
+    /* CEO MESSAGE */
+    .ceo-section { background: var(--white); }
+    .ceo-message-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 40px 28px;
+      box-shadow: var(--shadow);
+    }
+    .ceo-intro { margin-bottom: 32px; }
+    .ceo-name-block { font-size: 15px; color: var(--navy); line-height: 1.8; }
+    .ceo-block { margin-bottom: 8px; }
+    .ceo-block p { font-size: 15px; color: var(--sub); line-height: 2; margin-bottom: 12px; }
+    .ceo-block p:last-child { margin-bottom: 0; }
+    .ceo-block-title {
+      font-size: clamp(15px, 3.8vw, 17px);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+      padding-left: 12px;
+      border-left: 3px solid var(--blue);
+    }
+    .ceo-list {
+      margin: 16px 0 16px 4px;
+      display: grid;
+      gap: 8px;
+    }
+    .ceo-list li {
+      font-size: 14px;
+      color: var(--text);
+      padding: 8px 12px;
+      background: var(--blue-soft);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ceo-list li::before { content: "—"; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+    .ceo-divider {
+      height: 1px;
+      background: var(--line);
+      margin: 28px 0;
+    }
+    .ceo-closing p { font-size: 15px; color: var(--sub); line-height: 2; margin-bottom: 12px; }
+    .ceo-sign {
+      margin-top: 28px;
+      font-size: 15px;
+      color: var(--navy);
+      line-height: 1.8;
+      text-align: right;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (min-width: 600px) {
+      .ceo-message-wrap { padding: 52px 56px; }
+    }
   </style>
 </head>
 <body>
@@ -551,6 +611,7 @@
           <li><a href="#fieldnotes">実績</a></li>
           <li><a href="#future">これから</a></li>
           <li><a href="#for-who">対象</a></li>
+          <li><a href="#message">代表挨拶</a></li>
           <li><a href="#contact">相談する</a></li>
         </ul>
       </nav>
@@ -567,6 +628,7 @@
       <a href="#fieldnotes">実績</a>
       <a href="#future">これから</a>
       <a href="#for-who">対象</a>
+      <a href="#message">代表挨拶</a>
       <a href="#contact">相談する</a>
     </nav>
     <div class="mobile-menu-footer">
@@ -1085,6 +1147,69 @@
               <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>地域の専門職や団体との連携も可能</li>
             </ul>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CEO MESSAGE -->
+    <section class="section ceo-section" id="message">
+      <div class="container">
+        <div class="section-head fade-in">
+          <span class="label-en">Message</span>
+          <h2>代表挨拶</h2>
+        </div>
+        <div class="ceo-message-wrap fade-in">
+          <div class="ceo-intro">
+            <p class="ceo-name-block"><strong>株式会社FiTNESS UNIVERSITY<br>代表　沖中</strong></p>
+          </div>
+
+          <div class="ceo-block">
+            <h3 class="ceo-block-title">健康を、仕組みと文化に変えていくために</h3>
+            <p>私たちは、健康を一部の意識が高い人だけのものにせず、企業・地域・個人の中で、自然と機能するものに変えていきたいと考えています。</p>
+            <p>健康は、多くの場合「大切だと分かっているのに、続かない」と言われます。実際に現場では、担当者が一人で抱え、施策を企画し、研修を実施し、それでも「何が変わったのか分からない」という状態が少なくありません。</p>
+            <p>これは個人の努力不足ではなく、続くように設計されていないこと、現場に合う形に翻訳されていないこと、誰が担当しても回る仕組みになっていないことが大きいと感じています。</p>
+            <p>だからこそ、FiTNESS UNIVERSITYでは、知識を伝えるだけではなく、現場で動ける形まで一緒に整えることを大切にしています。</p>
+          </div>
+
+          <div class="ceo-divider"></div>
+
+          <div class="ceo-block">
+            <h3 class="ceo-block-title">健康のチカラで、国力を上げる</h3>
+            <p>私が目指しているのは、単に「健康な人を増やすこと」ではありません。健康のチカラで、生産性と幸福度の土台を整え、国力を上げること。</p>
+            <p>そのためには、個人の健康だけを見ていても不十分です。企業の中での働き方、地域でのつながり、日々の生活習慣、教育、行動変容。それらが連動して、はじめて本質的な変化が起こると考えています。</p>
+            <p>企業・地域・個人の健康が連動する世界をつくりたい。健康が"良いこと"で終わらず、社会の中で循環し、機能し、文化として根づく状態を実装したいと思っています。</p>
+          </div>
+
+          <div class="ceo-divider"></div>
+
+          <div class="ceo-block">
+            <h3 class="ceo-block-title">現場から考え、現場で機能するものをつくる</h3>
+            <p>私たちの仕事は、理想論を語ることではありません。現場で起きていることを整理し、何から動けばよいかを見つけ、無理なく続く形に整えることです。</p>
+            <ul class="ceo-list">
+              <li>健康を現場で機能させること</li>
+              <li>学んで終わりにしないこと</li>
+              <li>担当者を一人にしないこと</li>
+              <li>続く仕組みに変えること</li>
+            </ul>
+            <p>そのために、必要な事業を一つずつ形にしています。</p>
+          </div>
+
+          <div class="ceo-divider"></div>
+
+          <div class="ceo-block">
+            <h3 class="ceo-block-title">まだ小さくても、確かに前に進む</h3>
+            <p>私は、最初から完璧な仕組みを作ることより、今ある現場で、今できる形から始めることを大切にしています。</p>
+            <p>小さく始めても、続けば文化になります。一人で抱えていたものも、整理され、共有され、仕組みになれば、再現できるようになります。その変化は派手ではありません。でも、そうした積み重ねこそが、企業を、地域を、社会を少しずつ強くしていくと信じています。</p>
+          </div>
+
+          <div class="ceo-divider"></div>
+
+          <div class="ceo-block ceo-closing">
+            <p>健康は、個人の努力だけで守るには限界があります。だからこそ私は、健康を、社会で機能する仕組みに変える仕事をしていきたいと思っています。</p>
+            <p>担当者が一人で抱えなくていいように。学んだことが現場で終わらないように。人が安心して働き、育ち、続けられるように。</p>
+            <p>FiTNESS UNIVERSITYは、そのための伴走者であり、実装者でありたいと考えています。今ある課題を、無理なく、でも着実に前へ進めていく。そんなご一緒ができれば嬉しいです。</p>
+            <p class="ceo-sign">株式会社FiTNESS UNIVERSITY<br><strong>代表　沖中</strong></p>
+          </div>
         </div>
       </div>
     </section>
