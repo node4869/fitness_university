@@ -595,43 +595,6 @@
       border-top: 1px solid var(--line);
     }
 
-    .ceo-more-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .5s ease;
-    }
-    .ceo-more-content.open {
-      max-height: 2400px;
-    }
-    .ceo-toggle-wrap {
-      margin-top: 24px;
-      text-align: center;
-    }
-    .ceo-toggle-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--blue-soft);
-      border: 1px solid rgba(62,110,168,.25);
-      border-radius: 999px;
-      padding: 10px 24px;
-      font-family: var(--ja);
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--blue);
-      cursor: pointer;
-      transition: background .2s;
-    }
-    .ceo-toggle-btn:hover { background: #dceaf8; }
-    .ceo-toggle-arrow {
-      width: 16px; height: 16px;
-      stroke: currentColor; fill: none; stroke-width: 2.5;
-      stroke-linecap: round; stroke-linejoin: round;
-      transition: transform .3s;
-      flex-shrink: 0;
-    }
-    .ceo-toggle-btn[aria-expanded="true"] .ceo-toggle-arrow { transform: rotate(180deg); }
-
     @media (min-width: 600px) {
       .ceo-message-wrap { padding: 52px 56px; }
     }
@@ -1097,9 +1060,9 @@
               <div class="program-carousel">
                 <div class="carousel-viewport">
                   <div class="p-carousel-track">
-                    <div class="p-carousel-slide"><img src="%E7%BF%92%E6%85%A3%E6%94%B9%E5%96%84%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A01.jpg" alt="習慣改善プログラム 1/3" loading="lazy"></div>
-                    <div class="p-carousel-slide"><img src="%E7%BF%92%E6%85%A3%E6%94%B9%E5%96%84%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A02.jpg" alt="習慣改善プログラム 2/3" loading="lazy"></div>
-                    <div class="p-carousel-slide"><img src="%E7%BF%92%E6%85%A3%E6%94%B9%E5%96%84%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A03.jpg" alt="習慣改善プログラム 3/3" loading="lazy"></div>
+                    <div class="p-carousel-slide"><img src="habit1.jpg" alt="習慣改善プログラム 1/3" loading="lazy"></div>
+                    <div class="p-carousel-slide"><img src="habit2.jpg" alt="習慣改善プログラム 2/3" loading="lazy"></div>
+                    <div class="p-carousel-slide"><img src="habit3.jpg" alt="習慣改善プログラム 3/3" loading="lazy"></div>
                   </div>
                   <button class="p-carousel-btn p-carousel-prev" aria-label="前へ"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
                   <button class="p-carousel-btn p-carousel-next" aria-label="次へ"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
@@ -1445,18 +1408,6 @@
             }
           }
         });
-      });
-    })();
-
-    // CEO message accordion
-    (function() {
-      const btn = document.getElementById('ceoToggle');
-      const more = document.getElementById('ceoMore');
-      if (!btn || !more) return;
-      btn.addEventListener('click', () => {
-        const open = more.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open);
-        btn.querySelector('.ceo-toggle-label').textContent = open ? '閉じる' : '続きを読む';
       });
     })();
 
