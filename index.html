@@ -25,7 +25,7 @@ a{text-decoration:none;color:inherit;}
 /* HEADER */
 .hd{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
 .hd-i{max-width:1140px;margin:0 auto;padding:0 40px;height:68px;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;letter-spacing:.05em;color:var(--sky);}
+.logo{display:flex;align-items:center;}.logo img{height:36px;width:auto;display:block;}
 .logo b{color:var(--navy);}
 .hd-nav{display:flex;gap:6px;}
 .hd-nav a{font-size:13px;color:var(--text-mid);padding:7px 16px;border-radius:20px;transition:background .2s,color .2s;}
@@ -90,10 +90,10 @@ a{text-decoration:none;color:inherit;}
 .issue-avatar::before{content:'';position:absolute;top:5px;left:50%;transform:translateX(-50%);width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.65);}
 .issue-avatar::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:16px;height:11px;border-radius:8px 8px 0 0;background:rgba(255,255,255,.5);}
 .issue-voice-label{font-size:12px;color:var(--text-muted);}
-.issues-statement{margin-top:36px;background:linear-gradient(135deg,#0c3044 0%,#0a3e57 100%);border-radius:24px;padding:34px;display:flex;align-items:center;justify-content:center;text-align:center;}
-.statement-label{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:0.14em;color:rgba(255,255,255,.62);}
+.issues-statement{margin-top:36px;background:var(--sky);border-radius:24px;padding:34px;display:flex;align-items:center;justify-content:center;text-align:center;}
+.statement-label{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:0.14em;color:rgba(255,255,255,.75);}
 .statement-body h3{margin:0;color:#fff;font-size:clamp(22px,3vw,32px);line-height:1.6;font-weight:700;letter-spacing:-0.01em;}
-.statement-body h3 span{color:#2fb5f4;}
+.statement-body h3 span{color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:4px;}
 .container{max-width:1140px;margin:0 auto;padding:0 40px;}
 .sec-ey{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--sky);margin-bottom:12px;}
 .sec-title{font-size:36px;font-weight:700;line-height:1.5;margin-bottom:16px;color:var(--navy);}
@@ -248,8 +248,11 @@ a{text-decoration:none;color:inherit;}
 <!-- HEADER -->
 <header class="hd">
   <div class="hd-i">
-    <div class="logo">FiTNESS <b>UNIVERSITY</b></div>
+    <a class="logo" href="#" aria-label="FiTNESS UNIVERSITY トップへ">
+      <img src="fu_logo.png" alt="FiTNESS UNIVERSITY">
+    </a>
     <nav class="hd-nav">
+      <a href="#">お知らせ</a>
       <a href="#whyus">選ばれる理由</a>
       <a href="#service">サービス</a>
       <a href="#flow">ご支援の流れ</a>
@@ -418,7 +421,7 @@ a{text-decoration:none;color:inherit;}
 <section class="service" id="service">
   <div class="container">
     <div class="sec-ey fi">Our Services</div>
-    <h2 class="sec-title fi">制度から文化まで、<br><em>一気通貫で担います。</em></h2>
+    <h2 class="sec-title fi">制度から文化まで、<br><em>一気通貫で伴走します。</em></h2>
     <div class="process-list">
       <div class="process-item fi">
         <div class="process-text">
