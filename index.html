@@ -310,7 +310,7 @@ a{text-decoration:none;color:inherit;}
 /* ══ WHYUS ══ */
 .whyus{background:#fff;padding:96px 0;}
 .whyus-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;}
-.whyus-head-r{font-size:14px;color:var(--text-mid);line-height:2;max-width:300px;text-align:right;}
+.whyus-head-r{font-size:15px;color:var(--text-mid);line-height:2;text-align:left;margin-top:12px;}
 .whyus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
 .whyus-card{
   background:var(--cream);border-radius:var(--r-lg);
@@ -337,7 +337,7 @@ a{text-decoration:none;color:inherit;}
   font-family:'Montserrat',sans-serif;font-size:11px;
   font-weight:500;letter-spacing:.15em;color:#bbb;margin:20px 0 14px;
 }
-.wc-icon{font-size:30px;color:var(--sky);margin-bottom:16px;}
+.wc-icon{margin-bottom:16px;}.wc-icon img{width:80px;height:80px;object-fit:contain;display:block;margin:0 auto;}
 .wc-sep{width:24px;height:1.5px;background:var(--border);margin-bottom:16px;}
 .wc-title{
   font-size:13px;font-weight:700;color:var(--navy);
@@ -492,9 +492,64 @@ a{text-decoration:none;color:inherit;}
 
 /* ══ EVIDENCE ══ */
 .evidence{background:var(--cream);padding:96px 0;}
-.specialist-img{
-  width:100%;max-width:800px;
-  margin:0 auto;display:block;
+.specialist-img{ display:none; }
+
+.specialist-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  justify-items:center;
+}
+.specialist-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:32px 24px 28px;
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;
+  width:100%;
+  transition:box-shadow .25s,transform .25s;
+}
+.specialist-card:hover{
+  box-shadow:0 10px 36px rgba(0,0,0,.09);
+  transform:translateY(-4px);
+}
+.specialist-card img{
+  width:120px;height:120px;
+  object-fit:contain;
+  margin-bottom:20px;
+}
+.specialist-role{
+  font-size:13px;font-weight:700;
+  color:var(--navy);line-height:1.6;
+}
+.specialist-en{
+  font-family:'Montserrat',sans-serif;
+  font-size:10px;font-weight:600;
+  letter-spacing:.12em;color:var(--sky);
+  margin-top:8px;text-transform:uppercase;
+}
+
+/* 5枚を2行：1行目3枚、2行目2枚中央揃え */
+.specialist-row-bottom{
+  display:flex;
+  justify-content:center;
+  gap:24px;
+  margin-top:24px;
+}
+.specialist-row-bottom .specialist-card{
+  max-width:calc((100% - 48px) / 3);
+}
+
+@media(max-width:900px){
+  .specialist-grid{grid-template-columns:repeat(2,1fr);}
+  .specialist-row-bottom{flex-wrap:wrap;}
+  .specialist-row-bottom .specialist-card{max-width:calc((100% - 24px) / 2);}
+}
+@media(max-width:600px){
+  .specialist-grid{grid-template-columns:1fr;}
+  .specialist-row-bottom{flex-direction:column;align-items:center;}
+  .specialist-row-bottom .specialist-card{max-width:100%;}
 }
 
 /* ══ FINAL CTA ══ */
@@ -559,7 +614,6 @@ a{text-decoration:none;color:inherit;}
   .pain-grid{grid-template-columns:1fr;}
   .whyus-grid{grid-template-columns:repeat(2,1fr);}
   .whyus-head{flex-direction:column;align-items:flex-start;gap:12px;}
-  .whyus-head-r{text-align:left;}
   .service-intro{grid-template-columns:1fr;}
   .service-cards{grid-template-columns:1fr;}
   .flow-steps{grid-template-columns:1fr;}
@@ -673,17 +727,14 @@ a{text-decoration:none;color:inherit;}
         <p>「効果が見えづらい」「予算が取りにくい」など、社内で意思決定を進めるための整理された説明材料が不足しがちです。</p>
       </article>
     </div>
-    <div class="issues-statement fi">
+    <div class="issues-statement fi" style="justify-content:center;text-align:center;">
       <div class="statement-body">
         <p class="statement-label">OUR APPROACH</p>
         <h3>
           FiTNESS UNIVERSITYは「制度導入」で終わらせず、<br>
-          <span>気づき・実践・継続・文化化</span>まで設計します。
+          <span>気づき・実践・継続・文化形成</span>まで設計します。
         </h3>
       </div>
-      <a href="#contact" class="statement-link" aria-label="無料相談へ">
-        <span>→</span>
-      </a>
     </div>
   </div>
 </section>
@@ -695,8 +746,8 @@ a{text-decoration:none;color:inherit;}
       <div>
         <div class="sec-ey fi">Why FiTNESS UNIVERSITY</div>
         <h2 class="sec-title fi" style="margin-bottom:0;">他とは、<em>ここが違います。</em></h2>
+        <div class="whyus-head-r fi">知識提供で終わる研修会社でも、戦略だけのコンサルでもない。現場実装まで担える会社です。</div>
       </div>
-      <div class="whyus-head-r fi">知識提供で終わる研修会社でも、<br>戦略だけのコンサルでもない。<br>現場実装まで担える会社です。</div>
     </div>
     <div class="whyus-grid">
       <div class="whyus-card fi fi-d1">
@@ -707,7 +758,7 @@ a{text-decoration:none;color:inherit;}
           </div>
         </div>
         <div class="wc-num">01</div>
-        <div class="wc-icon">🧠</div>
+        <div class="wc-icon"><img src="why_fu01.png" alt="行動変容を科学的に設計する"></div>
         <div class="wc-sep"></div>
         <div class="wc-title">行動変容を<br>科学的に設計する</div>
         <div class="wc-text">気づき・実践・習慣・文化化まで段階的に設計。参加して終わりにしません。</div>
@@ -721,7 +772,7 @@ a{text-decoration:none;color:inherit;}
           </div>
         </div>
         <div class="wc-num">02</div>
-        <div class="wc-icon">📱</div>
+        <div class="wc-icon"><img src="why_fu02.png" alt="AI・LINE・動画で継続する仕組みを構築"></div>
         <div class="wc-sep"></div>
         <div class="wc-title">AI・LINE・動画で<br>継続する仕組みを構築</div>
         <div class="wc-text">フォローをテクノロジーで自動化。担当者が毎回動かなくても継続的にアプローチ。</div>
@@ -735,7 +786,7 @@ a{text-decoration:none;color:inherit;}
           </div>
         </div>
         <div class="wc-num">03</div>
-        <div class="wc-icon">👥</div>
+        <div class="wc-icon"><img src="why_fu03.png" alt="5領域の専門家が一気通貫で支援"></div>
         <div class="wc-sep"></div>
         <div class="wc-title">5領域の専門家が<br>一気通貫で支援</div>
         <div class="wc-text">健康経営・行動変容・教育・フィットネス・AIが連携。バラバラな外注は不要。</div>
@@ -749,7 +800,7 @@ a{text-decoration:none;color:inherit;}
           </div>
         </div>
         <div class="wc-num">04</div>
-        <div class="wc-icon">📈</div>
+        <div class="wc-icon"><img src="why_fu04.png" alt="データで効果を示し経営層の承認を取りやすく"></div>
         <div class="wc-sep"></div>
         <div class="wc-title">データで効果を示し<br>経営層の承認を取りやすく</div>
         <div class="wc-text">効果測定レポートで、担当者が上席に説明しやすい材料をご提供します。</div>
@@ -780,13 +831,13 @@ a{text-decoration:none;color:inherit;}
           </div>
         </div>
         <div class="process-img">
-          <img src="fuhp_topv.png" alt="制度をつくる">
+          <img src="service01.png" alt="制度をつくる">
         </div>
       </div>
 
       <div class="process-item reverse fi">
         <div class="process-img">
-          <img src="fuhp_topv.png" alt="知識を届ける">
+          <img src="service02.png" alt="知識を届ける">
         </div>
         <div class="process-text">
           <div class="process-label">
@@ -814,13 +865,13 @@ a{text-decoration:none;color:inherit;}
           </div>
         </div>
         <div class="process-img">
-          <img src="fuhp_topv.png" alt="実践・習慣化させる">
+          <img src="service03.png" alt="実践・習慣化させる">
         </div>
       </div>
 
       <div class="process-item reverse fi">
         <div class="process-img">
-          <img src="fuhp_topv.png" alt="組織に文化として根づく">
+          <img src="service04.png" alt="組織に文化として根づく">
         </div>
         <div class="process-text">
           <div class="process-label">
@@ -899,11 +950,42 @@ a{text-decoration:none;color:inherit;}
 <!-- ⑥ EVIDENCE -->
 <section class="evidence" id="evidence">
   <div class="container">
-    <div class="sec-ey fi">Results & Expertise</div>
-    <h2 class="sec-title fi">成果と、それを支える<em>専門家チーム。</em></h2>
+    <div class="sec-ey fi">Expert Team</div>
+    <h2 class="sec-title fi">健康経営を支える<em>専門家チーム。</em></h2>
     <p class="sec-sub fi">健康 × 教育 × AI の各領域のプロが連携し、確実な実装を支えます。</p>
 
-    <img class="specialist-img fi" src="specialist_v.png" alt="専門家チーム：健康経営コンサルタント・行動変容理論研究者・教育プログラム設計者・トレーナー・AIエンジニア">
+    <!-- 1行目：3枚 -->
+    <div class="specialist-grid">
+      <div class="specialist-card fi fi-d1">
+        <img src="specialist01.png" alt="健康経営コンサルタント">
+        <div class="specialist-role">健康経営コンサルタント</div>
+        <div class="specialist-en">Health Management Consultant</div>
+      </div>
+      <div class="specialist-card fi fi-d2">
+        <img src="specialist02.png" alt="行動変容理論研究者">
+        <div class="specialist-role">行動変容理論研究者</div>
+        <div class="specialist-en">Behavioral Change Researcher</div>
+      </div>
+      <div class="specialist-card fi fi-d3">
+        <img src="specialist03.png" alt="教育プログラム設計者">
+        <div class="specialist-role">教育プログラム設計者</div>
+        <div class="specialist-en">Education Program Designer</div>
+      </div>
+    </div>
+
+    <!-- 2行目：2枚中央揃え -->
+    <div class="specialist-row-bottom">
+      <div class="specialist-card fi fi-d1">
+        <img src="specialist04.png" alt="トレーナー・インストラクター">
+        <div class="specialist-role">トレーナー・インストラクター</div>
+        <div class="specialist-en">Trainer &amp; Instructor</div>
+      </div>
+      <div class="specialist-card fi fi-d2">
+        <img src="specialist05.png" alt="AIエンジニア">
+        <div class="specialist-role">AIエンジニア</div>
+        <div class="specialist-en">AI Engineer</div>
+      </div>
+    </div>
   </div>
 </section>
 
