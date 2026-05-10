@@ -122,7 +122,6 @@ a{text-decoration:none;color:inherit;}
 .service{background:var(--cream);padding:96px 0;}
 .process-list{display:flex;flex-direction:column;gap:0;margin-bottom:72px;}
 .process-item{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;min-height:420px;}
-.process-text{padding:64px 56px;display:flex;flex-direction:column;justify-content:center;background:#fff;}
 .process-item.reverse .process-text{background:#f8f7f4;}
 .process-label{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
 .process-num{font-family:'Montserrat',sans-serif;font-size:40px;font-weight:800;color:var(--sky);line-height:1;}
@@ -131,8 +130,9 @@ a{text-decoration:none;color:inherit;}
 .process-subtitle{font-size:15px;font-weight:500;color:var(--text-mid);margin-bottom:20px;line-height:1.6;}
 .process-body{font-size:14px;color:var(--text-mid);line-height:2;}
 .process-img{overflow:hidden;position:relative;}
-.process-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
-.process-item:hover .process-img img{transform:scale(1.04);}
+.process-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.process-text{padding:64px 56px;display:flex;flex-direction:column;justify-content:center;background:#fff;transition:box-shadow .25s,transform .25s;}
+.process-text:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);transform:translateY(-4px);}
 .service-intro,.svc-checklist,.svc-check,.svc-check-dot,.svc-flow,.svc-flow-label,.svc-step,.svc-step-c,.svc-step-name,.svc-step-desc{display:none;}
 .service-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .svc-card{background:#fff;border-radius:var(--r-lg);padding:28px 24px;border:1px solid var(--border);position:relative;overflow:hidden;display:flex;flex-direction:column;transition:background .3s ease,border-color .3s ease,box-shadow .3s ease,transform .25s ease;}
@@ -169,6 +169,27 @@ a{text-decoration:none;color:inherit;}
 .btn-cta-w{background:#fff;color:var(--sky);border:none;border-radius:30px;padding:16px 36px;font-size:15px;font-weight:700;font-family:'Noto Sans JP',sans-serif;cursor:pointer;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:8px;transition:transform .15s,box-shadow .15s;}
 .btn-cta-w:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.15);}
 
+
+/* MESSAGE */
+.message{background:var(--cream);padding:96px 0;}
+.message-inner{max-width:800px;margin:0 auto;}
+.message-header{display:flex;flex-direction:column;gap:6px;margin-bottom:40px;}
+.message-from{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--sky);text-transform:uppercase;}
+.message-name{font-size:15px;font-weight:700;color:var(--navy);line-height:1.8;}
+.message-preview{font-size:16px;line-height:2;color:var(--text-mid);}
+.message-preview h3{font-size:18px;font-weight:700;color:var(--navy);margin:32px 0 10px;line-height:1.6;}
+.message-preview p{margin-bottom:20px;}
+.message-preview ul{padding-left:0;list-style:none;margin-bottom:20px;}
+.message-preview ul li{padding:4px 0 4px 20px;position:relative;color:var(--text-mid);font-size:15px;line-height:1.9;}
+.message-preview ul li::before{content:'—';position:absolute;left:0;color:var(--sky);}
+.message-accordion{overflow:hidden;max-height:0;transition:max-height .6s ease;}
+.message-accordion.open{max-height:9999px;}
+.message-toggle{margin-top:32px;display:inline-flex;align-items:center;gap:8px;background:none;border:1.5px solid var(--sky);border-radius:30px;padding:10px 24px;font-size:13px;font-weight:700;font-family:'Noto Sans JP',sans-serif;color:var(--sky);cursor:pointer;transition:background .2s,color .2s;}
+.message-toggle:hover{background:var(--sky);color:#fff;}
+.message-toggle-icon{font-size:16px;transition:transform .3s;}
+.message-toggle.open .message-toggle-icon{transform:rotate(180deg);}
+.message-sign{margin-top:40px;padding-top:24px;border-top:1px solid var(--border);font-size:14px;font-weight:700;color:var(--navy);line-height:1.9;}
+@media(max-width:768px){.message{padding:72px 0;}}
 
 /* FINAL CTA */
 .final{background:var(--navy);padding:120px 0;text-align:center;position:relative;overflow:hidden;}
@@ -209,7 +230,7 @@ a{text-decoration:none;color:inherit;}
   .hd-nav{display:none;}.final h2{font-size:26px;}
   .logo-bar{padding:56px 0;}.logo-bar-inner{gap:32px;padding:0 24px;}
   .logo-bar-logos{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;gap:40px;padding-bottom:8px;-webkit-overflow-scrolling:touch;}
-  .logo-bar-logos img{height:72px;max-width:none;flex-shrink:0;}
+  .logo-bar-logos img{height:120px;max-width:none;flex-shrink:0;}
 }
 @media(max-width:640px){
   .issues-section{padding:72px 0 88px;}
@@ -218,7 +239,7 @@ a{text-decoration:none;color:inherit;}
   .statement-body h3{font-size:20px;line-height:1.7;}
 }
 @media(max-width:480px){
-  .logo-bar-logos img{height:60px;}
+  .logo-bar-logos img{height:100px;}
 }
 </style>
 </head>
@@ -541,6 +562,61 @@ a{text-decoration:none;color:inherit;}
 
 
 
+<!-- MESSAGE -->
+<section class="message">
+  <div class="container">
+    <div class="message-inner fi">
+      <div class="message-from">Message</div>
+      <h2 class="sec-title" style="margin-bottom:24px;">代表挨拶</h2>
+      <div class="message-header">
+        <div class="message-name">株式会社FiTNESS UNIVERSITY<br>代表　沖中</div>
+      </div>
+
+      <div class="message-preview">
+        <h3>健康を、仕組みと文化に変えていくために</h3>
+        <p>私たちは、健康を一部の意識が高い人だけのものにせず、企業・地域・個人の中で、自然と機能するものに変えていきたいと考えています。</p>
+        <p>健康は、多くの場合「大切だと分かっているのに、続かない」と言われます。実際に現場では、担当者が一人で抱え、施策を企画し、研修を実施し、それでも「何が変わったのか分からない」という状態が少なくありません。</p>
+        <p>これは個人の努力不足ではなく、続くように設計されていないこと、現場に合う形に翻訳されていないこと、誰が担当しても回る仕組みになっていないことが大きいと感じています。</p>
+        <p>だからこそ、FiTNESS UNIVERSITYでは、知識を伝えるだけではなく、現場で動ける形まで一緒に整えることを大切にしています。</p>
+      </div>
+
+      <div class="message-accordion" id="msgAccordion">
+        <div class="message-preview">
+          <h3>健康のチカラで、国力を上げる</h3>
+          <p>私が目指しているのは、単に「健康な人を増やすこと」ではありません。健康のチカラで、生産性と幸福度の土台を整え、国力を上げること。</p>
+          <p>そのためには、個人の健康だけを見ていても不十分です。企業の中での働き方、地域でのつながり、日々の生活習慣、教育、行動変容。それらが連動して、はじめて本質的な変化が起こると考えています。</p>
+          <p>企業・地域・個人の健康が連動する世界をつくりたい。健康が"良いこと"で終わらず、社会の中で循環し、機能し、文化として根づく状態を実装したいと思っています。</p>
+
+          <h3>現場から考え、現場で機能するものをつくる</h3>
+          <p>私たちの仕事は、理想論を語ることではありません。現場で起きていることを整理し、何から動けばよいかを見つけ、無理なく続く形に整えることです。</p>
+          <ul>
+            <li>健康を現場で機能させること</li>
+            <li>学んで終わりにしないこと</li>
+            <li>担当者を一人にしないこと</li>
+            <li>続く仕組みに変えること</li>
+          </ul>
+          <p>そのために、必要な事業を一つずつ形にしています。</p>
+
+          <h3>まだ小さくても、確かに前に進む</h3>
+          <p>私は、最初から完璧な仕組みを作ることより、今ある現場で、今できる形から始めることを大切にしています。</p>
+          <p>小さく始めても、続けば文化になります。一人で抱えていたものも、整理され、共有され、仕組みになれば、再現できるようになります。その変化は派手ではありません。でも、そうした積み重ねこそが、企業を、地域を、社会を少しずつ強くしていくと信じています。</p>
+          <p>健康は、個人の努力だけで守るには限界があります。だからこそ私は、健康を、社会で機能する仕組みに変える仕事をしていきたいと思っています。</p>
+          <p>担当者が一人で抱えなくていいように。学んだことが現場で終わらないように。人が安心して働き、育ち、続けられるように。</p>
+          <p>FiTNESS UNIVERSITYは、そのための伴走者であり、実装者でありたいと考えています。今ある課題を、無理なく、でも着実に前へ進めていく。そんなご一緒ができれば嬉しいです。</p>
+        </div>
+        <div class="message-sign">
+          株式会社FiTNESS UNIVERSITY<br>代表　沖中
+        </div>
+      </div>
+
+      <button class="message-toggle" id="msgToggle" onclick="toggleMsg()">
+        <span class="message-toggle-text">続きを読む</span>
+        <span class="message-toggle-icon">∨</span>
+      </button>
+    </div>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
 <section class="final" id="contact">
   <div class="container">
@@ -580,6 +656,15 @@ const io = new IntersectionObserver(entries => {
   });
 },{threshold:0.1});
 document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+function toggleMsg(){
+  const acc = document.getElementById('msgAccordion');
+  const btn = document.getElementById('msgToggle');
+  const txt = btn.querySelector('.message-toggle-text');
+  const open = acc.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  txt.textContent = open ? '閉じる' : '続きを読む';
+}
 </script>
 </body>
 </html>
