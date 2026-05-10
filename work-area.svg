@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#14213a"/>
+      <stop offset="100%" stop-color="#1f2e1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#a88443" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#a88443" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gf">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="400" height="180" fill="url(#bg)"/>
+  <rect width="400" height="180" fill="url(#glow)"/>
+
+  <!-- Hexagonal map grid (subtle) -->
+  <g stroke="rgba(255,255,255,0.038)" stroke-width="0.7" fill="none">
+    <path d="M58 28 L78 18 L98 28 L98 48 L78 58 L58 48 Z"/>
+    <path d="M98 28 L118 18 L138 28 L138 48 L118 58 L98 48 Z"/>
+    <path d="M138 28 L158 18 L178 28 L178 48 L158 58 L138 48 Z"/>
+    <path d="M178 28 L198 18 L218 28 L218 48 L198 58 L178 48 Z"/>
+    <path d="M218 28 L238 18 L258 28 L258 48 L238 58 L218 48 Z"/>
+    <path d="M258 28 L278 18 L298 28 L298 48 L278 58 L258 48 Z"/>
+    <path d="M298 28 L318 18 L338 28 L338 48 L318 58 L298 48 Z"/>
+    <path d="M78 58 L98 48 L118 58 L118 78 L98 88 L78 78 Z"/>
+    <path d="M118 58 L138 48 L158 58 L158 78 L138 88 L118 78 Z"/>
+    <path d="M158 58 L178 48 L198 58 L198 78 L178 88 L158 78 Z"/>
+    <path d="M198 58 L218 48 L238 58 L238 78 L218 88 L198 78 Z"/>
+    <path d="M238 58 L258 48 L278 58 L278 78 L258 88 L238 78 Z"/>
+    <path d="M278 58 L298 48 L318 58 L318 78 L298 88 L278 78 Z"/>
+    <path d="M58 88 L78 78 L98 88 L98 108 L78 118 L58 108 Z"/>
+    <path d="M98 88 L118 78 L138 88 L138 108 L118 118 L98 108 Z"/>
+    <path d="M138 88 L158 78 L178 88 L178 108 L158 118 L138 108 Z"/>
+    <path d="M178 88 L198 78 L218 88 L218 108 L198 118 L178 108 Z"/>
+    <path d="M218 88 L238 78 L258 88 L258 108 L238 118 L218 108 Z"/>
+    <path d="M258 88 L278 78 L298 88 L298 108 L278 118 L258 108 Z"/>
+    <path d="M298 88 L318 78 L338 88 L338 108 L318 118 L298 108 Z"/>
+    <path d="M78 118 L98 108 L118 118 L118 138 L98 148 L78 138 Z"/>
+    <path d="M118 118 L138 108 L158 118 L158 138 L138 148 L118 138 Z"/>
+    <path d="M158 118 L178 108 L198 118 L198 138 L178 148 L158 138 Z"/>
+    <path d="M198 118 L218 108 L238 118 L238 138 L218 148 L198 138 Z"/>
+    <path d="M238 118 L258 108 L278 118 L278 138 L258 148 L238 138 Z"/>
+    <path d="M278 118 L298 108 L318 118 L318 138 L298 148 L278 138 Z"/>
+  </g>
+
+  <!-- Community nodes -->
+  <!-- Center hub -->
+  <circle cx="200" cy="92" r="20" fill="#a88443" opacity="0.12"/>
+  <circle cx="200" cy="92" r="13" fill="#a88443" opacity="0.22"/>
+  <circle cx="200" cy="92" r="7" fill="#a88443" opacity="0.82" filter="url(#gf)"/>
+
+  <!-- Satellite nodes -->
+  <circle cx="108" cy="52" r="8" fill="#6da88f" opacity="0.7"/>
+  <circle cx="295" cy="58" r="7" fill="#6da88f" opacity="0.65"/>
+  <circle cx="128" cy="145" r="7" fill="#b8d4e8" opacity="0.6"/>
+  <circle cx="282" cy="148" r="9" fill="#6da88f" opacity="0.68"/>
+  <circle cx="342" cy="100" r="6" fill="#a88443" opacity="0.58"/>
+  <circle cx="58" cy="102" r="6" fill="#b8d4e8" opacity="0.52"/>
+
+  <!-- Connection lines -->
+  <line x1="200" y1="92" x2="108" y2="52" stroke="#6da88f" stroke-width="1.5" opacity="0.38"/>
+  <line x1="200" y1="92" x2="295" y2="58" stroke="#6da88f" stroke-width="1.5" opacity="0.38"/>
+  <line x1="200" y1="92" x2="128" y2="145" stroke="#b8d4e8" stroke-width="1.5" opacity="0.32"/>
+  <line x1="200" y1="92" x2="282" y2="148" stroke="#6da88f" stroke-width="1.5" opacity="0.38"/>
+  <line x1="200" y1="92" x2="342" y2="100" stroke="#a88443" stroke-width="1.2" opacity="0.32"/>
+  <line x1="200" y1="92" x2="58" y2="102" stroke="#b8d4e8" stroke-width="1.2" opacity="0.28"/>
+
+  <!-- Secondary connections -->
+  <line x1="108" y1="52" x2="58" y2="102" stroke="#6da88f" stroke-width="0.8" opacity="0.22"/>
+  <line x1="108" y1="52" x2="128" y2="145" stroke="#b8d4e8" stroke-width="0.8" opacity="0.18"/>
+  <line x1="295" y1="58" x2="342" y2="100" stroke="#a88443" stroke-width="0.8" opacity="0.22"/>
+  <line x1="295" y1="58" x2="282" y2="148" stroke="#6da88f" stroke-width="0.8" opacity="0.18"/>
+
+  <!-- Location pin (center) -->
+  <path d="M200 60 C194 60 189 65 189 71 C189 80 200 92 200 92 C200 92 211 80 211 71 C211 65 206 60 200 60 Z" fill="#a88443" opacity="0.55"/>
+  <circle cx="200" cy="71" r="4" fill="#14213a" opacity="0.5"/>
+
+  <!-- Location pin (top right) -->
+  <path d="M295 33 C290 33 286 37 286 42 C286 49 295 58 295 58 C295 58 304 49 304 42 C304 37 300 33 295 33 Z" fill="#6da88f" opacity="0.48"/>
+  <circle cx="295" cy="42" r="3" fill="#14213a" opacity="0.5"/>
+
+  <!-- Label -->
+  <text x="22" y="22" font-size="10" font-family="Arial,sans-serif" fill="#a88443" opacity="0.48" font-weight="700" letter-spacing="0.12em">Area</text>
+</svg>

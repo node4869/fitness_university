@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1b2e"/>
+      <stop offset="100%" stop-color="#162b3e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="62%">
+      <stop offset="0%" stop-color="#6da88f" stop-opacity="0.13"/>
+      <stop offset="100%" stop-color="#6da88f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gf">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="600" height="240" fill="url(#bg)"/>
+  <rect width="600" height="240" fill="url(#glow)"/>
+
+  <!-- Floor line -->
+  <line x1="0" y1="198" x2="600" y2="198" stroke="#6da88f" stroke-width="0.5" opacity="0.14"/>
+
+  <!-- Background buildings (silhouettes) -->
+  <rect x="488" y="48" width="58" height="105" rx="3" fill="rgba(255,255,255,0.018)" stroke="rgba(255,255,255,0.055)" stroke-width="0.8"/>
+  <rect x="498" y="58" width="13" height="11" rx="1" fill="rgba(184,212,232,0.06)"/>
+  <rect x="518" y="58" width="13" height="11" rx="1" fill="rgba(184,212,232,0.055)"/>
+  <rect x="498" y="76" width="13" height="11" rx="1" fill="rgba(184,212,232,0.07)"/>
+  <rect x="518" y="76" width="13" height="11" rx="1" fill="rgba(184,212,232,0.055)"/>
+  <rect x="498" y="94" width="13" height="11" rx="1" fill="rgba(184,212,232,0.055)"/>
+  <rect x="518" y="94" width="13" height="11" rx="1" fill="rgba(184,212,232,0.065)"/>
+  <rect x="498" y="112" width="13" height="11" rx="1" fill="rgba(184,212,232,0.06)"/>
+  <rect x="518" y="112" width="13" height="11" rx="1" fill="rgba(184,212,232,0.055)"/>
+
+  <rect x="55" y="58" width="52" height="92" rx="3" fill="rgba(255,255,255,0.016)" stroke="rgba(255,255,255,0.048)" stroke-width="0.8"/>
+  <rect x="64" y="68" width="13" height="11" rx="1" fill="rgba(109,168,143,0.06)"/>
+  <rect x="82" y="68" width="13" height="11" rx="1" fill="rgba(109,168,143,0.07)"/>
+  <rect x="64" y="86" width="13" height="11" rx="1" fill="rgba(109,168,143,0.06)"/>
+  <rect x="82" y="86" width="13" height="11" rx="1" fill="rgba(109,168,143,0.055)"/>
+  <rect x="64" y="104" width="13" height="11" rx="1" fill="rgba(109,168,143,0.065)"/>
+  <rect x="82" y="104" width="13" height="11" rx="1" fill="rgba(109,168,143,0.06)"/>
+
+  <!-- Table (ellipse top) -->
+  <ellipse cx="300" cy="188" rx="178" ry="24" fill="rgba(255,255,255,0.028)" stroke="#6da88f" stroke-width="1" opacity="0.32"/>
+  <line x1="158" y1="194" x2="158" y2="218" stroke="#6da88f" stroke-width="1.5" opacity="0.18"/>
+  <line x1="442" y1="194" x2="442" y2="218" stroke="#6da88f" stroke-width="1.5" opacity="0.18"/>
+
+  <!-- Documents on table -->
+  <g transform="rotate(-9,238,178)">
+    <rect x="212" y="162" width="52" height="40" rx="2" fill="rgba(184,212,232,0.07)" stroke="#b8d4e8" stroke-width="0.8" opacity="0.48"/>
+    <line x1="220" y1="173" x2="256" y2="173" stroke="#b8d4e8" stroke-width="0.6" opacity="0.32"/>
+    <line x1="220" y1="180" x2="256" y2="180" stroke="#b8d4e8" stroke-width="0.6" opacity="0.26"/>
+    <line x1="220" y1="187" x2="248" y2="187" stroke="#b8d4e8" stroke-width="0.6" opacity="0.22"/>
+  </g>
+
+  <!-- Center chart document -->
+  <rect x="268" y="160" width="64" height="48" rx="2" fill="rgba(109,168,143,0.07)" stroke="#6da88f" stroke-width="0.8" opacity="0.48"/>
+  <rect x="276" y="172" width="8" height="22" rx="1" fill="#6da88f" opacity="0.24"/>
+  <rect x="288" y="178" width="8" height="16" rx="1" fill="#6da88f" opacity="0.2"/>
+  <rect x="300" y="170" width="8" height="24" rx="1" fill="#6da88f" opacity="0.28"/>
+  <rect x="312" y="175" width="8" height="19" rx="1" fill="#a88443" opacity="0.22"/>
+
+  <g transform="rotate(8,358,178)">
+    <rect x="334" y="164" width="48" height="38" rx="2" fill="rgba(168,132,67,0.06)" stroke="#a88443" stroke-width="0.8" opacity="0.42"/>
+    <line x1="342" y1="174" x2="375" y2="174" stroke="#a88443" stroke-width="0.6" opacity="0.28"/>
+    <line x1="342" y1="181" x2="375" y2="181" stroke="#a88443" stroke-width="0.6" opacity="0.22"/>
+    <line x1="342" y1="188" x2="366" y2="188" stroke="#a88443" stroke-width="0.6" opacity="0.18"/>
+  </g>
+
+  <!-- Left person (support/consultant) -->
+  <circle cx="172" cy="136" r="15" fill="none" stroke="#6da88f" stroke-width="2" opacity="0.72"/>
+  <circle cx="172" cy="136" r="5.5" fill="#6da88f" opacity="0.38"/>
+  <line x1="172" y1="151" x2="172" y2="190" stroke="#6da88f" stroke-width="2.8" stroke-linecap="round" opacity="0.65"/>
+  <path d="M172 165 C156 157 144 162 136 168" stroke="#6da88f" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.62"/>
+  <path d="M172 165 C188 157 202 162 212 170" stroke="#6da88f" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.62"/>
+  <path d="M172 190 L161 218" stroke="#6da88f" stroke-width="2" stroke-linecap="round" opacity="0.48"/>
+  <path d="M172 190 L181 218" stroke="#6da88f" stroke-width="2" stroke-linecap="round" opacity="0.48"/>
+
+  <!-- Right person (client/担当者) -->
+  <circle cx="428" cy="136" r="15" fill="none" stroke="#b8d4e8" stroke-width="2" opacity="0.68"/>
+  <circle cx="428" cy="136" r="5.5" fill="#b8d4e8" opacity="0.32"/>
+  <line x1="428" y1="151" x2="428" y2="190" stroke="#b8d4e8" stroke-width="2.8" stroke-linecap="round" opacity="0.62"/>
+  <path d="M428 165 C412 157 398 162 388 168" stroke="#b8d4e8" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.58"/>
+  <path d="M428 165 C444 157 460 162 468 170" stroke="#b8d4e8" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.58"/>
+  <path d="M428 190 L417 218" stroke="#b8d4e8" stroke-width="2" stroke-linecap="round" opacity="0.44"/>
+  <path d="M428 190 L437 218" stroke="#b8d4e8" stroke-width="2" stroke-linecap="round" opacity="0.44"/>
+
+  <!-- Connection arc (dialogue) -->
+  <path d="M188 148 Q300 128 412 148" stroke="#6da88f" stroke-width="1" stroke-dasharray="4,4" fill="none" opacity="0.28"/>
+  <circle cx="248" cy="134" r="3" fill="#6da88f" opacity="0.38" filter="url(#gf)"/>
+  <circle cx="300" cy="126" r="3.5" fill="#6da88f" opacity="0.42" filter="url(#gf)"/>
+  <circle cx="352" cy="132" r="3" fill="#6da88f" opacity="0.38" filter="url(#gf)"/>
+
+  <!-- Label tag -->
+  <rect x="20" y="14" width="36" height="18" rx="4" fill="rgba(109,168,143,0.14)" stroke="#6da88f" stroke-width="0.8" opacity="0.58"/>
+  <text x="38" y="27" font-size="9" font-family="Arial,sans-serif" fill="#6da88f" opacity="0.78" text-anchor="middle">B2B</text>
+</svg>
