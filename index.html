@@ -1,1705 +1,959 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FiTNESS UNIVERSITY | 健康を、文化として定着させる</title>
-  <meta name="description" content="健康産業の課題に正直に向き合いながら、企業・地域の現場で機能するヘルスケアを実装し、文化として定着させる組織です。" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="FiTNESS UNIVERSITY | 健康を、文化として定着させる" />
-  <meta property="og:description" content="健康産業の課題に正直に向き合いながら、企業・地域の現場で機能するヘルスケアを実装し、文化として定着させる組織です。" />
-  <meta property="og:image" content="https://node4869.github.io/fitness_university/fu.icon.png" />
-  <meta property="og:url" content="https://node4869.github.io/fitness_university/" />
-  <meta property="og:site_name" content="FiTNESS UNIVERSITY" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="FiTNESS UNIVERSITY | 健康を、文化として定着させる" />
-  <meta name="twitter:description" content="健康産業の課題に正直に向き合いながら、企業・地域の現場で機能するヘルスケアを実装し、文化として定着させる組織です。" />
-  <meta name="twitter:image" content="https://node4869.github.io/fitness_university/fu.icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;800&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --navy: #16233e;
-      --navy-soft: #243453;
-      --blue: #3e6ea8;
-      --blue-soft: #eef4fa;
-      --gold: #a88443;
-      --bg: #f7f9fc;
-      --panel: #ffffff;
-      --line: #dbe3ee;
-      --text: #1f2a3d;
-      --sub: #5f6c81;
-      --muted: #8c97a8;
-      --white: #ffffff;
-      --radius-sm: 12px;
-      --radius: 16px;
-      --radius-lg: 22px;
-      --shadow: 0 4px 20px rgba(22,35,62,.07);
-      --en: 'Montserrat', sans-serif;
-      --ja: 'Noto Sans JP', sans-serif;
-      --max: 1160px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FiTNESS UNIVERSITY｜健康経営を、行動変容まで実装する。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;color:#1a1a1a;background:#fff;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body {
-      font-family: var(--ja);
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.85;
-      letter-spacing: 0.025em;
-      overflow-x: hidden;
-      font-size: 16px;
-    }
-    a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
-    ul { list-style: none; }
+:root{
+  --sky:#0a8fc4;
+  --sky-d:#0779a8;
+  --sky-pale:#edf8fd;
+  --navy:#0d2e3a;
+  --cream:#f5f3ef;
+  --cream-d:#edeae4;
+  --text:#1a1a1a;
+  --text-mid:#5a6a72;
+  --text-muted:#96a8b0;
+  --border:#e2ddd6;
+  --r-sm:8px;
+  --r-md:16px;
+  --r-lg:24px;
+  --r-xl:32px;
+}
 
-    /* SVG Utilities */
-    .icon {
-      width: 24px; height: 24px;
-      stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none;
-      display: inline-block; vertical-align: middle;
-    }
-    .icon-lg { width: 36px; height: 36px; stroke-width: 1.5; }
+/* ── Fade-in ── */
+.fi{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease;}
+.fi.vis{opacity:1;transform:translateY(0);}
+.fi-d1{transition-delay:.1s;}
+.fi-d2{transition-delay:.2s;}
+.fi-d3{transition-delay:.3s;}
+.fi-d4{transition-delay:.4s;}
 
-    .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
-    .section { padding: 56px 0; }
+/* ══ HEADER ══ */
+.hd{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.hd-i{
+  max-width:1140px;margin:0 auto;padding:0 40px;
+  height:68px;display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  font-family:'Montserrat',sans-serif;
+  font-weight:800;font-size:17px;letter-spacing:.05em;color:var(--sky);
+}
+.logo b{color:var(--navy);}
+.hd-nav{display:flex;gap:6px;}
+.hd-nav a{
+  font-size:13px;color:var(--text-mid);
+  padding:7px 16px;border-radius:20px;
+  transition:background .2s,color .2s;
+}
+.hd-nav a:hover{background:var(--cream);color:var(--navy);}
+.hd-btn{
+  background:var(--sky);color:#fff;border:none;
+  border-radius:24px;padding:10px 24px;
+  font-size:13px;font-weight:500;font-family:'Noto Sans JP',sans-serif;
+  cursor:pointer;transition:background .2s;
+  display:flex;align-items:center;gap:6px;
+}
+.hd-btn:hover{background:var(--sky-d);}
 
-    h1,h2,h3 { font-weight: 800; color: var(--navy); line-height: 1.35; letter-spacing: -0.02em; }
-    h1 { font-size: clamp(26px, 7.5vw, 58px); word-break: auto-phrase; }
-    h2 { font-size: clamp(22px, 5.8vw, 40px); word-break: auto-phrase; }
-    h3 { font-size: clamp(16px, 4.2vw, 19px); }
+/* ══ HERO ══ */
+.hero{
+  position:relative;height:100vh;min-height:640px;
+  overflow:hidden;background:#c8e8f5;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('fuhp_topv.png');
+  background-size:cover;background-position:center right;
+  background-repeat:no-repeat;
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(255,255,255,.82) 0%,rgba(255,255,255,.55) 40%,rgba(255,255,255,.1) 75%,rgba(255,255,255,0) 100%);
+}
+.hero-pattern{ display:none; }
+.hero-accent{ display:none; }
+.hero-accent2{ display:none; }
+.hero-inner{
+  position:relative;z-index:2;
+  height:100%;max-width:1140px;margin:0 auto;padding:0 40px;
+  display:flex;align-items:flex-end;padding-bottom:80px;
+}
+.hero-content{max-width:680px;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(10,143,196,.12);
+  border:1px solid rgba(10,143,196,.35);
+  border-radius:20px;padding:6px 16px;
+  font-family:'Montserrat',sans-serif;
+  font-size:10px;font-weight:600;letter-spacing:.22em;
+  color:var(--sky);margin-bottom:24px;text-transform:uppercase;
+}
+.hero-badge-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--sky);animation:blink 2s infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.2;}}
+.hero-catch{
+  display:inline;
+  background:rgba(13,30,40,.75);
+  padding:2px 0;
+  box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+}
+.hero h1{
+  font-size:52px;font-weight:700;
+  line-height:1.45;margin-bottom:20px;
+  color:var(--navy);letter-spacing:-.01em;
+}
+.hero h1 em{color:var(--sky);font-style:normal;}
+.hero-sub{
+  font-size:15px;line-height:2;
+  color:#4a6570;
+  margin-bottom:36px;
+}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-hero-main{
+  background:var(--sky);color:#fff;border:none;
+  border-radius:30px;padding:15px 32px;
+  font-size:15px;font-weight:500;font-family:'Noto Sans JP',sans-serif;
+  cursor:pointer;transition:background .2s,transform .15s;
+  display:flex;align-items:center;gap:10px;
+}
+.btn-hero-main:hover{background:var(--sky-d);transform:translateY(-2px);}
+.btn-hero-sub{
+  background:transparent;color:var(--navy);
+  border:1px solid rgba(13,46,58,.25);
+  border-radius:30px;padding:14px 28px;
+  font-size:14px;font-family:'Noto Sans JP',sans-serif;
+  cursor:pointer;transition:background .2s,border-color .2s;
+}
+.btn-hero-sub:hover{background:rgba(13,46,58,.06);border-color:rgba(13,46,58,.4);}
+.hero-scroll{
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.2em;
+  color:rgba(13,46,58,.35);
+}
+.hero-scroll-line{
+  width:1px;height:40px;background:rgba(13,46,58,.2);
+  animation:scrollline 1.8s ease-in-out infinite;
+}
+@keyframes scrollline{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
 
-    .label-en {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--en); font-size: 14px; font-weight: 700;
-      color: var(--blue); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px;
-    }
-    .label-en::before { content: ""; width: 16px; height: 1.5px; background: var(--blue); flex-shrink: 0; }
-
-    .tag {
-      display: inline-block; font-family: var(--en); font-size: 12px; font-weight: 700;
-      letter-spacing: .12em; text-transform: uppercase;
-      padding: 4px 10px; border-radius: 999px;
-      border: 1px solid rgba(168,132,67,.35); color: var(--gold); margin-bottom: 10px;
-    }
-
-    .section-head { margin-bottom: 28px; }
-    .section-lead { color: var(--sub); font-size: clamp(15px, 3.8vw, 18px); margin-top: 12px; line-height: 1.9; }
-
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      min-height: 48px; padding: 0 24px; border-radius: 999px;
-      font-family: var(--ja); font-size: 16px; font-weight: 700;
-      border: 1.5px solid transparent; transition: all .22s ease;
-      cursor: pointer; white-space: nowrap; -webkit-tap-highlight-color: transparent;
-    }
-    .btn:active { transform: scale(.97); }
-    .btn-dark { background: var(--navy); color: var(--white); border-color: var(--navy); }
-    .btn-dark:hover { background: var(--navy-soft); }
-    .btn-ghost { background: transparent; color: var(--navy); border-color: var(--line); }
-    .btn-ghost:hover { background: var(--bg); }
-    .btn-white { background: var(--white); color: var(--navy); border-color: var(--white); }
-    .btn-white:hover { background: #eef4fa; }
-    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,.35); }
-    .btn-outline-white:hover { background: rgba(255,255,255,.08); }
-
-    /* HEADER */
-    header {
-      position: sticky; top: 0; z-index: 100;
-      backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%);
-      background: rgba(255,255,255,.88); border-bottom: 1px solid rgba(219,227,238,.7);
-    }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 56px; gap: 12px; }
-    .logo { font-family: var(--en); font-size: 13px; font-weight: 800; color: var(--navy); letter-spacing: .06em; flex-shrink: 0; }
-    .desktop-nav, .header-cta { display: none; }
-
-    .hamburger {
-      display: flex; flex-direction: column; justify-content: center; gap: 5px;
-      width: 44px; height: 44px; background: none; border: none;
-      cursor: pointer; padding: 8px; border-radius: 8px; flex-shrink: 0; -webkit-tap-highlight-color: transparent;
-    }
-    .hamburger span { display: block; height: 2px; width: 100%; background: var(--navy); border-radius: 2px; transition: all .28s cubic-bezier(.4,0,.2,1); transform-origin: center; }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    .mobile-menu {
-      position: fixed; top: 56px; left: 0; right: 0; bottom: 0;
-      background: var(--white); transform: translateX(100%);
-      transition: transform .32s cubic-bezier(.4,0,.2,1); z-index: 90; overflow-y: auto; display: flex; flex-direction: column;
-    }
-    .mobile-menu.active { transform: translateX(0); }
-    .mobile-menu nav { padding: 8px 0; flex: 1; }
-    .mobile-menu nav a { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; font-size: 15px; font-weight: 700; color: var(--text); border-bottom: 1px solid var(--line); }
-    .mobile-menu nav a::after { content: "→"; font-size: 13px; color: var(--muted); }
-    .mobile-menu-footer { padding: 20px; border-top: 1px solid var(--line); background: var(--bg); display: flex; flex-direction: column; gap: 10px; }
-    .mobile-menu-footer .btn { width: 100%; }
-
-    /* HERO */
-    .hero {
-      padding: 36px 0 48px;
-      background: linear-gradient(170deg, #f4f8fe 0%, var(--white) 65%);
-      position: relative; overflow: hidden;
-    }
-    .hero::after {
-      content: ""; position: absolute; top: -100px; right: -60px;
-      width: 320px; height: 320px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(62,110,168,.07) 0%, transparent 70%); pointer-events: none;
-    }
-    .hero-label { font-family: var(--en); font-size: 10px; font-weight: 700; color: var(--blue); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 8px; }
-
-    .hero-honest {
-      margin-top: 20px; padding: 16px;
-      background: rgba(62,110,168,.05); border-left: 2.5px solid var(--blue);
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      font-size: 14px; color: var(--sub); line-height: 1.85;
-    }
-    .hero-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
-    .hero-actions .btn { width: 100%; }
-
-    /* スマホでは1カラム縦並びに変更 */
-    .hero-status { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 24px; }
-    .status-item { 
-      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm); 
-      padding: 16px; display: flex; align-items: center; gap: 16px;
-    }
-    .status-icon-wrap {
-      width: 44px; height: 44px; border-radius: 50%; background: var(--blue-soft); color: var(--blue);
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
-    .status-text { display: flex; flex-direction: column; }
-    .status-item .s-num { font-family: var(--en); font-size: 16px; font-weight: 800; color: var(--navy); line-height: 1.2; }
-    .status-item .s-label { font-size: 14px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
-
-    .hero-card { margin-top: 28px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px 20px; box-shadow: var(--shadow); }
-    .hero-visual { margin-top: 32px; border-radius: var(--radius-lg); overflow: hidden; background: #0d1b2e; }
-    .hero-visual img { width: 100%; height: auto; display: block; }
-    .hero-card-title { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 20px; line-height: 1.5; }
-    .step-list { display: grid; gap: 0; }
-    .step-row { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; padding: 16px 0; border-bottom: 1px solid var(--line); }
-    .step-row:first-child { padding-top: 0; }
-    .step-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .step-num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-family: var(--en); font-size: 14px; font-weight: 800; color: var(--blue); background: var(--blue-soft); border: 1px solid rgba(62,110,168,.2); flex-shrink: 0; }
-    .step-row strong { display: block; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
-    .step-row p { font-size: 13px; color: var(--sub); line-height: 1.75; }
-
-    /* HONEST SECTION */
-    .honest-section { background: #0d1b2e; color: var(--white); }
-    .honest-section .label-en { color: rgba(255,255,255,.6); }
-    .honest-section .label-en::before { background: rgba(255,255,255,.4); }
-    .honest-section h2 { color: var(--white); }
-    .honest-section .section-lead { color: rgba(255,255,255,.75); }
-
-    /* スマホでは1カラム縦並びに変更 */
-    .compare-grid { display: grid; gap: 16px; margin-top: 32px; grid-template-columns: 1fr; }
-    .compare-item { border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(255,255,255,.1); display: grid; grid-template-columns: 1fr; }
-    .compare-col { padding: 20px; }
-    .compare-col.before { background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.08); }
-    .compare-col.after { background: rgba(62,110,168,.18); }
-    
-    .compare-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
-    .compare-header .icon { width: 20px; height: 20px; flex-shrink: 0; }
-    .compare-col.before .icon { color: #f87171; } /* 赤色系のバツ */
-    .compare-col.after .icon { color: #4ade80; } /* 緑色系のチェック */
-
-    .compare-col-label { font-family: var(--ja); font-size: 15px; font-weight: 700; display: block; }
-    .compare-col.before .compare-col-label { color: rgba(255,255,255,.6); }
-    .compare-col.after .compare-col-label { color: rgba(255,255,255,.95); }
-    .compare-col p { font-size: 14px; line-height: 1.75; }
-    .compare-col.before p { color: rgba(255,255,255,.5); }
-    .compare-col.after p { color: rgba(255,255,255,.9); }
-
-    /* WHAT WE DO */
-    .work-section { background: var(--bg); }
-    /* スマホでは1カラム縦並びに変更 */
-    .work-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
-    .work-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 0; overflow: hidden; }
-    .work-card-body { padding: 24px 20px; }
-    .work-card-media { height: 148px; overflow: hidden; background: #14213a; }
-    .work-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    
-    .work-icon { 
-      width: 48px; height: 48px; border-radius: 12px; background: var(--blue-soft); color: var(--blue);
-      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
-    }
-    
-    .work-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 12px; }
-    .work-card-title { display: flex; flex-direction: column; gap: 8px; }
-    .work-idx { font-family: var(--en); font-size: 18px; font-weight: 700; color: var(--muted); flex-shrink: 0; margin-top: 2px; }
-    .work-card p { font-size: 14px; color: var(--sub); line-height: 1.8; }
-    .work-points { margin-top: 16px; display: grid; gap: 0; }
-    .work-points li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 13px; color: var(--text); line-height: 1.65; display: flex; align-items: baseline; gap: 7px; }
-    .work-points li::before { content: "—"; color: var(--blue); font-weight: 700; flex-shrink: 0; }
-
-    /* CAROUSEL (実績例) */
-    .works-carousel-section { overflow: hidden; background: var(--white); }
-    .carousel-wrapper {
-      margin-top: 24px; width: 100vw; margin-left: calc(50% - 50vw); padding: 0 20px;
-    }
-    .carousel-track {
-      display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 24px;
-    }
-    .carousel-track::-webkit-scrollbar { display: none; }
-    .carousel-item {
-      scroll-snap-align: center; flex: 0 0 calc(85% - 16px); max-width: 360px;
-      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
-      overflow: hidden; position: relative;
-    }
-    .carousel-img {
-      aspect-ratio: 16 / 9; background: var(--bg); border-bottom: 1px solid var(--line);
-      display: flex; align-items: center; justify-content: center; color: var(--muted);
-    }
-    .carousel-content { padding: 20px; }
-    .carousel-content h3 { font-size: 16px; margin-bottom: 8px; }
-    .carousel-content p { font-size: 13px; color: var(--sub); line-height: 1.6; }
-    .coming-soon-badge {
-      position: absolute; top: 12px; left: 12px; background: var(--navy); color: var(--white);
-      font-family: var(--en); font-size: 10px; font-weight: 700; padding: 4px 10px;
-      border-radius: 999px; letter-spacing: .08em;
-    }
-    .carousel-img img { width: 100%; height: 100%; object-fit: contain; padding: 16px; }
-    .carousel-item a.carousel-link { display: block; color: inherit; }
-    .carousel-item a.carousel-link:hover .carousel-img { background: var(--blue-soft); }
-    .carousel-item a.carousel-link:hover .carousel-content h3 { color: var(--blue); }
-    .client-tag { display: inline-block; font-family: var(--en); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-
-    /* FIELD NOTES */
-    /* スマホでは1カラム縦並びに変更 */
-    .fieldnotes-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
-    .fieldnote { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 0; overflow: hidden; }
-    .fieldnote-body { padding: 24px 20px; }
-    .fieldnote-media { height: 170px; overflow: hidden; background: #0d1b2e; }
-    .fieldnote-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .fieldnote-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
-    .fieldnote h3 { font-size: 16px; }
-    .fieldnote-area { font-family: var(--en); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; white-space: nowrap; flex-shrink: 0; }
-    .fieldnote p { font-size: 14px; color: var(--sub); line-height: 1.8; }
-    .fieldnote-takeaway { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--navy); font-weight: 500; line-height: 1.7; display: flex; gap: 8px; align-items: flex-start; }
-    .fieldnote-takeaway .icon { color: var(--blue); flex-shrink: 0; margin-top: 2px; width: 18px; height: 18px; }
-
-    /* FUTURE */
-    .future-section { background: linear-gradient(170deg, #f2f7ff 0%, var(--bg) 100%); position: relative; overflow: hidden; }
-    .future-section::before { content: ""; position: absolute; bottom: -80px; right: -60px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(62,110,168,.08) 0%, transparent 70%); pointer-events: none; }
-    .future-intro { font-size: clamp(15px, 4vw, 16px); color: var(--sub); line-height: 2; margin-top: 16px; }
-    .future-intro strong { color: var(--navy); font-weight: 700; }
-    .future-points { display: grid; gap: 12px; margin-top: 28px; grid-template-columns: 1fr; }
-    .future-point { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 16px; display: grid; grid-template-columns: 36px 1fr; gap: 16px; align-items: start; }
-    .future-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--blue-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .future-point h3 { font-size: 15px; margin-bottom: 6px; }
-    .future-point p { font-size: 13px; color: var(--sub); line-height: 1.75; }
-
-    /* FOR WHO */
-    .partner-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
-    .partner-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 20px; }
-    
-    .partner-icon {
-      width: 48px; height: 48px; border-radius: 50%; background: var(--bg); border: 1px solid var(--line); color: var(--navy);
-      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
-    }
-
-    .partner-card h3 { font-size: 16px; margin-bottom: 10px; }
-    .partner-card p { font-size: 14px; color: var(--sub); line-height: 1.8; }
-    .partner-card ul { margin-top: 16px; display: grid; gap: 0; }
-    .partner-card li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 13px; color: var(--text); line-height: 1.65; display: flex; align-items: baseline; gap: 8px; }
-    .partner-card li .icon { color: var(--blue); width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
-
-    /* CONTACT FORM */
-    .contact-section { background: var(--bg); }
-    .contact-header { text-align: center; max-width: 720px; margin: 0 auto 32px; }
-    .contact-header .label-en { justify-content: center; }
-    .form-container { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 32px 20px; box-shadow: var(--shadow); max-width: 800px; margin: 0 auto; }
-    .form-group { margin-bottom: 24px; display: flex; flex-direction: column; gap: 8px; }
-    .form-label { font-size: 14px; font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 8px; }
-    .required-tag { background: var(--blue); color: var(--white); font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: 700; letter-spacing: 0.05em; line-height: 1; }
-    .optional-tag { background: #e2e8f0; color: var(--sub); font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: 700; letter-spacing: 0.05em; line-height: 1; }
-    .form-control { width: 100%; padding: 14px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: var(--ja); font-size: 16px; color: var(--text); background: #f8fafc; transition: all 0.2s ease; }
-    .form-control::placeholder { color: #94a3b8; }
-    .form-control:focus { outline: none; border-color: var(--blue); background: var(--white); box-shadow: 0 0 0 3px rgba(62,110,168,0.15); }
-    textarea.form-control { min-height: 160px; resize: vertical; }
-    .form-submit { margin-top: 32px; text-align: center; border-top: 1px solid var(--line); padding-top: 32px; }
-    .form-submit .btn { width: 100%; max-width: 320px; min-height: 56px; font-size: 16px; border: none; }
-    .mail-note { font-size: 12px; color: var(--muted); margin-top: 14px; }
-
-    /* FOOTER */
-    footer { padding: 32px 0 calc(32px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
-    .footer-inner { display: flex; flex-direction: column; gap: 8px; }
-    .footer-logo { font-family: var(--en); font-size: 16px; font-weight: 800; color: var(--navy); letter-spacing: .06em; }
-    .footer-copy { font-size: 13px; color: var(--muted); }
-
-    /* STICKY CTA */
-    .sticky-cta {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 80;
-      padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
-      background: rgba(255,255,255,.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid var(--line); transition: transform .3s ease;
-    }
-    .sticky-cta .btn { width: 100%; }
-
-    /* Animations */
-    @media (prefers-reduced-motion: no-preference) {
-      .fade-in { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
-      .fade-in.visible { opacity: 1; transform: translateY(0); }
-    }
-
-    /* TABLET ≥ 600px */
-    @media (min-width: 600px) {
-      .container { padding: 0 32px; }
-      .section { padding: 72px 0; }
-      .hero { padding: 52px 0 60px; }
-      .hero-actions { flex-direction: row; gap: 12px; }
-      .hero-actions .btn { width: auto; }
-      
-      /* タブレット以上でカラムを横並びに */
-      .hero-status { grid-template-columns: repeat(3, 1fr); }
-      .status-item { flex-direction: column; align-items: center; text-align: center; gap: 12px; padding: 20px 16px; }
-      
-      .compare-item { grid-template-columns: 1fr 1fr; }
-      .compare-col.before { border-bottom: none; border-right: 1px solid rgba(255,255,255,.08); }
-
-      .work-grid, .fieldnotes-grid, .partner-grid, .future-points { grid-template-columns: repeat(2, 1fr); }
-      
-      .carousel-wrapper { width: 100%; margin-left: 0; padding: 0; }
-      .carousel-track { padding-bottom: 12px; }
-      .carousel-item { flex: 0 0 calc(50% - 8px); scroll-snap-align: start; max-width: none; }
-      
-      .contact-header { margin-bottom: 48px; }
-      .form-container { padding: 48px 56px; }
-      .form-group { flex-direction: row; align-items: flex-start; gap: 32px; }
-      .form-label { width: 200px; flex-shrink: 0; margin-top: 14px; }
-      .form-control { flex: 1; }
-    }
-
-    /* DESKTOP ≥ 981px */
-    @media (min-width: 981px) {
-      .hamburger { display: none; }
-      .mobile-menu { display: none; }
-      .sticky-cta { display: none; }
-      .desktop-nav { display: block; }
-      .header-cta { display: inline-flex; }
-      .header-inner { min-height: 68px; }
-      .logo { font-size: 15px; }
-      .desktop-nav ul { display: flex; gap: 26px; list-style: none; font-size: 13px; font-weight: 500; color: var(--sub); }
-      .desktop-nav ul a:hover { color: var(--navy); }
-      .container { padding: 0 32px; }
-      .section { padding: 96px 0; }
-      .hero { padding: 80px 0 88px; }
-      .hero-grid { display: block; }
-      .hero-card { margin-top: 0; }
-      .hero-actions { flex-direction: row; gap: 12px; }
-      .hero-actions .btn { width: auto; }
-      .compare-grid { grid-template-columns: 1fr; }
-      .work-grid { grid-template-columns: repeat(2, 1fr); }
-      .carousel-item { flex: 0 0 calc(25% - 12px); }
-      .contact-box { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; padding: 48px 48px; }
-      .contact-actions { flex-direction: column; margin-top: 0; min-width: 200px; }
-      .contact-actions .btn { width: 100%; }
-      .future-points { grid-template-columns: repeat(3, 1fr); }
-      .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; }
-    }
-
-    @media (max-width: 980px) { body { padding-bottom: 76px; } }
-
-    /* PROGRAMS SECTION */
-    .programs-section { background: var(--bg); }
-    .programs-accordion {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin-top: 48px;
-    }
-    .accordion-item { border-bottom: 1px solid var(--line); }
-    .accordion-item:last-child { border-bottom: none; }
-    .accordion-header {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 22px 24px;
-      background: var(--panel);
-      cursor: pointer;
-      border: none;
-      text-align: left;
-      gap: 16px;
-      transition: background .2s;
-    }
-    .accordion-header:hover { background: var(--blue-soft); }
-    .accordion-header[aria-expanded="true"] { background: var(--blue-soft); }
-    .accordion-label {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: clamp(14px, 3.5vw, 17px);
-      font-weight: 700;
-      color: var(--navy);
-    }
-    .acc-num {
-      font-family: var(--en);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--blue);
-      background: var(--blue-soft);
-      border: 1px solid var(--blue);
-      padding: 2px 8px;
-      border-radius: 4px;
-      letter-spacing: .1em;
-      flex-shrink: 0;
-    }
-    .acc-arrow {
-      flex-shrink: 0;
-      color: var(--sub);
-      transition: transform .3s;
-      width: 20px; height: 20px;
-      stroke: currentColor; fill: none; stroke-width: 2;
-      stroke-linecap: round; stroke-linejoin: round;
-    }
-    .accordion-header[aria-expanded="true"] .acc-arrow { transform: rotate(180deg); }
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .45s ease;
-      background: var(--bg);
-    }
-    .acc-desc {
-      font-size: 13px;
-      color: var(--sub);
-      padding: 0 24px 16px;
-    }
-
-    /* PROGRAM CAROUSEL */
-    .program-carousel { padding: 8px 24px 28px; }
-    .carousel-viewport {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-sm);
-      background: var(--panel);
-      border: 1px solid var(--line);
-    }
-    .p-carousel-track {
-      display: flex;
-      transition: transform .35s ease;
-    }
-    .p-carousel-slide {
-      min-width: 100%;
-      flex: 0 0 100%;
-    }
-    .p-carousel-slide img {
-      width: 100%;
-      height: auto;
-      max-height: 540px;
-      object-fit: contain;
-      display: block;
-      background: #fff;
-    }
-    .p-carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 38px; height: 38px;
-      background: rgba(255,255,255,.92);
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 8px rgba(22,35,62,.12);
-      z-index: 2;
-      transition: background .2s;
-    }
-    .p-carousel-btn:hover { background: var(--navy); color: var(--white); }
-    .p-carousel-btn svg {
-      width: 16px; height: 16px;
-      stroke: currentColor; fill: none;
-      stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
-    }
-    .p-carousel-prev { left: 10px; }
-    .p-carousel-next { right: 10px; }
-    .p-carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 14px;
-    }
-    .p-carousel-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--line);
-      cursor: pointer;
-      border: none;
-      transition: background .2s, transform .2s;
-      padding: 0;
-    }
-    .p-carousel-dot.active {
-      background: var(--blue);
-      transform: scale(1.35);
-    }
-    .p-counter {
-      position: absolute;
-      bottom: 10px; right: 14px;
-      font-size: 11px;
-      font-family: var(--en);
-      color: var(--sub);
-      background: rgba(255,255,255,.85);
-      padding: 2px 8px;
-      border-radius: 20px;
-    }
-
-    /* CEO MESSAGE */
-    .ceo-section { background: var(--white); }
-    .ceo-message-wrap {
-      max-width: 780px;
-      margin: 0 auto;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 40px 28px;
-      box-shadow: var(--shadow);
-    }
-    .ceo-intro { margin-bottom: 32px; }
-    .ceo-name-block { font-size: 15px; color: var(--navy); line-height: 1.8; }
-    .ceo-block { margin-bottom: 8px; }
-    .ceo-block p { font-size: 15px; color: var(--sub); line-height: 2; margin-bottom: 12px; }
-    .ceo-block p:last-child { margin-bottom: 0; }
-    .ceo-block-title {
-      font-size: clamp(15px, 3.8vw, 17px);
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 16px;
-      padding-left: 12px;
-      border-left: 3px solid var(--blue);
-    }
-    .ceo-list {
-      margin: 16px 0 16px 4px;
-      display: grid;
-      gap: 8px;
-    }
-    .ceo-list li {
-      font-size: 14px;
-      color: var(--text);
-      padding: 8px 12px;
-      background: var(--blue-soft);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .ceo-list li::before { content: "—"; color: var(--blue); font-weight: 700; flex-shrink: 0; }
-    .ceo-divider {
-      height: 1px;
-      background: var(--line);
-      margin: 28px 0;
-    }
-    .ceo-closing p { font-size: 15px; color: var(--sub); line-height: 2; margin-bottom: 12px; }
-    .ceo-sign {
-      margin-top: 28px;
-      font-size: 15px;
-      color: var(--navy);
-      line-height: 1.8;
-      text-align: right;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-    }
-
-    @media (min-width: 600px) {
-      .ceo-message-wrap { padding: 52px 56px; }
-    }
+/* ══ NUMBERS ══ */
 
 
-    /* ===== Calm Theme Park Upgrade ===== */
-    :root {
-      --mint: #dff3ec;
-      --mint-deep: #6da88f;
-      --cream: #fffaf0;
-      --peach: #fff1e5;
-      --sky: #eaf6ff;
-      --ink-soft: #2d3852;
-      --shadow-lg: 0 24px 70px rgba(22,35,62,.12);
-      --shadow-soft: 0 14px 38px rgba(22,35,62,.08);
-    }
-    body {
-      background:
-        radial-gradient(circle at 8% 4%, rgba(223,243,236,.72), transparent 32vw),
-        radial-gradient(circle at 92% 10%, rgba(255,241,229,.8), transparent 30vw),
-        linear-gradient(180deg, #fbfdff 0%, #ffffff 38%, #f7f9fc 100%);
-    }
-    .section { position: relative; }
-    .section::before {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
-      background-image: radial-gradient(rgba(62,110,168,.10) 1px, transparent 1px);
-      background-size: 28px 28px; opacity: .18;
-      mask-image: linear-gradient(180deg, transparent, #000 14%, #000 84%, transparent);
-    }
-    .container { position: relative; z-index: 1; }
-    .btn { box-shadow: 0 10px 24px rgba(22,35,62,.08); }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 16px 30px rgba(22,35,62,.12); }
-    .btn:active { transform: translateY(0) scale(.98); }
-    .btn-dark { background: linear-gradient(135deg, var(--navy) 0%, #25496e 100%); }
-    .btn-ghost { background: rgba(255,255,255,.75); backdrop-filter: blur(10px); }
-    .label-en { font-size: 13px; color: var(--mint-deep); }
-    .label-en::before { background: linear-gradient(90deg, var(--mint-deep), var(--gold)); width: 24px; }
 
-    .hero {
-      min-height: calc(100vh - 68px);
-      display: flex; align-items: center;
-      padding: 64px 0 72px;
-      background:
-        radial-gradient(circle at 18% 18%, rgba(223,243,236,.85), transparent 30%),
-        radial-gradient(circle at 84% 20%, rgba(255,241,229,.88), transparent 28%),
-        linear-gradient(145deg, #fbfdff 0%, #eef7f3 48%, #f9fbff 100%);
-    }
-    .hero::before {
-      content:""; position:absolute; inset:auto -15% -38% -15%; height: 52%;
-      background: radial-gradient(ellipse at center, rgba(62,110,168,.10), transparent 64%);
-      pointer-events:none;
-    }
-    .hero::after {
-      width: 480px; height: 480px; right: -140px; top: -120px;
-      background: radial-gradient(circle, rgba(168,132,67,.14), transparent 68%);
-      animation: floatOrb 8s ease-in-out infinite;
-    }
-    .hero-label {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 8px 13px; border: 1px solid rgba(109,168,143,.32);
-      border-radius: 999px; background: rgba(255,255,255,.7);
-      box-shadow: 0 10px 28px rgba(22,35,62,.06);
-      font-size: 11px; color: var(--mint-deep); margin-bottom: 18px;
-    }
-    .hero-label::before { content:""; width: 8px; height: 8px; border-radius: 50%; background: var(--mint-deep); box-shadow: 0 0 0 6px rgba(109,168,143,.12); }
-    .hero h1 { font-size: clamp(34px, 6.8vw, 68px); line-height: 1.18; letter-spacing: -.045em; }
-    .hero h1 .soft-marker {
-      background: linear-gradient(transparent 62%, rgba(223,243,236,.9) 0);
-      padding: 0 .06em;
-    }
-    .hero-subcopy {
-      margin-top: 22px; color: var(--ink-soft); font-size: clamp(17px, 2.5vw, 22px); line-height: 1.9; font-weight: 700;
-      max-width: 660px;
-    }
-    .hero-honest {
-      margin-top: 20px; padding: 20px 22px;
-      background: rgba(255,255,255,.76); border: 1px solid rgba(219,227,238,.88); border-left: 0;
-      border-radius: 20px; font-size: clamp(15px, 2vw, 17px); color: var(--sub); box-shadow: var(--shadow-soft);
-      position: relative; overflow: hidden;
-    }
-    .hero-honest::before { content:""; position:absolute; left:0; top:0; bottom:0; width: 5px; background: linear-gradient(180deg, var(--mint-deep), var(--gold)); }
-    .hero-actions { margin-top: 28px; }
-    .hero-status { gap: 14px; }
-    .status-item {
-      border: 1px solid rgba(219,227,238,.85); background: rgba(255,255,255,.78); backdrop-filter: blur(10px);
-      box-shadow: 0 14px 35px rgba(22,35,62,.07); transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .status-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-    .status-icon-wrap { background: linear-gradient(135deg, var(--mint), var(--sky)); color: var(--navy); }
-    .hero-card {
-      background: rgba(255,255,255,.82); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.86);
-      box-shadow: var(--shadow-lg); padding: 28px; position: relative; overflow: hidden;
-    }
-    .hero-card::before {
-      content:"Health Route"; position:absolute; top: 18px; right: 18px; font-family: var(--en); font-size: 10px;
-      letter-spacing: .16em; color: rgba(95,108,129,.45); font-weight: 800; text-transform: uppercase;
-    }
-    .hero-card-title { font-size: 20px; }
-    .step-row { grid-template-columns: 42px 1fr; gap: 14px; }
-    .step-num { width: 42px; height: 42px; background: linear-gradient(135deg, var(--navy), #426d8c); color: #fff; box-shadow: 0 10px 20px rgba(22,35,62,.14); }
-    .step-row strong { font-size: 16px; }
-    .step-row p { font-size: 14px; }
-    .floating-ticket {
-      display: grid; gap: 10px; margin-top: 18px;
-      padding: 16px; border-radius: 18px; background: linear-gradient(135deg, var(--cream), #ffffff);
-      border: 1px dashed rgba(168,132,67,.45); color: var(--navy);
-    }
-    .floating-ticket span { font-size: 12px; font-family: var(--en); letter-spacing: .14em; font-weight: 800; color: var(--gold); text-transform: uppercase; }
-    .floating-ticket strong { font-size: 15px; line-height: 1.7; }
 
-    .relief-section { background: linear-gradient(180deg, #ffffff 0%, #f4fbf8 100%); overflow: hidden; }
-    .relief-grid { display: grid; gap: 18px; margin-top: 34px; }
-    .relief-card {
-      background: rgba(255,255,255,.86); border: 1px solid rgba(219,227,238,.88); border-radius: 24px;
-      padding: 24px; box-shadow: var(--shadow-soft); position: relative; overflow: hidden;
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .relief-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-    .relief-card::after { content:""; position:absolute; right:-42px; bottom:-42px; width:120px; height:120px; border-radius:50%; background: rgba(223,243,236,.6); }
-    .relief-kicker { font-family: var(--en); color: var(--gold); font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
-    .relief-card h3 { font-size: clamp(18px, 3.8vw, 22px); margin-bottom: 10px; }
-    .relief-card p { color: var(--sub); font-size: 15px; line-height: 1.9; position: relative; z-index: 1; }
-    .journey-line { margin-top: 38px; padding: 20px; border-radius: 26px; background: var(--navy); color: #fff; box-shadow: var(--shadow-lg); overflow: hidden; }
-    .journey-title { font-weight: 800; font-size: 18px; margin-bottom: 18px; }
-    .journey-steps { display: grid; gap: 12px; }
-    .journey-step { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; padding: 16px; border-radius: 18px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); }
-    .journey-dot { width:46px; height:46px; border-radius: 16px; display:grid; place-items:center; background: rgba(255,255,255,.14); font-family: var(--en); font-weight:800; color:#fff; }
-    .journey-step strong { display:block; font-size: 16px; margin-bottom: 4px; }
-    .journey-step p { color: rgba(255,255,255,.75); font-size: 14px; line-height: 1.7; }
 
-    .honest-section {
-      background: linear-gradient(135deg, #0d1b2e 0%, #162b3e 55%, #1a3640 100%);
-      position: relative; overflow: hidden;
-    }
-    .honest-section::before {
-      content: "";
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 70% 55% at 15% 10%, rgba(109,168,143,.18), transparent 55%),
-        radial-gradient(ellipse 55% 45% at 88% 85%, rgba(168,132,67,.14), transparent 50%),
-        radial-gradient(ellipse 40% 35% at 60% 30%, rgba(62,110,168,.12), transparent 45%);
-      pointer-events: none;
-    }
-    .honest-section::after {
-      content: "";
-      position: absolute; inset: 0;
-      background-image:
-        radial-gradient(circle 1px at 20% 25%, rgba(255,255,255,.18) 0%, transparent 0%),
-        radial-gradient(circle 1px at 55% 65%, rgba(255,255,255,.12) 0%, transparent 0%),
-        radial-gradient(circle 1px at 80% 18%, rgba(255,255,255,.14) 0%, transparent 0%),
-        radial-gradient(circle 1px at 35% 80%, rgba(255,255,255,.10) 0%, transparent 0%),
-        radial-gradient(circle 1px at 70% 45%, rgba(255,255,255,.16) 0%, transparent 0%);
-      background-size: 340px 340px, 280px 280px, 420px 420px, 300px 300px, 380px 380px;
-      animation: honest-drift 18s ease-in-out infinite alternate;
-      pointer-events: none;
-    }
-    @keyframes honest-drift {
-      0%   { transform: translate(0, 0) scale(1); }
-      50%  { transform: translate(-12px, 10px) scale(1.03); }
-      100% { transform: translate(10px, -8px) scale(1.01); }
-    }
-    .honest-section .container { position: relative; z-index: 1; }
-    .compare-item {
-      border-radius: 26px;
-      box-shadow: 0 8px 32px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.08);
-      backdrop-filter: blur(12px) saturate(140%);
-      -webkit-backdrop-filter: blur(12px) saturate(140%);
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-    }
-    .compare-col { padding: 24px; }
-    .compare-col.before { background: rgba(255,255,255,.04); }
-    .compare-col.after { background: rgba(109,168,143,.12); border-top: 1px solid rgba(109,168,143,.2); }
-    .compare-col p { font-size: 15px; }
+/* ══ PAIN (issues-section) ══ */
+.pain{ padding:0; background:transparent; }
+.issues-section {
+  padding: 96px 0 110px;
+  background: #f8f7f4;
+}
+.section-heading { margin-bottom: 42px; }
+.section-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--sky);
+}
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.35;
+  font-weight: 700;
+  color: #0b2a3d;
+  letter-spacing: -0.02em;
+}
+.section-lead {
+  margin-top: 18px;
+  max-width: 760px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text-mid);
+}
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 38px;
+}
+.issue-card {
+  background: #fff;
+  border: 1px solid #d9e1e7;
+  border-radius: 18px;
+  padding: 28px 28px 30px;
+  min-height: 240px;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.issue-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(15,35,52,.08);
+  border-color: #cfd9e0;
+}
+.issue-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.issue-number {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--sky);
+}
+.issue-category {
+  font-size: 12px;
+  font-weight: 700;
+  color: #7b8b97;
+  letter-spacing: 0.08em;
+}
+.issue-card h3 {
+  margin: 0 0 14px;
+  font-size: 28px;
+  line-height: 1.45;
+  font-weight: 700;
+  color: #0b2a3d;
+  letter-spacing: -0.01em;
+}
+.issue-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.95;
+  color: var(--text-mid);
+}
+.issues-statement {
+  margin-top: 36px;
+  background: linear-gradient(135deg, #0c3044 0%, #0a3e57 100%);
+  border-radius: 24px;
+  padding: 34px 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.statement-label {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,.62);
+}
+.statement-body h3 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.statement-body h3 span { color: #2fb5f4; }
+.statement-link {
+  flex-shrink: 0;
+  width: 68px; height: 68px;
+  border-radius: 999px;
+  background: #1aa2e8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+.statement-link:hover { transform: translateY(-2px); background: #1398db; }
+.statement-link span { color: #fff; font-size: 28px; line-height: 1; }
+/* container共通 */
+.container{max-width:1140px;margin:0 auto;padding:0 40px;}
+.sec-ey{
+  font-family:'Montserrat',sans-serif;font-size:10px;
+  font-weight:600;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--sky);margin-bottom:12px;
+}
+.sec-title{
+  font-size:36px;font-weight:700;line-height:1.5;
+  margin-bottom:16px;color:var(--navy);
+}
+.sec-title em{font-style:normal;color:var(--sky);}
+.sec-sub{font-size:15px;color:var(--text-mid);line-height:2;margin-bottom:56px;}
+@media(max-width:900px){
+  .issues-grid{grid-template-columns:1fr;}
+  .issues-statement{flex-direction:column;align-items:flex-start;}
+  .statement-link{width:58px;height:58px;}
+}
+@media(max-width:640px){
+  .issues-section{padding:72px 0 88px;}
+  .issue-card{padding:24px 22px;min-height:auto;}
+  .issue-card h3{font-size:22px;}
+  .issue-card p{font-size:14px;line-height:1.85;}
+  .statement-body h3{font-size:20px;line-height:1.7;}
+}
 
-    .work-section, .programs-section, .contact-section { background: linear-gradient(180deg, #f8fbff 0%, #f5faf7 100%); }
-    .work-grid, .fieldnotes-grid, .partner-grid, .future-points { gap: 20px; }
-    .work-card, .fieldnote, .partner-card, .future-point, .form-container, .ceo-message-wrap, .carousel-item {
-      border-radius: 26px; border-color: rgba(219,227,238,.86); box-shadow: var(--shadow-soft); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-    .work-card:hover, .fieldnote:hover, .partner-card:hover, .future-point:hover, .carousel-item:hover {
-      transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: rgba(109,168,143,.36);
-    }
-    .work-icon, .future-icon { background: linear-gradient(135deg, var(--mint), var(--sky)); color: var(--navy); }
-    .tag { background: var(--cream); }
-    .section-head h2 { letter-spacing: -.035em; }
-    .section-lead { max-width: 760px; }
-    .programs-accordion { border-radius: 28px; box-shadow: var(--shadow-soft); background: #fff; }
-    .accordion-header { padding: 24px; }
-    .accordion-header:hover, .accordion-header[aria-expanded="true"] { background: linear-gradient(90deg, var(--mint), var(--sky)); }
-    .acc-num { border-color: rgba(109,168,143,.5); color: var(--mint-deep); background: #fff; }
-    .carousel-viewport { border-radius: 22px; }
-    .future-section { background: linear-gradient(145deg, #f7fbff 0%, #eef9f4 100%); }
-    .contact-header { max-width: 840px; }
-    .form-control { border-radius: 14px; background: #fff; min-height: 54px; }
-    textarea.form-control { min-height: 170px; }
+/* ══ WHYUS ══ */
+.whyus{background:#fff;padding:96px 0;}
+.whyus-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;}
+.whyus-head-r{font-size:14px;color:var(--text-mid);line-height:2;max-width:300px;text-align:right;}
+.whyus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.whyus-card{
+  background:var(--cream);border-radius:var(--r-lg);
+  padding:0 0 28px;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;
+  border:1px solid var(--border);
+  transition:box-shadow .25s,transform .25s;
+}
+.whyus-card:hover{box-shadow:0 10px 40px rgba(0,0,0,.08);transform:translateY(-4px);}
+.wc-clip{width:100%;display:flex;justify-content:center;}
+.wc-clip-body{
+  width:44px;background:#1a1a1a;
+  border-radius:0 0 5px 5px;
+  display:flex;flex-direction:column;align-items:center;
+  padding:9px 0 7px;gap:5px;
+}
+.wc-clip-ring{
+  width:19px;height:12px;
+  border:2.5px solid #3a3a3a;border-top:none;
+  border-radius:0 0 10px 10px;
+}
+.wc-clip-bar{width:24px;height:3px;background:#3a3a3a;border-radius:1px;}
+.wc-num{
+  font-family:'Montserrat',sans-serif;font-size:11px;
+  font-weight:500;letter-spacing:.15em;color:#bbb;margin:20px 0 14px;
+}
+.wc-icon{font-size:30px;color:var(--sky);margin-bottom:16px;}
+.wc-sep{width:24px;height:1.5px;background:var(--border);margin-bottom:16px;}
+.wc-title{
+  font-size:13px;font-weight:700;color:var(--navy);
+  text-align:center;line-height:1.75;padding:0 20px;margin-bottom:10px;
+}
+.wc-text{font-size:11px;color:var(--text-mid);text-align:center;line-height:1.9;padding:0 20px;}
+.wc-tag{
+  margin-top:16px;
+  font-family:'Montserrat',sans-serif;font-size:10px;
+  font-weight:600;letter-spacing:.08em;color:var(--sky);
+}
 
-    .ceo-more-content { max-height: 0; overflow: hidden; transition: max-height .55s ease; }
-    .ceo-more-content.open { max-height: 2600px; }
-    .ceo-toggle-wrap { margin-top: 26px; text-align: center; }
-    .ceo-toggle-btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; border:1px solid var(--line); background:#fff; color:var(--navy); border-radius:999px; padding:12px 20px; font-weight:700; cursor:pointer; box-shadow: var(--shadow-soft); }
-    .ceo-toggle-arrow { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; transition: transform .25s; }
-    .ceo-toggle-btn[aria-expanded="true"] .ceo-toggle-arrow { transform: rotate(180deg); }
+/* ══ SERVICE ══ */
+.service{background:var(--cream);padding:96px 0;}
+/* ── zigzag process ── */
+.process-list{
+  display:flex;flex-direction:column;gap:0;
+  margin-bottom:72px;
+}
+.process-item{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;align-items:stretch;
+  min-height:420px;
+}
+.process-text{
+  padding:64px 56px;
+  display:flex;flex-direction:column;justify-content:center;
+  background:#fff;
+}
+.process-item.reverse .process-text{
+  background:#f8f7f4;
+}
+.process-label{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:20px;
+}
+.process-num{
+  font-family:'Montserrat',sans-serif;
+  font-size:40px;font-weight:800;
+  color:var(--sky);line-height:1;
+}
+.process-en{
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;font-weight:600;
+  color:var(--sky);letter-spacing:.18em;
+  text-transform:uppercase;
+  padding:4px 0 0;
+}
+.process-title{
+  font-size:26px;font-weight:700;
+  color:var(--navy);line-height:1.5;
+  margin-bottom:8px;
+}
+.process-subtitle{
+  font-size:15px;font-weight:500;
+  color:var(--text-mid);margin-bottom:20px;
+  line-height:1.6;
+}
+.process-body{
+  font-size:14px;color:var(--text-mid);
+  line-height:2;
+}
+.process-img{
+  overflow:hidden;position:relative;
+}
+.process-img img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+  transition:transform .5s ease;
+}
+.process-item:hover .process-img img{
+  transform:scale(1.04);
+}
+@media(max-width:768px){
+  .process-item{grid-template-columns:1fr;}
+  .process-text{padding:40px 28px;}
+}
+/* old classes hidden */
+.service-intro{display:none;}
+.svc-checklist,.svc-check,.svc-check-dot{ display:none; }
+.svc-flow,.svc-flow-label,.svc-step,.svc-step-c,.svc-step-name,.svc-step-desc{ display:none; }
 
-    @keyframes floatOrb { 0%,100%{ transform: translateY(0) scale(1); } 50%{ transform: translateY(18px) scale(1.04); } }
-    @media (prefers-reduced-motion: no-preference) {
-      .status-item:nth-child(1) { animation: gentleFloat 5.5s ease-in-out infinite; }
-      .status-item:nth-child(2) { animation: gentleFloat 6.3s ease-in-out infinite .2s; }
-      .status-item:nth-child(3) { animation: gentleFloat 5.8s ease-in-out infinite .4s; }
-      @keyframes gentleFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-      .fade-in { transform: translateY(24px) scale(.985); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
-      .fade-in.visible { transform: translateY(0) scale(1); }
-    }
-    @media (min-width: 760px) {
-      .relief-grid { grid-template-columns: repeat(3, 1fr); }
-      .journey-steps { grid-template-columns: repeat(4, 1fr); }
-      .journey-step { grid-template-columns: 1fr; }
-    }
-    @media (min-width: 981px) {
-      .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 56px; }
-      .hero { padding: 96px 0 106px; }
-    }
-    @media (max-width: 599px) {
-      body { font-size: 16px; }
-      .hero { min-height: auto; padding: 42px 0 56px; }
-      .hero-card { padding: 22px 18px; }
-      .hero-subcopy { font-size: 17px; }
-      .relief-card, .journey-line { border-radius: 22px; }
-      .section { padding: 64px 0; }
-    }
+.service-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.svc-card{
+  background:#fff;border-radius:var(--r-lg);
+  padding:28px 24px;border:1px solid var(--border);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:background .3s ease,border-color .3s ease,box-shadow .3s ease,transform .25s ease;
+}
+.svc-card:hover{
+  background:var(--sky);
+  border-color:var(--sky);
+  box-shadow:0 12px 40px rgba(10,143,196,.28);
+  transform:translateY(-3px);
+}
+.svc-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;}
+.svc-card-n{
+  font-family:'Montserrat',sans-serif;font-size:11px;
+  font-weight:600;color:var(--text-muted);letter-spacing:.1em;
+  transition:color .3s ease;
+}
+.svc-card:hover .svc-card-n{color:rgba(255,255,255,.7);}
+.svc-card-arrow{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--cream);color:var(--sky);
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+  transition:background .3s ease,color .3s ease;
+}
+.svc-card:hover .svc-card-arrow{background:rgba(255,255,255,.25);color:#fff;}
+.svc-card-title{
+  font-size:16px;font-weight:700;color:var(--navy);
+  margin-bottom:10px;line-height:1.5;
+  transition:color .3s ease;
+}
+.svc-card:hover .svc-card-title{color:#fff;}
+.svc-card-text{
+  font-size:13px;color:var(--text-mid);line-height:1.9;flex:1;
+  transition:color .3s ease;
+}
+.svc-card:hover .svc-card-text{color:rgba(255,255,255,.82);}
 
-  </style>
+/* ══ FLOW ══ */
+.flow{background:#fff;padding:96px 0;}
+.flow-steps{ margin:56px 0; }
+.flow-visual{
+  width:100%;border-radius:var(--r-lg);
+  overflow:hidden;
+  box-shadow:0 8px 40px rgba(0,0,0,.1);
+}
+.flow-visual img{ width:100%;display:block; }
+.flow-step{ display:none; }
+.flow-step-num,.flow-step-icon,.flow-step-title,.flow-step-text,.flow-arr{ display:none; }
+/* midpage CTA */
+.flow-cta{
+  background:var(--navy);border-radius:var(--r-xl);
+  padding:48px 56px;
+  display:flex;align-items:center;justify-content:space-between;gap:32px;
+}
+.flow-cta-l h3{font-size:24px;font-weight:700;color:#e8f7fd;margin-bottom:10px;line-height:1.5;}
+.flow-cta-l p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.9;}
+.btn-cta-w{
+  background:#fff;color:var(--sky);border:none;
+  border-radius:30px;padding:16px 36px;
+  font-size:15px;font-weight:700;
+  font-family:'Noto Sans JP',sans-serif;
+  cursor:pointer;white-space:nowrap;flex-shrink:0;
+  display:flex;align-items:center;gap:8px;
+  transition:transform .15s,box-shadow .15s;
+}
+.btn-cta-w:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.15);}
+
+/* ══ EVIDENCE ══ */
+.evidence{background:var(--cream);padding:96px 0;}
+.specialist-img{
+  width:100%;max-width:800px;
+  margin:0 auto;display:block;
+}
+
+/* ══ FINAL CTA ══ */
+.final{
+  background:var(--navy);padding:120px 0;text-align:center;
+  position:relative;overflow:hidden;
+}
+.final::before{
+  content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+  width:800px;height:800px;border-radius:50%;
+  background:radial-gradient(circle,rgba(10,143,196,.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.final h2{
+  font-size:38px;font-weight:700;color:#e8f7fd;
+  line-height:1.55;margin-bottom:16px;position:relative;
+}
+.final h2 em{color:var(--sky);font-style:normal;}
+.final-sub{font-size:15px;color:rgba(255,255,255,.55);line-height:2;margin-bottom:12px;position:relative;}
+.final-note{font-size:13px;color:#5dbfdd;margin-bottom:48px;position:relative;}
+.final-btns{
+  display:flex;gap:14px;justify-content:center;
+  flex-wrap:wrap;margin-bottom:32px;position:relative;
+}
+.btn-final-main{
+  background:var(--sky);color:#fff;border:none;
+  border-radius:30px;padding:18px 44px;
+  font-size:17px;font-weight:700;
+  font-family:'Noto Sans JP',sans-serif;cursor:pointer;
+  display:flex;align-items:center;gap:10px;
+  transition:background .2s,transform .15s,box-shadow .15s;
+}
+.btn-final-main:hover{background:var(--sky-d);transform:translateY(-2px);box-shadow:0 8px 32px rgba(10,143,196,.35);}
+.btn-final-sub{
+  background:transparent;color:rgba(255,255,255,.6);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:30px;padding:17px 32px;
+  font-size:15px;font-family:'Noto Sans JP',sans-serif;
+  cursor:pointer;transition:border-color .2s,color .2s;
+}
+.btn-final-sub:hover{border-color:rgba(255,255,255,.4);color:rgba(255,255,255,.85);}
+.final-reassure{
+  display:flex;gap:28px;justify-content:center;flex-wrap:wrap;
+  font-size:12px;color:rgba(255,255,255,.35);position:relative;
+}
+.final-reassure span::before{content:'✓ ';color:var(--sky);}
+
+/* ══ FOOTER ══ */
+.footer{background:#071a22;padding:36px 0;}
+.footer-i{
+  max-width:1140px;margin:0 auto;padding:0 40px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.footer-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:#5dbfdd;}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{font-size:11px;color:#3a5560;}
+.footer-copy{font-size:10px;color:#2a4550;}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:768px){
+  .hero h1{font-size:30px;}
+  .pain-grid{grid-template-columns:1fr;}
+  .whyus-grid{grid-template-columns:repeat(2,1fr);}
+  .whyus-head{flex-direction:column;align-items:flex-start;gap:12px;}
+  .whyus-head-r{text-align:left;}
+  .service-intro{grid-template-columns:1fr;}
+  .service-cards{grid-template-columns:1fr;}
+  .flow-steps{grid-template-columns:1fr;}
+  .flow-cta{flex-direction:column;text-align:center;}
+  .hd-nav{display:none;}
+  .final h2{font-size:26px;}
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="container header-inner">
-      <a href="#top" class="logo">FiTNESS UNIVERSITY</a>
-      <nav class="desktop-nav">
-        <ul>
-          <li><a href="#what">取り組み</a></li>
-          <li><a href="#works">実績</a></li>
-          <li><a href="#future">これから</a></li>
-          <li><a href="#for-who">対象</a></li>
-          <li><a href="#message">代表挨拶</a></li>
-          <li><a href="../flow/">運営マニュアル</a></li>
-          <li><a href="#contact">相談する</a></li>
-        </ul>
-      </nav>
-      <a href="#contact" class="btn btn-dark header-cta" style="min-height:38px;padding:0 16px;font-size:13px;">相談する</a>
-      <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
+<!-- HEADER -->
+<header class="hd">
+  <div class="hd-i">
+    <div class="logo">FiTNESS <b>UNIVERSITY</b></div>
+    <nav class="hd-nav">
+      <a href="#whyus">選ばれる理由</a>
+      <a href="#service">サービス</a>
+      <a href="#flow">ご支援の流れ</a>
+      <a href="#evidence">専門家チーム</a>
+    </nav>
+    <button class="hd-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      無料相談はこちら →
+    </button>
+  </div>
+</header>
+
+
+<!-- ① HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-accent2"></div>
+  <div class="hero-inner">
+    <div class="hero-content fi">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Health × Education × AI
+      </div>
+      <h1>
+        健康経営を、<br>
+        <em>行動変容まで</em><br>
+        実装する。
+      </h1>
+      <p class="hero-sub">
+        制度を入れて終わりにしない。<br>
+        「担当者ひとりで抱え込む健康経営」から卒業し、<br>
+        組織全体が自走する仕組みをつくります。
+      </p>
+      <div class="hero-btns">
+        <button class="btn-hero-main" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          無料相談を予約する →
+        </button>
+        <button class="btn-hero-sub" onclick="document.getElementById('service').scrollIntoView({behavior:'smooth'})">
+          サービスを見る
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    SCROLL
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+
+
+
+<!-- ② PAIN -->
+<section class="issues-section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="section-label fi">COMMON CHALLENGES</p>
+      <h2 class="fi">多くの健康経営担当者が、<br>同じ壁に直面しています。</h2>
+      <p class="section-lead fi">
+        単発の施策では終わらず、社内に定着し、行動につながる仕組みまで設計することが求められています。
+      </p>
+    </div>
+    <div class="issues-grid">
+      <article class="issue-card fi fi-d1">
+        <div class="issue-meta">
+          <span class="issue-number">01</span>
+          <span class="issue-category">施策継続</span>
+        </div>
+        <h3>セミナーが一度きりで終わる</h3>
+        <p>参加率は高くても翌月には元通り。継続する仕組みがなければ、施策は単発で終わり、投資対効果も見えにくくなります。</p>
+      </article>
+      <article class="issue-card fi fi-d2">
+        <div class="issue-meta">
+          <span class="issue-number">02</span>
+          <span class="issue-category">制度活用</span>
+        </div>
+        <h3>福利厚生が使われない</h3>
+        <p>制度はあるのに従業員へ届かず、利用も進まない。活用されない施策は、経営層への説明も難しくなります。</p>
+      </article>
+      <article class="issue-card fi fi-d3">
+        <div class="issue-meta">
+          <span class="issue-number">03</span>
+          <span class="issue-category">人材課題</span>
+        </div>
+        <h3>新入社員のメンタル・体調不調が止まらない</h3>
+        <p>離職や休職が増えるたびに、現場と人事の負担も大きくなります。根本原因に向き合わなければ、同じ問題が繰り返されます。</p>
+      </article>
+      <article class="issue-card fi fi-d4">
+        <div class="issue-meta">
+          <span class="issue-number">04</span>
+          <span class="issue-category">社内提案</span>
+        </div>
+        <h3>経営層への説明材料がない</h3>
+        <p>「効果が見えづらい」「予算が取りにくい」など、社内で意思決定を進めるための整理された説明材料が不足しがちです。</p>
+      </article>
+    </div>
+    <div class="issues-statement fi">
+      <div class="statement-body">
+        <p class="statement-label">OUR APPROACH</p>
+        <h3>
+          FiTNESS UNIVERSITYは「制度導入」で終わらせず、<br>
+          <span>気づき・実践・継続・文化化</span>まで設計します。
+        </h3>
+      </div>
+      <a href="#contact" class="statement-link" aria-label="無料相談へ">
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ③ WHY US -->
+<section class="whyus" id="whyus">
+  <div class="container">
+    <div class="whyus-head">
+      <div>
+        <div class="sec-ey fi">Why FiTNESS UNIVERSITY</div>
+        <h2 class="sec-title fi" style="margin-bottom:0;">他とは、<em>ここが違います。</em></h2>
+      </div>
+      <div class="whyus-head-r fi">知識提供で終わる研修会社でも、<br>戦略だけのコンサルでもない。<br>現場実装まで担える会社です。</div>
+    </div>
+    <div class="whyus-grid">
+      <div class="whyus-card fi fi-d1">
+        <div class="wc-clip">
+          <div class="wc-clip-body">
+            <div class="wc-clip-ring"></div>
+            <div class="wc-clip-bar"></div>
+          </div>
+        </div>
+        <div class="wc-num">01</div>
+        <div class="wc-icon">🧠</div>
+        <div class="wc-sep"></div>
+        <div class="wc-title">行動変容を<br>科学的に設計する</div>
+        <div class="wc-text">気づき・実践・習慣・文化化まで段階的に設計。参加して終わりにしません。</div>
+        <div class="wc-tag">TTM MODEL</div>
+      </div>
+      <div class="whyus-card fi fi-d2">
+        <div class="wc-clip">
+          <div class="wc-clip-body">
+            <div class="wc-clip-ring"></div>
+            <div class="wc-clip-bar"></div>
+          </div>
+        </div>
+        <div class="wc-num">02</div>
+        <div class="wc-icon">📱</div>
+        <div class="wc-sep"></div>
+        <div class="wc-title">AI・LINE・動画で<br>継続する仕組みを構築</div>
+        <div class="wc-text">フォローをテクノロジーで自動化。担当者が毎回動かなくても継続的にアプローチ。</div>
+        <div class="wc-tag">AI / LINE / VIDEO</div>
+      </div>
+      <div class="whyus-card fi fi-d3">
+        <div class="wc-clip">
+          <div class="wc-clip-body">
+            <div class="wc-clip-ring"></div>
+            <div class="wc-clip-bar"></div>
+          </div>
+        </div>
+        <div class="wc-num">03</div>
+        <div class="wc-icon">👥</div>
+        <div class="wc-sep"></div>
+        <div class="wc-title">5領域の専門家が<br>一気通貫で支援</div>
+        <div class="wc-text">健康経営・行動変容・教育・フィットネス・AIが連携。バラバラな外注は不要。</div>
+        <div class="wc-tag">EXPERT TEAM</div>
+      </div>
+      <div class="whyus-card fi fi-d4">
+        <div class="wc-clip">
+          <div class="wc-clip-body">
+            <div class="wc-clip-ring"></div>
+            <div class="wc-clip-bar"></div>
+          </div>
+        </div>
+        <div class="wc-num">04</div>
+        <div class="wc-icon">📈</div>
+        <div class="wc-sep"></div>
+        <div class="wc-title">データで効果を示し<br>経営層の承認を取りやすく</div>
+        <div class="wc-text">効果測定レポートで、担当者が上席に説明しやすい材料をご提供します。</div>
+        <div class="wc-tag">DATA DRIVEN</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ④ SERVICE -->
+<section class="service" id="service">
+  <div class="container">
+    <div class="sec-ey fi">Our Services</div>
+    <h2 class="sec-title fi">制度から文化まで、<br><em>一気通貫で担います。</em></h2>
+    <div class="process-list">
+
+      <div class="process-item fi">
+        <div class="process-text">
+          <div class="process-label">
+            <div class="process-num">01</div>
+            <div class="process-en">Policy & Framework</div>
+          </div>
+          <div class="process-title">制度をつくる</div>
+          <div class="process-subtitle">- 健康経営の方針・体制・認定取得 -</div>
+          <div class="process-body">
+            健康経営優良法人の認定取得を目標に、方針策定から社内体制の整備まで伴走します。経営層への説明資料の作成や、認定審査のポイント整理もサポート。担当者が一人で抱え込まずに進められる仕組みを設計します。
+          </div>
+        </div>
+        <div class="process-img">
+          <img src="fuhp_topv.png" alt="制度をつくる">
+        </div>
+      </div>
+
+      <div class="process-item reverse fi">
+        <div class="process-img">
+          <img src="fuhp_topv.png" alt="知識を届ける">
+        </div>
+        <div class="process-text">
+          <div class="process-label">
+            <div class="process-num">02</div>
+            <div class="process-en">Education & Awareness</div>
+          </div>
+          <div class="process-title">知識を届ける</div>
+          <div class="process-subtitle">- AI・LINE・動画で継続学習 -</div>
+          <div class="process-body">
+            セミナーや動画コンテンツ、AIを活用した個別最適化学習で、従業員一人ひとりに健康知識を届けます。LINEによる自動配信で担当者の手間をかけず、継続的なアプローチを実現します。
+          </div>
+        </div>
+      </div>
+
+      <div class="process-item fi">
+        <div class="process-text">
+          <div class="process-label">
+            <div class="process-num">03</div>
+            <div class="process-en">Action & Practice</div>
+          </div>
+          <div class="process-title">実践・習慣化させる</div>
+          <div class="process-subtitle">- フィットネス現場＋行動データで伴走 -</div>
+          <div class="process-body">
+            知識を行動に変えるには、現場での体験が不可欠です。フィットネスプログラムや小さな行動目標の積み重ねを通じて、従業員が自発的に動き出す環境を整えます。行動データを蓄積・分析し、効果を可視化しながら継続支援します。
+          </div>
+        </div>
+        <div class="process-img">
+          <img src="fuhp_topv.png" alt="実践・習慣化させる">
+        </div>
+      </div>
+
+      <div class="process-item reverse fi">
+        <div class="process-img">
+          <img src="fuhp_topv.png" alt="組織に文化として根づく">
+        </div>
+        <div class="process-text">
+          <div class="process-label">
+            <div class="process-num">04</div>
+            <div class="process-en">Culture & Sustainability</div>
+          </div>
+          <div class="process-title">組織に"文化"として根づく</div>
+          <div class="process-subtitle">- 担当者の負担ゼロで、成果が出続ける状態へ -</div>
+          <div class="process-body">
+            仕組みが定着すると、担当者が毎回動かなくても組織が自走します。健康が日常の一部となり、生産性・定着率・エンゲージメントの向上が継続的に生まれる状態をつくります。
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="service-cards">
+      <div class="svc-card fi fi-d1">
+        <div class="svc-card-top"><div class="svc-card-n">SERVICE 01</div><div class="svc-card-arrow">→</div></div>
+        <div class="svc-card-title">健康経営支援</div>
+        <div class="svc-card-text">優良法人認定取得から現場浸透まで。戦略立案・データ分析・経営層報告も一貫してサポート。</div>
+      </div>
+      <div class="svc-card fi fi-d2">
+        <div class="svc-card-top"><div class="svc-card-n">SERVICE 02</div><div class="svc-card-arrow">→</div></div>
+        <div class="svc-card-title">新人教育・若手社員研修</div>
+        <div class="svc-card-text">社会人1年目の体と心を整え、早期離職・メンタル不調を予防。定着率向上に直結します。</div>
+      </div>
+      <div class="svc-card fi fi-d3">
+        <div class="svc-card-top"><div class="svc-card-n">SERVICE 03</div><div class="svc-card-arrow">→</div></div>
+        <div class="svc-card-title">金融機関向け健康研修</div>
+        <div class="svc-card-text">高ストレス環境でも活躍し続ける体と心をつくる研修。睡眠・ストレス対処・体調管理を統合。</div>
+      </div>
+      <div class="svc-card fi fi-d1">
+        <div class="svc-card-top"><div class="svc-card-n">SERVICE 04</div><div class="svc-card-arrow">→</div></div>
+        <div class="svc-card-title">健保・特定保健指導支援</div>
+        <div class="svc-card-text">行動変容理論（TTMモデル）に基づき、知識から実践・習慣化まで伴走。重症化予防にも対応。</div>
+      </div>
+      <div class="svc-card fi fi-d2">
+        <div class="svc-card-top"><div class="svc-card-n">SERVICE 05</div><div class="svc-card-arrow">→</div></div>
+        <div class="svc-card-title">AI・LINE・動画 教育OS</div>
+        <div class="svc-card-text">研修後のフォローを自動化。担当者が手を動かさなくても継続的に従業員へアプローチし続けます。</div>
+      </div>
+      <div class="svc-card fi fi-d3">
+        <div class="svc-card-top"><div class="svc-card-n">SERVICE 06</div><div class="svc-card-arrow">→</div></div>
+        <div class="svc-card-title">CBD/Ciel. 福利厚生支援</div>
+        <div class="svc-card-text">従業員の疲労・ストレスケアにCBD製品を活用した休息支援プログラム。使われる福利厚生を設計。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ⑤ FLOW + CTA -->
+<section class="flow" id="flow">
+  <div class="container">
+    <div class="sec-ey fi">How It Works</div>
+    <h2 class="sec-title fi">相談から、<em>最短で成果へ。</em></h2>
+    <p class="sec-sub fi">初回相談は完全無料。「何から手をつければいいか分からない」という段階でも大丈夫です。</p>
+    <div class="flow-steps fi">
+      <div class="flow-visual">
+        <img src="howitworks_v.png" alt="ご支援の流れ：無料相談→現状分析・提案→設計・実行→継続改善">
+      </div>
+    </div>
+    <div class="flow-cta fi">
+      <div class="flow-cta-l">
+        <h3>まず、30分だけ<br>話してみませんか？</h3>
+        <p>「何から始めればいいか分からない」「社内を動かしたいが材料がない」<br>そんな段階でも、一緒に整理するところから始めます。</p>
+      </div>
+      <button class="btn-cta-w" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        無料相談を予約する →
       </button>
     </div>
-  </header>
+  </div>
+</section>
 
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <nav>
-      <a href="#what">取り組み</a>
-      <a href="#works">実績</a>
-      <a href="#future">これから</a>
-      <a href="#for-who">対象</a>
-      <a href="#message">代表挨拶</a>
-      <a href="../flow/">運営マニュアル</a>
-      <a href="#contact">相談する</a>
-    </nav>
-    <div class="mobile-menu-footer">
-      <a href="#contact" class="btn btn-dark">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-        相談する
-      </a>
-      <a href="#what" class="btn btn-ghost">取り組みを見る</a>
+
+<!-- ⑥ EVIDENCE -->
+<section class="evidence" id="evidence">
+  <div class="container">
+    <div class="sec-ey fi">Results & Expertise</div>
+    <h2 class="sec-title fi">成果と、それを支える<em>専門家チーム。</em></h2>
+    <p class="sec-sub fi">健康 × 教育 × AI の各領域のプロが連携し、確実な実装を支えます。</p>
+
+    <img class="specialist-img fi" src="specialist_v.png" alt="専門家チーム：健康経営コンサルタント・行動変容理論研究者・教育プログラム設計者・トレーナー・AIエンジニア">
+  </div>
+</section>
+
+
+<!-- ⑦ FINAL CTA -->
+<section class="final" id="contact">
+  <div class="container">
+    <h2 class="fi">
+      「担当者ひとりで抱え込む<br>健康経営」から、<br><em>卒業しませんか。</em>
+    </h2>
+    <p class="final-sub fi">
+      施策の立案・実行・効果測定・経営層への説明——<br>
+      その全てをFiTNESS UNIVERSITYが伴走します。
+    </p>
+    <p class="final-note fi">まずは現状をお聞かせください。提案・見積りは無料です。</p>
+    <div class="final-btns fi">
+      <button class="btn-final-main">無料相談を予約する →</button>
+      <button class="btn-final-sub">事業概要資料をダウンロード</button>
+    </div>
+    <div class="final-reassure fi">
+      <span>相談・提案は完全無料</span>
+      <span>強引な営業は一切しません</span>
+      <span>どんな段階でもOK</span>
+      <span>最短翌営業日にご連絡</span>
     </div>
   </div>
+</section>
 
-  <main id="top">
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div>
-            <div class="hero-label">FiTNESS UNIVERSITY</div>
-            <h1>健康経営の悩みを、<br><span class="soft-marker">ひとつずつ晴らしていく。</span></h1>
-            <p class="hero-subcopy">施策を増やす前に、まずは現場の迷いをほどく。担当者が一人で抱え込まなくても進められる健康経営へ。</p>
-            <div class="hero-honest">
-              「何から始めればいいかわからない」「やってみたけど続かない」「社員に届いている感じがしない」──そんな状態を、責めるのではなく整理するところから一緒に始めます。
-            </div>
-            <div class="hero-actions">
-              <a href="#works" class="btn btn-dark">実績を見る</a>
-              <a href="#what" class="btn btn-ghost">取り組みを見る</a>
-            </div>
-            
-            <div class="hero-status">
-              <div class="status-item">
-                <div class="status-icon-wrap">
-                  <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                </div>
-                <div class="status-text">
-                  <div class="s-num">伴走</div>
-                  <div class="s-label">担当者を孤立させない</div>
-                </div>
-              </div>
-              <div class="status-item">
-                <div class="status-icon-wrap">
-                  <svg class="icon icon-lg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-                <div class="status-text">
-                  <div class="s-num">継続</div>
-                  <div class="s-label">単発では終わらない</div>
-                </div>
-              </div>
-              <div class="status-item">
-                <div class="status-icon-wrap">
-                  <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                </div>
-                <div class="status-text">
-                  <div class="s-num">再現</div>
-                  <div class="s-label">誰でも機能するように</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-card">
-            <div class="hero-card-title">迷いが晴れるまでの3ステップ</div>
-            <div class="step-list">
-              <div class="step-row">
-                <div class="step-num">01</div>
-                <div>
-                  <strong>「今、何が起きているか」を整理する</strong>
-                  <p>担当者が一人で抱えているものを、外から客観的に整理します。</p>
-                </div>
-              </div>
-              <div class="step-row">
-                <div class="step-num">02</div>
-                <div>
-                  <strong>「何から動けばいいか」を現場で決める</strong>
-                  <p>正解より先に、今の組織でできることを一緒に見つけます。</p>
-                </div>
-              </div>
-              <div class="step-row">
-                <div class="step-num">03</div>
-                <div>
-                  <strong>続く形になるまで伴走する</strong>
-                  <p>やりっぱなしにせず、仕組みとして根付くまで動き続けます。</p>
-                </div>
-              </div>
-            </div>
-            <div class="floating-ticket">
-              <span>First Consultation</span>
-              <strong>最初から完璧な計画はいりません。現状を話すだけで、次の一歩が見える状態をつくります。</strong>
-            </div>
-          </div>
-        </div>
-        <div class="hero-visual fade-in">
-          <img src="hero-visual.svg" alt="" aria-hidden="true">
-        </div>
-      </div>
-    </section>
-
-    <!-- HONEST: 業界の現状との比較 -->
-    <section class="section honest-section">
-      <div class="container">
-        <div class="section-head fade-in">
-          <span class="label-en">Honestly Speaking</span>
-          <h2>頑張っているのに変わらないのは、<br>担当者のせいではありません。</h2>
-          <p class="section-lead">健康経営アドバイザーを取得して、研修資料も読んで、施策も試した。それでも「社内の反応がイマイチ」「上層部と従業員の板挟みで消耗している」。そんな状況が続いているとしたら、やり方の問題じゃないかもしれません。一緒に整理してみませんか。</p>
-        </div>
-        <div class="compare-grid">
-          <div class="compare-item fade-in">
-            <div class="compare-col before">
-              <div class="compare-header">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                <span class="compare-col-label">よく聞く悩み</span>
-              </div>
-              <p>「調べて、学んで、試してみた。でも何も変わらない気がする」</p>
-            </div>
-            <div class="compare-col after">
-              <div class="compare-header">
-                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span class="compare-col-label">私たちが一緒に考えること</span>
-              </div>
-              <p>変わらないのは、あなたの努力が足りないからじゃない。現場に合った設計ができれば、少しずつ変わっていきます。</p>
-            </div>
-          </div>
-          <div class="compare-item fade-in">
-            <div class="compare-col before">
-              <div class="compare-header">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                <span class="compare-col-label">よく聞く悩み</span>
-              </div>
-              <p>「頑張って発信しているのに、社員に届いている感じがしない」</p>
-            </div>
-            <div class="compare-col after">
-              <div class="compare-header">
-                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span class="compare-col-label">私たちが一緒に考えること</span>
-              </div>
-              <p>社員の意識の問題だと思っていたことが、入口の設計を変えたら動き始めた──そういうことが、現場ではよくあります。一緒に見てみませんか。</p>
-            </div>
-          </div>
-          <div class="compare-item fade-in">
-            <div class="compare-col before">
-              <div class="compare-header">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                <span class="compare-col-label">よく聞く悩み</span>
-              </div>
-              <p>「イベントは開催できても、終わったら何も変わらない気がする」</p>
-            </div>
-            <div class="compare-col after">
-              <div class="compare-header">
-                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span class="compare-col-label">私たちが一緒に考えること</span>
-              </div>
-              <p>「次につながる設計」を最初から組み込むことで、単発で終わらない形にしていけます。まずここから一緒に整理しましょう。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHAT WE DO -->
-    <section class="section work-section" id="what">
-      <div class="container">
-        <div class="section-head fade-in">
-          <span class="label-en">What We Do</span>
-          <h2>実際に取り組んでいること。</h2>
-          <p class="section-lead">担当者が「次に何をすればいいか」を一緒に考えながら動いていきます。知識を渡すより、一緒に動くことを大切にしています。</p>
-        </div>
-        <div class="work-grid">
-          <article class="work-card fade-in">
-            <div class="work-card-media">
-              <img src="work-b2b.svg" alt="" aria-hidden="true">
-            </div>
-            <div class="work-card-body">
-              <div class="work-icon">
-                <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22"></line><line x1="15" y1="22" x2="15" y2="22"></line><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line><line x1="9" y1="18" x2="9" y2="18.01"></line><line x1="15" y1="18" x2="15" y2="18.01"></line></svg>
-              </div>
-              <div class="work-card-top">
-                <div class="work-card-title"><span class="tag">B2B</span><h3>企業への健康支援</h3></div>
-                <span class="work-idx">01</span>
-              </div>
-              <p>「何から始めればいいかわからない」「なぜ続かないんだろう」。まずそこから話を聞かせてください。担当者が一人で抱えているものを丁寧に聞きながら、一緒に整理して動いていきます。</p>
-              <ul class="work-points">
-                <li>過去の施策がなぜ続かなかったかを一緒に整理</li>
-                <li>全社展開より「まず一部署で機能させる」</li>
-                <li>担当者が変わっても回る仕組みづくり</li>
-              </ul>
-            </div>
-          </article>
-          <article class="work-card fade-in">
-            <div class="work-card-media">
-              <img src="work-area.svg" alt="" aria-hidden="true">
-            </div>
-            <div class="work-card-body">
-              <div class="work-icon">
-                <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              </div>
-              <div class="work-card-top">
-                <div class="work-card-title"><span class="tag">Area</span><h3>地域・自治体との連携</h3></div>
-                <span class="work-idx">02</span>
-              </div>
-              <p>地域イベントの企画・運営や自治体との連携を通じて、少し先のまちの未来が明るくなるためのサポートを行っています。</p>
-              <ul class="work-points">
-                <li>入りやすい場をつくることを最優先にする</li>
-                <li>イベント単体ではなく、その後の接点まで設計</li>
-                <li>地域特性に合わせた形で展開できるよう整える</li>
-              </ul>
-            </div>
-          </article>
-          <article class="work-card fade-in">
-            <div class="work-card-media">
-              <img src="work-pro.svg" alt="" aria-hidden="true">
-            </div>
-            <div class="work-card-body">
-              <div class="work-icon">
-                <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-              </div>
-              <div class="work-card-top">
-                <div class="work-card-title"><span class="tag">Pro</span><h3>専門職の育成と機会づくり</h3></div>
-                <span class="work-idx">03</span>
-              </div>
-              <p>資格・知識はあるが活躍の場が見えない専門職に対して、実践の場と事業の接点を提供しています。</p>
-              <ul class="work-points">
-                <li>「学んで終わり」にならない実践機会を用意</li>
-                <li>専門性を社会で使える形に変換する支援をする</li>
-                <li>仕事として成立する出口を設計する</li>
-              </ul>
-            </div>
-          </article>
-          <article class="work-card fade-in">
-            <div class="work-card-media">
-              <img src="work-dev.svg" alt="" aria-hidden="true">
-            </div>
-            <div class="work-card-body">
-              <div class="work-icon">
-                <svg class="icon icon-lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-              </div>
-              <div class="work-card-top">
-                <div class="work-card-title"><span class="tag">Dev</span><h3>プログラム・商品の開発</h3></div>
-                <span class="work-idx">04</span>
-              </div>
-              <p>現場から得た知見をもとに、再現性のある健康プログラムや提供モデルを開発しています。</p>
-              <ul class="work-points">
-                <li>現場の経験が起点——机上だけで設計しない</li>
-                <li>属人化を減らす仕組みとして整える</li>
-                <li>他地域・他組織に展開できる形を目指す</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- WORKS CAROUSEL -->
-    <section class="section works-carousel-section" id="works">
-      <div class="container">
-        <div class="section-head fade-in">
-          <span class="label-en">Case Studies</span>
-          <h2>実績・導入企業</h2>
-          <p class="section-lead">企業・クリニックへの健康経営支援の実績です。</p>
-        </div>
-        <div class="carousel-wrapper fade-in">
-          <div class="carousel-track">
-            <!-- Item 1: もちだ矯正歯科クリニック -->
-            <article class="carousel-item">
-              <a href="https://www.mochida-clinic.com/" target="_blank" rel="noopener" class="carousel-link">
-                <div class="carousel-img">
-                  <img src="mochida_dc.png" alt="もちだ矯正歯科クリニック" />
-                </div>
-                <div class="carousel-content">
-                  <span class="client-tag">B2B</span>
-                  <h3>もちだ矯正歯科クリニック</h3>
-                  <p>スタッフの健康経営推進・コンディショニング支援を実施。</p>
-                </div>
-              </a>
-            </article>
-            <!-- Item 2: たかこ矯正歯科クリニック -->
-            <article class="carousel-item">
-              <a href="https://www.takako-kyousei.com/" target="_blank" rel="noopener" class="carousel-link">
-                <div class="carousel-img">
-                  <img src="takako_dc].png" alt="たかこ矯正歯科クリニック" />
-                </div>
-                <div class="carousel-content">
-                  <span class="client-tag">B2B</span>
-                  <h3>たかこ矯正歯科クリニック</h3>
-                  <p>スタッフの健康経営推進・コンディショニング支援を実施。</p>
-                </div>
-              </a>
-            </article>
-            <!-- Item 3: イズミ電商株式会社 -->
-            <article class="carousel-item">
-              <a href="http://www.izumi-densho.com/" target="_blank" rel="noopener" class="carousel-link">
-                <div class="carousel-img">
-                  <img src="izumidensho.png" alt="イズミ電商株式会社" />
-                </div>
-                <div class="carousel-content">
-                  <span class="client-tag">B2B</span>
-                  <h3>イズミ電商株式会社</h3>
-                  <p>社員向け健康支援プログラムの設計・運用を伴走。</p>
-                </div>
-              </a>
-            </article>
-            <!-- Item 4: 株式会社吉兆堂 -->
-            <article class="carousel-item">
-              <a href="https://www.kitchodo.com/" target="_blank" rel="noopener" class="carousel-link">
-                <div class="carousel-img">
-                  <img src="kitchodo.png" alt="株式会社吉兆堂" />
-                </div>
-                <div class="carousel-content">
-                  <span class="client-tag">B2B</span>
-                  <h3>株式会社吉兆堂</h3>
-                  <p>社員向け健康支援プログラムの設計・運用を伴走。</p>
-                </div>
-              </a>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FIELD NOTES -->
-    <section class="section" id="fieldnotes">
-      <div class="container">
-        <div class="section-head fade-in">
-          <span class="label-en">Field Notes</span>
-          <h2>実際に起きたこと、<br>気づいたこと。</h2>
-          <p class="section-lead">現場で何を経験し、何に気づいたか。そのままを書いています。</p>
-        </div>
-        <div class="fieldnotes-grid">
-          <article class="fieldnote fade-in">
-            <div class="fieldnote-media">
-              <img src="fieldnote-corporate.svg" alt="" aria-hidden="true">
-            </div>
-            <div class="fieldnote-body">
-              <div class="fieldnote-head">
-                <h3>企業向け健康支援の伴走</h3>
-                <span class="fieldnote-area">B2B</span>
-              </div>
-              <p>ある企業の担当者は、年間5本以上のイベントを実施していました。参加率も悪くない。でも翌年には引き継がれず、また一から始まる。整理してみると、問題は施策の中身ではなく、「なぜやるか」が組織内で共有されていなかったことでした。担当者が変わっても続く仕組みとして設計し直してから、参加率と従業員の体調自己申告スコアが改善し始めました。</p>
-              <div class="fieldnote-takeaway">
-                <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
-                <div>担当者が一人で頑張りすぎなくてもいい形をつくっていくことが、じわじわと文化になっていく近道だと感じている。</div>
-              </div>
-            </div>
-          </article>
-          <article class="fieldnote fade-in">
-            <div class="fieldnote-media">
-              <img src="fieldnote-local.svg" alt="" aria-hidden="true">
-            </div>
-            <div class="fieldnote-body">
-              <div class="fieldnote-head">
-                <h3>地域イベントの設計と継続</h3>
-                <span class="fieldnote-area">Area</span>
-              </div>
-              <p>地域イベントを単発で終わらせないために、参加後の行動変容につながる導線をあらかじめ設計しました。「楽しかった」で終わる体験を、次の一歩につなげる場として機能させます。</p>
-              <div class="fieldnote-takeaway">
-                <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
-                <div>「楽しかった」で終わることを怖れなくていい。次の一歩への入口さえつくっておけば、それが続く場になっていく。</div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROGRAMS SECTION (moved) -->
-    <section class="section programs-section" id="programs">
-      <div class="container">
-        <div class="section-head fade-in">
-          <span class="label-en">Our Programs</span>
-          <h2>実際に使っているプログラム</h2>
-          <p class="section-lead">タイトルをクリックすると、各プログラムの詳細資料をご覧いただけます。</p>
-        </div>
-
-        <div class="programs-accordion fade-in">
-
-          <!-- 01 働くを科学する -->
-          <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false">
-              <span class="accordion-label">
-                <span class="acc-num">01</span>
-                働くを科学する：脳と体の状態
-              </span>
-              <svg class="acc-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="accordion-content">
-              <p class="acc-desc">「頑張れないのは意志の問題じゃない」——ストレスと脳のメカニズムから、体と気持ちの状態を一緒に考えます。</p>
-              <div class="program-carousel">
-                <div class="carousel-viewport">
-                  <div class="p-carousel-track">
-                    <div class="p-carousel-slide"><img src="%E5%83%8D%E3%81%8F%E3%82%92%E7%A7%91%E5%AD%A6%E3%81%99%E3%82%8B1.jpg" alt="働くを科学する 1/3" loading="lazy"></div>
-                    <div class="p-carousel-slide"><img src="%E5%83%8D%E3%81%8F%E3%82%92%E7%A7%91%E5%AD%A6%E3%81%99%E3%82%8B2.jpg" alt="働くを科学する 2/3" loading="lazy"></div>
-                    <div class="p-carousel-slide"><img src="%E5%83%8D%E3%81%8F%E3%82%92%E7%A7%91%E5%AD%A6%E3%81%99%E3%82%8B3.jpg" alt="働くを科学する 3/3" loading="lazy"></div>
-                  </div>
-                  <button class="p-carousel-btn p-carousel-prev" aria-label="前へ"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                  <button class="p-carousel-btn p-carousel-next" aria-label="次へ"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                  <span class="p-counter"></span>
-                </div>
-                <div class="p-carousel-dots"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 02 新人研修プログラム -->
-          <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false">
-              <span class="accordion-label">
-                <span class="acc-num">02</span>
-                新人研修
-              </span>
-              <svg class="acc-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="accordion-content">
-              <p class="acc-desc">入社直後から「体と気持ちの整え方」を学べる研修プログラムです。知識を詰め込むより、日常の中で使える習慣づくりを大切にしています。</p>
-              <div class="program-carousel">
-                <div class="carousel-viewport">
-                  <div class="p-carousel-track">
-                    <div class="p-carousel-slide"><img src="%E6%96%B0%E4%BA%BA%E7%A0%94%E4%BF%AE1.jpg" alt="新人研修 1/3" loading="lazy"></div>
-                    <div class="p-carousel-slide"><img src="%E6%96%B0%E4%BA%BA%E7%A0%94%E4%BF%AE2.jpg" alt="新人研修 2/3" loading="lazy"></div>
-                    <div class="p-carousel-slide"><img src="%E6%96%B0%E4%BA%BA%E7%A0%94%E4%BF%AE3.jpg" alt="新人研修 3/3" loading="lazy"></div>
-                  </div>
-                  <button class="p-carousel-btn p-carousel-prev" aria-label="前へ"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                  <button class="p-carousel-btn p-carousel-next" aria-label="次へ"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                  <span class="p-counter"></span>
-                </div>
-                <div class="p-carousel-dots"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 03 健康セミナー -->
-          <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false">
-              <span class="accordion-label">
-                <span class="acc-num">03</span>
-                健康セミナー
-              </span>
-              <svg class="acc-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="accordion-content">
-              <p class="acc-desc">「聞いたけど何も変わらなかった」になりにくいセミナーを目指しています。聞いた翌日から少し動けるような、現場に近い内容で届けます。</p>
-              <div class="program-carousel">
-                <div class="carousel-viewport">
-                  <div class="p-carousel-track">
-                    <div class="p-carousel-slide"><img src="%E5%81%A5%E5%BA%B7%E3%82%BB%E3%83%9F%E3%83%8A%E3%83%BC1.jpg" alt="健康セミナー 1/3" loading="lazy"></div>
-                    <div class="p-carousel-slide"><img src="%E5%81%A5%E5%BA%B7%E3%82%BB%E3%83%9F%E3%83%8A%E3%83%BC2.jpg" alt="健康セミナー 2/3" loading="lazy"></div>
-                    <div class="p-carousel-slide"><img src="%E5%81%A5%E5%BA%B7%E3%82%BB%E3%83%9F%E3%83%8A%E3%83%BC3.jpg" alt="健康セミナー 3/3" loading="lazy"></div>
-                  </div>
-                  <button class="p-carousel-btn p-carousel-prev" aria-label="前へ"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                  <button class="p-carousel-btn p-carousel-next" aria-label="次へ"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                  <span class="p-counter"></span>
-                </div>
-                <div class="p-carousel-dots"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 04 習慣改善プログラム -->
-          <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false">
-              <span class="accordion-label">
-                <span class="acc-num">04</span>
-                習慣改善プログラム
-              </span>
-              <svg class="acc-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="accordion-content">
-              <p class="acc-desc">「続けなければ」というプレッシャーより、自然と続いていく習慣の土台をつくる3か月です。オンライン完結・ジム不要で、個人でもグループでも取り組めます。</p>
-              <div class="program-carousel">
-                <div class="carousel-viewport">
-                  <div class="p-carousel-track">
-                    <div class="p-carousel-slide"><img src="habit1.jpg" alt="習慣改善プログラム 1/3" loading="lazy"></div>
-                    <div class="p-carousel-slide"><img src="habit2.jpg" alt="習慣改善プログラム 2/3" loading="lazy"></div>
-                    <div class="p-carousel-slide"><img src="habit3.jpg" alt="習慣改善プログラム 3/3" loading="lazy"></div>
-                  </div>
-                  <button class="p-carousel-btn p-carousel-prev" aria-label="前へ"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                  <button class="p-carousel-btn p-carousel-next" aria-label="次へ"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                  <span class="p-counter"></span>
-                </div>
-                <div class="p-carousel-dots"></div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- FUTURE -->
-    <section class="section future-section" id="future">
-      <div class="container">
-        <div class="section-head fade-in">
-          <span class="label-en">Where We're Headed</span>
-          <h2>担当者を、<br>一人にしたくない。</h2>
-        </div>
-        <p class="future-intro fade-in">
-          担当者が一人でなんとかしようとしている組織では、施策はその人がいる間しか続きません。これはその人の力不足ではなく、構造の問題だと思っています。<br><br>
-          誰が担当になっても続いていく仕組みをつくることが、私たちが一番大切にしていることです。
-        </p>
-        <div class="future-points">
-          <div class="future-point fade-in">
-            <div class="future-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-            <div>
-              <h3>伴走：一人で抱えなくていい</h3>
-              <p>提案して終わりではなく、社内調整や運用の面倒なところまで一緒に動きます。「全部自分でやらなくていい」という状態が、続いていくための土台になると思っています。</p>
-            </div>
-          </div>
-          <div class="future-point fade-in">
-            <div class="future-icon"><svg class="icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg></div>
-            <div>
-              <h3>継続：無理なく続く形にする</h3>
-              <p>単発で終わらず、日常に溶け込んでいく形を最初から一緒に考えます。「続けなければ」というプレッシャーより、自然と続く仕組みをつくることを大切にしています。</p>
-            </div>
-          </div>
-          <div class="future-point fade-in">
-            <div class="future-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></div>
-            <div>
-              <h3>再現：誰が担当しても続いていく</h3>
-              <p>特定の担当者に頼りすぎない形に少しずつ整えていきます。「担当者が変わってもちゃんと続いていた」という状態が、いちばん理想だと考えています。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOR WHO -->
-    <section class="section" id="for-who">
-      <div class="container">
-        <div class="section-head fade-in">
-          <span class="label-en">For Who</span>
-          <h2>こんな状況の方と、<br>一緒に動きたい。</h2>
-          <p class="section-lead">業種や規模より、「今の状況をなんとかしたい」と思っている方と仕事をしています。完璧な準備はなくていい。現状のままで、一緒に始められます。</p>
-        </div>
-        <div class="partner-grid">
-          <article class="partner-card fade-in">
-            <div class="partner-icon">
-              <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-            </div>
-            <h3>企業の健康経営担当者の方へ</h3>
-            <p>「資格を取って、調べて、やってみた。でも何が変わったのかよくわからない」「上層部と現場の板挟みで、正直しんどい」。そういう状況の担当者の方と、一緒に整理しながら進めていきたいと思っています。</p>
-            <ul>
-              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>なぜ社内で反応がないかを一緒に整理する</li>
-              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>「何から始めるか」を現場ベースで一緒に決める</li>
-              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>担当者一人に負荷が集中しない形を一緒に考える</li>
-            </ul>
-          </article>
-          <article class="partner-card fade-in">
-            <div class="partner-icon">
-              <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-            </div>
-            <h3>地域・自治体の担当者の方へ</h3>
-            <p>「イベントはできるけど、その後が続かない」「何が効いているのかよくわからないまま続けている」。そういう担当者の方と一緒に動きたいと思っています。一緒に試しながら考えていきましょう。</p>
-            <ul>
-              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>地域特性に合わせた入口設計</li>
-              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>単発開催後の継続導線まで最初から設計</li>
-              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>地域の専門職や団体との連携も可能</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CEO MESSAGE -->
-    <section class="section ceo-section" id="message">
-      <div class="container">
-        <div class="section-head fade-in">
-          <span class="label-en">Message</span>
-          <h2>代表挨拶</h2>
-        </div>
-        <div class="ceo-message-wrap fade-in">
-          <div class="ceo-intro">
-            <p class="ceo-name-block"><strong>株式会社FiTNESS UNIVERSITY<br>代表　沖中</strong></p>
-          </div>
-
-          <div class="ceo-block">
-            <h3 class="ceo-block-title">健康を、仕組みと文化に変えていくために</h3>
-            <p>私たちは、健康を一部の意識が高い人だけのものにせず、企業・地域・個人の中で、自然と機能するものに変えていきたいと考えています。</p>
-            <p>健康は、多くの場合「大切だと分かっているのに、続かない」と言われます。実際に現場では、担当者が一人で抱え、施策を企画し、研修を実施し、それでも「何が変わったのか分からない」という状態が少なくありません。</p>
-            <p>これは個人の努力不足ではなく、続くように設計されていないこと、現場に合う形に翻訳されていないこと、誰が担当しても回る仕組みになっていないことが大きいと感じています。</p>
-            <p>だからこそ、FiTNESS UNIVERSITYでは、知識を伝えるだけではなく、現場で動ける形まで一緒に整えることを大切にしています。</p>
-          </div>
-
-          <div class="ceo-more-content" id="ceoMore">
-            <div class="ceo-divider"></div>
-
-            <div class="ceo-block">
-              <h3 class="ceo-block-title">健康のチカラで、国力を上げる</h3>
-              <p>私が目指しているのは、単に「健康な人を増やすこと」ではありません。健康のチカラで、生産性と幸福度の土台を整え、国力を上げること。</p>
-              <p>そのためには、個人の健康だけを見ていても不十分です。企業の中での働き方、地域でのつながり、日々の生活習慣、教育、行動変容。それらが連動して、はじめて本質的な変化が起こると考えています。</p>
-              <p>企業・地域・個人の健康が連動する世界をつくりたい。健康が"良いこと"で終わらず、社会の中で循環し、機能し、文化として根づく状態を実装したいと思っています。</p>
-            </div>
-
-            <div class="ceo-divider"></div>
-
-            <div class="ceo-block">
-              <h3 class="ceo-block-title">現場から考え、現場で機能するものをつくる</h3>
-              <p>私たちの仕事は、理想論を語ることではありません。現場で起きていることを整理し、何から動けばよいかを見つけ、無理なく続く形に整えることです。</p>
-              <ul class="ceo-list">
-                <li>健康を現場で機能させること</li>
-                <li>学んで終わりにしないこと</li>
-                <li>担当者を一人にしないこと</li>
-                <li>続く仕組みに変えること</li>
-              </ul>
-              <p>そのために、必要な事業を一つずつ形にしています。</p>
-            </div>
-
-            <div class="ceo-divider"></div>
-
-            <div class="ceo-block">
-              <h3 class="ceo-block-title">まだ小さくても、確かに前に進む</h3>
-              <p>私は、最初から完璧な仕組みを作ることより、今ある現場で、今できる形から始めることを大切にしています。</p>
-              <p>小さく始めても、続けば文化になります。一人で抱えていたものも、整理され、共有され、仕組みになれば、再現できるようになります。その変化は派手ではありません。でも、そうした積み重ねこそが、企業を、地域を、社会を少しずつ強くしていくと信じています。</p>
-            </div>
-
-            <div class="ceo-divider"></div>
-
-            <div class="ceo-block ceo-closing">
-              <p>健康は、個人の努力だけで守るには限界があります。だからこそ私は、健康を、社会で機能する仕組みに変える仕事をしていきたいと思っています。</p>
-              <p>担当者が一人で抱えなくていいように。学んだことが現場で終わらないように。人が安心して働き、育ち、続けられるように。</p>
-              <p>FiTNESS UNIVERSITYは、そのための伴走者であり、実装者でありたいと考えています。今ある課題を、無理なく、でも着実に前へ進めていく。そんなご一緒ができれば嬉しいです。</p>
-              <p class="ceo-sign">株式会社FiTNESS UNIVERSITY<br><strong>代表　沖中</strong></p>
-            </div>
-          </div>
-
-          <div class="ceo-toggle-wrap">
-            <button class="ceo-toggle-btn" id="ceoToggle" aria-expanded="false">
-              <span class="ceo-toggle-label">続きを読む</span>
-              <svg class="ceo-toggle-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT FORM -->
-    <section class="section contact-section" id="contact">
-      <div class="container">
-        <div class="contact-header fade-in">
-          <span class="label-en">Contact</span>
-          <h2>まずはお話から<br>一緒に課題を整理します。</h2>
-          <p class="section-lead">「今どういう状況か」を聞かせてもらうことから始めます。<br>何から話せばいいかわからなくても大丈夫です。<br>現状の課題について一緒に整理します。<br>提案や売り込みはしません。</p>
-        </div>
-
-        <div class="form-container fade-in">
-          <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-            <input type="hidden" name="access_key" value="1ff00039-7ef6-44e7-aca7-f36cefbc2ba6">
-            <input type="hidden" name="subject" value="FiTNESS UNIVERSITY お問い合わせ">
-            <div class="form-group">
-              <div class="form-label">
-                会社名・団体名 <span class="optional-tag">任意</span>
-              </div>
-              <input type="text" name="会社名・団体名" class="form-control" placeholder="例：株式会社 FiTNESS UNIVERSITY">
-            </div>
-
-            <div class="form-group">
-              <div class="form-label">
-                お名前 <span class="required-tag">必須</span>
-              </div>
-              <input type="text" name="お名前" class="form-control" placeholder="健康太郎" required>
-            </div>
-
-            <div class="form-group">
-              <div class="form-label">
-                メールアドレス <span class="required-tag">必須</span>
-              </div>
-              <input type="email" name="メールアドレス" class="form-control" placeholder="例：info@example.com" required>
-            </div>
-
-            <div class="form-group">
-              <div class="form-label">
-                電話番号 <span class="optional-tag">任意</span>
-              </div>
-              <input type="tel" name="電話番号" class="form-control" placeholder="例：03-1234-5678">
-            </div>
-
-            <div class="form-group">
-              <div class="form-label">
-                ご相談内容 <span class="required-tag">必須</span>
-              </div>
-              <textarea name="ご相談内容" class="form-control" placeholder="現状の課題やご相談したい内容をご自由にご記入ください。" required></textarea>
-            </div>
-
-            <div class="form-submit">
-              <button type="submit" class="btn btn-dark">
-                <svg class="icon" viewBox="0 0 24 24" style="margin-right:8px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                入力内容を送信する
-              </button>
-              <p class="mail-note">※送信後、確認メールをお送りします。</p>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <span class="footer-logo">FiTNESS UNIVERSITY</span>
-        <span class="footer-copy">© FiTNESS UNIVERSITY. All Rights Reserved.</span>
-      </div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-i">
+    <div class="footer-logo">FiTNESS UNIVERSITY</div>
+    <div class="footer-links">
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">利用規約</a>
+      <a href="#">お問い合わせ</a>
     </div>
-  </footer>
-
-  <div class="sticky-cta" id="stickyCta">
-    <a href="#contact" class="btn btn-dark">
-      <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-      相談する
-    </a>
+    <div class="footer-copy">© 2026 FiTNESS UNIVERSITY</div>
   </div>
-
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const stickyCta  = document.getElementById('stickyCta');
-
-    hamburger.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('active');
-      hamburger.classList.toggle('open', open);
-      hamburger.setAttribute('aria-expanded', open);
-      mobileMenu.setAttribute('aria-hidden', !open);
-      if (stickyCta) stickyCta.style.transform = open ? 'translateY(120%)' : '';
-    });
-    document.querySelectorAll('.mobile-menu a').forEach(a => {
-      a.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        if (stickyCta) stickyCta.style.transform = '';
-      });
-    });
-
-    if ('IntersectionObserver' in window) {
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (!e.isIntersecting) return;
-          const siblings = [...e.target.parentElement.children].filter(c => c.classList.contains('fade-in'));
-          const idx = siblings.indexOf(e.target);
-          e.target.style.transitionDelay = (idx * 70) + 'ms';
-          e.target.classList.add('visible');
-          obs.unobserve(e.target);
-        });
-      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-      document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-    } else {
-      document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
-    }
-
-    if (stickyCta) {
-      const contact = document.getElementById('contact');
-      if (contact) {
-        new IntersectionObserver(entries => {
-          stickyCta.style.transform = entries[0].isIntersecting ? 'translateY(120%)' : '';
-        }, { threshold: 0.1 }).observe(contact);
-      }
-    }
-
-    // Accordion + Program Carousel
-    (function() {
-      function initCarousel(carousel) {
-        const track = carousel.querySelector('.p-carousel-track');
-        const slides = carousel.querySelectorAll('.p-carousel-slide');
-        const dotsWrap = carousel.querySelector('.p-carousel-dots');
-        const counter = carousel.querySelector('.p-counter');
-        const prevBtn = carousel.querySelector('.p-carousel-prev');
-        const nextBtn = carousel.querySelector('.p-carousel-next');
-        let cur = 0;
-        const total = slides.length;
-
-        slides.forEach((_, i) => {
-          const dot = document.createElement('button');
-          dot.className = 'p-carousel-dot' + (i === 0 ? ' active' : '');
-          dot.setAttribute('aria-label', (i + 1) + '枚目');
-          dot.addEventListener('click', () => goTo(i));
-          dotsWrap.appendChild(dot);
-        });
-
-        function updateCounter() {
-          if (counter) counter.textContent = (cur + 1) + ' / ' + total;
-        }
-
-        function goTo(idx) {
-          cur = (idx + total) % total;
-          track.style.transform = 'translateX(-' + (cur * 100) + '%)';
-          dotsWrap.querySelectorAll('.p-carousel-dot').forEach((d, i) => {
-            d.classList.toggle('active', i === cur);
-          });
-          updateCounter();
-        }
-
-        prevBtn.addEventListener('click', () => goTo(cur - 1));
-        nextBtn.addEventListener('click', () => goTo(cur + 1));
-        updateCounter();
-      }
-
-      document.querySelectorAll('.accordion-header').forEach(header => {
-        const item = header.parentElement;
-        const content = item.querySelector('.accordion-content');
-        let initialized = false;
-
-        header.addEventListener('click', () => {
-          const isOpen = header.getAttribute('aria-expanded') === 'true';
-
-          // Close all
-          document.querySelectorAll('.accordion-header').forEach(h => {
-            h.setAttribute('aria-expanded', 'false');
-            h.parentElement.querySelector('.accordion-content').style.maxHeight = '0';
-          });
-
-          if (!isOpen) {
-            header.setAttribute('aria-expanded', 'true');
-            content.style.maxHeight = '800px';
-            if (!initialized) {
-              initCarousel(content.querySelector('.program-carousel'));
-              initialized = true;
-            }
-          }
-        });
-      });
-    })();
+</footer>
 
 
-
-    const ceoToggle = document.getElementById('ceoToggle');
-    const ceoMore = document.getElementById('ceoMore');
-    if (ceoToggle && ceoMore) {
-      ceoToggle.addEventListener('click', () => {
-        const open = ceoMore.classList.toggle('open');
-        ceoToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        const label = ceoToggle.querySelector('.ceo-toggle-label');
-        if (label) label.textContent = open ? '閉じる' : '続きを読む';
-      });
-    }
-
-  </script>
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.fi').forEach(el => io.observe(el));
+</script>
 </body>
 </html>
