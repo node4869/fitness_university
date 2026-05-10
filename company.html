@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会社概要｜FiTNESS UNIVERSITY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;color:#1a1a1a;background:#fff;-webkit-font-smoothing:antialiased;line-height:1.8;}
+a{text-decoration:none;color:inherit;}
+
+:root{
+  --sky:#0a8fc4;--sky-d:#0779a8;--sky-pale:#edf8fd;
+  --navy:#0d2e3a;--cream:#f5f3ef;
+  --text-mid:#5a6a72;--text-muted:#96a8b0;
+  --border:#e2ddd6;--r-lg:24px;
+}
+
+/* HEADER */
+.hd{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.hd-i{max-width:1140px;margin:0 auto;padding:0 40px;height:68px;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:10px;}.logo img{height:52px;width:auto;display:block;}
+.logo-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;letter-spacing:.05em;color:var(--sky);white-space:nowrap;}
+.logo-text b{color:var(--navy);}
+.hd-nav{display:flex;gap:6px;}
+.hd-nav a{font-size:13px;color:var(--text-mid);padding:7px 16px;border-radius:20px;transition:background .2s,color .2s;}
+.hd-nav a:hover{background:var(--sky);color:#fff;}
+.hd-nav a.active{color:var(--sky);font-weight:700;}
+.hd-btn{background:var(--sky);color:#fff;border:none;border-radius:24px;padding:10px 20px;font-size:13px;font-weight:500;font-family:'Noto Sans JP',sans-serif;cursor:pointer;transition:background .2s;display:flex;align-items:center;gap:6px;white-space:nowrap;}
+.hd-btn:hover{background:var(--sky-d);}
+
+/* BREADCRUMB */
+.breadcrumb{max-width:1140px;margin:0 auto;padding:20px 40px 0;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);transition:color .2s;}
+.breadcrumb a:hover{color:var(--sky);}
+
+/* PAGE HEADER */
+.page-header{padding:56px 0 64px;border-bottom:1px solid var(--border);}
+.page-header-inner{max-width:1140px;margin:0 auto;padding:0 40px;}
+.page-eyebrow{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:12px;}
+.page-title{font-size:40px;font-weight:700;color:var(--navy);line-height:1.3;}
+
+/* TAB NAV */
+.tab-nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:68px;z-index:90;}
+.tab-nav-inner{max-width:1140px;margin:0 auto;padding:0 40px;display:flex;gap:0;}
+.tab-btn{padding:18px 28px;font-size:14px;font-weight:500;color:var(--text-mid);background:none;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;}
+.tab-btn:hover{color:var(--navy);}
+.tab-btn.active{color:var(--sky);border-bottom-color:var(--sky);font-weight:700;}
+
+/* MAIN */
+.main{max-width:1140px;margin:0 auto;padding:72px 40px 120px;}
+
+/* SECTION */
+.sec{margin-bottom:80px;}
+.sec-title{font-size:28px;font-weight:700;color:var(--navy);margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid var(--border);position:relative;}
+.sec-title::after{content:'';position:absolute;bottom:-2px;left:0;width:48px;height:2px;background:var(--sky);}
+
+/* TABLE */
+.info-table{width:100%;border-collapse:collapse;font-size:15px;}
+.info-table tr{border-bottom:1px solid var(--border);}
+.info-table tr:first-child{border-top:1px solid var(--border);}
+.info-table th{width:180px;padding:22px 28px;font-weight:700;color:var(--navy);text-align:left;vertical-align:top;background:#fafaf8;font-size:14px;}
+.info-table td{padding:22px 28px;color:var(--text-mid);vertical-align:top;line-height:1.9;}
+.info-table td a{color:var(--sky);}
+.info-table td a:hover{text-decoration:underline;}
+
+/* MAP */
+.map-wrap{width:100%;height:400px;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);margin-top:8px;}
+.map-wrap iframe{width:100%;height:100%;border:none;display:block;}
+
+/* ACCESS */
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:32px;}
+.access-item h4{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.access-item h4::before{content:'';width:4px;height:18px;background:var(--sky);border-radius:2px;display:block;}
+.access-item p{font-size:14px;color:var(--text-mid);line-height:2;}
+
+/* FOOTER */
+.footer{background:#071a22;padding:36px 0;}
+.footer-i{max-width:1140px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:#5dbfdd;}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{font-size:11px;color:#fff;}
+.footer-copy{font-size:10px;color:#2a4550;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hd-i{padding:0 20px;}
+  .breadcrumb{padding:16px 20px 0;}
+  .page-header-inner,.main{padding-left:20px;padding-right:20px;}
+  .tab-nav-inner{padding:0 20px;overflow-x:auto;}
+  .tab-btn{padding:16px 18px;font-size:13px;}
+  .info-table th{width:120px;padding:16px 16px;font-size:13px;}
+  .info-table td{padding:16px 16px;font-size:13px;}
+  .access-grid{grid-template-columns:1fr;}
+  .map-wrap{height:280px;}
+  .page-title{font-size:28px;}
+  .hd-nav{display:none;}
+  .footer-i{padding:0 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hd">
+  <div class="hd-i">
+    <a class="logo" href="index.html" aria-label="FiTNESS UNIVERSITY トップへ">
+      <img src="fu_logo.png" alt="FiTNESS UNIVERSITY">
+      <span class="logo-text">FiTNESS <b>UNIVERSITY</b></span>
+    </a>
+    <nav class="hd-nav">
+      <a href="#">お知らせ</a>
+      <a href="index.html#whyus">選ばれる理由</a>
+      <a href="index.html#service">サービス</a>
+      <a href="index.html#flow">ご支援の流れ</a>
+      <a href="company.html" class="active">会社概要</a>
+    </nav>
+    <a class="hd-btn" href="https://forms.gle/g7Dh79hw4PrkZ4qF6" target="_blank" rel="noopener">
+      無料相談 →
+    </a>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">ホーム</a>
+  <span>／</span>
+  <span>会社概要</span>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow">Company</div>
+    <h1 class="page-title">会社概要</h1>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" onclick="scrollToSec('overview', this)">会社概要</button>
+    <button class="tab-btn" onclick="scrollToSec('access', this)">アクセス</button>
+    <button class="tab-btn" onclick="scrollToSec('message', this)">代表挨拶</button>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- 会社概要 -->
+  <section class="sec" id="overview">
+    <h2 class="sec-title">会社概要</h2>
+    <table class="info-table">
+      <tr>
+        <th>会社名</th>
+        <td>株式会社FiTNESS UNIVERSITY</td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td>〒541-0054<br>大阪府大阪市中央区南本町1丁目5番7号</td>
+      </tr>
+      <tr>
+        <th>代表者</th>
+        <td>代表　沖中 由太</td>
+      </tr>
+      <tr>
+        <th>設立</th>
+        <td>―</td>
+      </tr>
+      <tr>
+        <th>事業内容</th>
+        <td>
+          健康経営支援コンサルティング<br>
+          従業員向け健康教育プログラムの提供<br>
+          新人教育・若手社員研修の企画・実施<br>
+          AI・LINE・動画を活用した教育プラットフォームの提供<br>
+          特定保健指導支援<br>
+          フィットネス・身体活動プログラムの企画・運営<br>
+          健康経営優良法人認定取得支援
+        </td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><a href="mailto:fituni.academy@gmail.com">fituni.academy@gmail.com</a></td>
+      </tr>
+      <tr>
+        <th>お問い合わせ</th>
+        <td><a href="https://forms.gle/g7Dh79hw4PrkZ4qF6" target="_blank" rel="noopener">お問い合わせ・無料相談フォームはこちら →</a></td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- アクセス -->
+  <section class="sec" id="access">
+    <h2 class="sec-title">アクセス</h2>
+    <div class="map-wrap">
+      <iframe
+        src="https://maps.google.com/maps?q=大阪府大阪市中央区南本町1丁目5番7号&output=embed&z=16"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <div style="margin-top:12px;text-align:right;">
+      <a href="https://maps.app.goo.gl/29hAkDJkbaJQME7MA" target="_blank" rel="noopener" style="font-size:13px;color:var(--sky);">Googleマップで開く →</a>
+    </div>
+    <div class="access-grid">
+      <div class="access-item">
+        <h4>住所</h4>
+        <p>
+          〒541-0054<br>
+          大阪府大阪市中央区南本町1丁目5番7号
+        </p>
+      </div>
+      <div class="access-item">
+        <h4>最寄り駅</h4>
+        <p>
+          Osaka Metro 堺筋線・中央線「堺筋本町駅」<br>
+          各線「本町駅」より徒歩圏内
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 代表挨拶 -->
+  <section class="sec" id="message">
+    <h2 class="sec-title">代表挨拶</h2>
+    <table class="info-table" style="margin-bottom:40px;">
+      <tr>
+        <th>代表</th>
+        <td>株式会社FiTNESS UNIVERSITY<br>代表　沖中 由太</td>
+      </tr>
+    </table>
+    <div style="max-width:780px;font-size:15px;color:var(--text-mid);line-height:2.1;">
+      <h3 style="font-size:18px;font-weight:700;color:var(--navy);margin-bottom:16px;">健康を、仕組みと文化に変えていくために</h3>
+      <p style="margin-bottom:20px;">私たちは、健康を一部の意識が高い人だけのものにせず、企業・地域・個人の中で、自然と機能するものに変えていきたいと考えています。</p>
+      <p style="margin-bottom:20px;">健康は、多くの場合「大切だと分かっているのに、続かない」と言われます。実際に現場では、担当者が一人で抱え、施策を企画し、研修を実施し、それでも「何が変わったのか分からない」という状態が少なくありません。</p>
+      <p style="margin-bottom:20px;">これは個人の努力不足ではなく、続くように設計されていないこと、現場に合う形に翻訳されていないこと、誰が担当しても回る仕組みになっていないことが大きいと感じています。</p>
+      <p style="margin-bottom:40px;">だからこそ、FiTNESS UNIVERSITYでは、知識を伝えるだけではなく、現場で動ける形まで一緒に整えることを大切にしています。</p>
+      <h3 style="font-size:18px;font-weight:700;color:var(--navy);margin-bottom:16px;">健康のチカラで、国力を上げる</h3>
+      <p style="margin-bottom:20px;">私が目指しているのは、単に「健康な人を増やすこと」ではありません。健康のチカラで、生産性と幸福度の土台を整え、国力を上げること。</p>
+      <p style="margin-bottom:20px;">企業・地域・個人の健康が連動する世界をつくりたい。健康が"良いこと"で終わらず、社会の中で循環し、機能し、文化として根づく状態を実装したいと思っています。</p>
+      <h3 style="font-size:18px;font-weight:700;color:var(--navy);margin-bottom:16px;">現場から考え、現場で機能するものをつくる</h3>
+      <p style="margin-bottom:20px;">私たちの仕事は、理想論を語ることではありません。現場で起きていることを整理し、何から動けばよいかを見つけ、無理なく続く形に整えることです。</p>
+      <ul style="padding-left:0;list-style:none;margin-bottom:40px;">
+        <li style="padding:4px 0 4px 20px;position:relative;"><span style="position:absolute;left:0;color:var(--sky);">—</span>健康を現場で機能させること</li>
+        <li style="padding:4px 0 4px 20px;position:relative;"><span style="position:absolute;left:0;color:var(--sky);">—</span>学んで終わりにしないこと</li>
+        <li style="padding:4px 0 4px 20px;position:relative;"><span style="position:absolute;left:0;color:var(--sky);">—</span>担当者を一人にしないこと</li>
+        <li style="padding:4px 0 4px 20px;position:relative;"><span style="position:absolute;left:0;color:var(--sky);">—</span>続く仕組みに変えること</li>
+      </ul>
+      <p style="margin-bottom:20px;">FiTNESS UNIVERSITYは、そのための伴走者であり、実装者でありたいと考えています。今ある課題を、無理なく、でも着実に前へ進めていく。そんなご一緒ができれば嬉しいです。</p>
+      <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border);font-size:14px;font-weight:700;color:var(--navy);line-height:2;">
+        株式会社FiTNESS UNIVERSITY<br>代表　沖中 由太
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-i">
+    <div class="footer-logo">株式会社FiTNESS UNIVERSITY</div>
+    <div class="footer-links">
+      <a href="company.html">会社概要</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="terms.html">利用規約</a>
+      <a href="mailto:fituni.academy@gmail.com">お問い合わせ</a>
+    </div>
+    <div class="footer-copy">© 2026 株式会社FiTNESS UNIVERSITY. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+function scrollToSec(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const offset = 68 + 56;
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top, behavior: 'smooth' });
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+const sections = ['overview', 'access', 'message'];
+window.addEventListener('scroll', () => {
+  const offset = 68 + 56 + 40;
+  let current = sections[0];
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top - offset <= 0) current = id;
+  });
+  document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', sections[i] === current);
+  });
+});
+</script>
+</body>
+</html>

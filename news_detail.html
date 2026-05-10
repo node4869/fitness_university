@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon｜お知らせ｜FiTNESS UNIVERSITY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;color:#1a1a1a;background:#fff;-webkit-font-smoothing:antialiased;line-height:1.8;}
+a{text-decoration:none;color:inherit;}
+:root{
+  --sky:#0a8fc4;--sky-d:#0779a8;--sky-pale:#edf8fd;
+  --navy:#0d2e3a;--cream:#f5f3ef;
+  --text-mid:#5a6a72;--text-muted:#96a8b0;
+  --border:#e2ddd6;--r-lg:24px;
+}
+
+/* HEADER */
+.hd{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.hd-i{max-width:1140px;margin:0 auto;padding:0 40px;height:68px;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;}.logo img{height:52px;width:auto;display:block;}
+.hd-nav{display:flex;gap:6px;}
+.hd-nav a{font-size:13px;color:var(--text-mid);padding:7px 16px;border-radius:20px;transition:background .2s,color .2s;}
+.hd-nav a:hover{background:var(--sky);color:#fff;}
+.hd-btn{background:var(--sky);color:#fff;border:none;border-radius:24px;padding:10px 20px;font-size:13px;font-weight:500;font-family:'Noto Sans JP',sans-serif;cursor:pointer;transition:background .2s;display:flex;align-items:center;gap:6px;white-space:nowrap;}
+.hd-btn:hover{background:var(--sky-d);}
+
+/* BREADCRUMB */
+.breadcrumb{max-width:1140px;margin:0 auto;padding:20px 40px 0;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);transition:color .2s;}
+.breadcrumb a:hover{color:var(--sky);}
+
+/* MAIN LAYOUT */
+.main-wrap{max-width:1140px;margin:0 auto;padding:72px 40px 120px;display:grid;grid-template-columns:200px 1fr;gap:64px;}
+
+/* SIDEBAR */
+.sidebar-title{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px;}
+.sidebar-nav{display:flex;flex-direction:column;gap:4px;}
+.sidebar-nav a{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-mid);padding:10px 0;border-bottom:1px solid var(--border);transition:color .2s;}
+.sidebar-nav a:hover{color:var(--sky);}
+.sidebar-nav a::before{content:'›';color:#fff;font-size:14px;line-height:1;width:20px;height:20px;border-radius:50%;background:var(--sky);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* ARTICLE */
+.article{}
+.article-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.article-tag{font-size:11px;font-weight:700;color:var(--sky);background:var(--sky-pale);padding:3px 12px;border-radius:20px;letter-spacing:.06em;}
+.article-date{font-size:12px;color:var(--text-muted);}
+.article-title{font-size:32px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:0;padding-bottom:24px;border-bottom:1px solid var(--border);}
+.article-body{padding:40px 0;font-size:15px;color:var(--text-mid);line-height:2;border-bottom:1px solid var(--border);}
+.article-body p{margin-bottom:20px;}
+.article-body p:last-child{margin-bottom:0;}
+
+/* Coming Soon */
+.coming-soon{
+  padding:80px 0;text-align:center;
+}
+.coming-soon-icon{
+  font-size:48px;margin-bottom:24px;
+  display:block;
+}
+.coming-soon-title{
+  font-family:'Montserrat',sans-serif;
+  font-size:28px;font-weight:800;letter-spacing:.1em;
+  color:var(--navy);margin-bottom:12px;
+}
+.coming-soon-text{
+  font-size:15px;color:var(--text-muted);line-height:2;
+}
+
+/* PAGINATION */
+.pagination{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:32px 0 0;
+  font-size:14px;
+}
+.page-prev,.page-next{
+  display:flex;align-items:center;gap:10px;
+  color:var(--text-mid);transition:color .2s;
+  padding:10px 0;
+}
+.page-prev:hover,.page-next:hover{color:var(--sky);}
+.page-prev-disabled{color:var(--border);pointer-events:none;}
+.page-arrow{
+  width:32px;height:32px;border-radius:50%;
+  border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;transition:background .2s,border-color .2s,color .2s;
+}
+.page-prev:hover .page-arrow,
+.page-next:hover .page-arrow{background:var(--sky);border-color:var(--sky);color:#fff;}
+.page-prev-disabled .page-arrow{background:#f5f3ef;color:var(--border);}
+
+/* FOOTER */
+.footer{background:#071a22;padding:36px 0;}
+.footer-i{max-width:1140px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:#5dbfdd;}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{font-size:11px;color:#fff;}
+.footer-copy{font-size:10px;color:#2a4550;}
+
+@media(max-width:768px){
+  .hd-i,.breadcrumb{padding-left:20px;padding-right:20px;}
+  .hd-nav{display:none;}
+  .main-wrap{grid-template-columns:1fr;gap:32px;padding:40px 20px 80px;}
+  .sidebar{display:flex;gap:8px;flex-wrap:wrap;}
+  .sidebar-title{display:none;}
+  .sidebar-nav{flex-direction:row;gap:8px;}
+  .sidebar-nav a{border-bottom:none;padding:6px 14px;background:var(--cream);border-radius:20px;font-size:12px;}
+  .sidebar-nav a::before{display:none;}
+  .article-title{font-size:24px;}
+  .footer-i{padding:0 20px;}
+}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="hd-i">
+    <a class="logo" href="index.html" aria-label="FiTNESS UNIVERSITY トップへ">
+      <img src="fu_logo.png" alt="FiTNESS UNIVERSITY">
+    </a>
+    <nav class="hd-nav">
+      <a href="news.html">お知らせ</a>
+      <a href="index.html#whyus">選ばれる理由</a>
+      <a href="index.html#service">サービス</a>
+      <a href="index.html#flow">ご支援の流れ</a>
+      <a href="company.html">会社概要</a>
+    </nav>
+    <a class="hd-btn" href="https://forms.gle/g7Dh79hw4PrkZ4qF6" target="_blank" rel="noopener">無料相談 →</a>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">ホーム</a>
+  <span>／</span>
+  <a href="news.html">お知らせ</a>
+  <span>／</span>
+  <span>Coming Soon</span>
+</div>
+
+<div class="main-wrap">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-title">Category</div>
+    <nav class="sidebar-nav">
+      <a href="news.html">すべて</a>
+      <a href="news.html">お知らせ</a>
+      <a href="news.html">セミナー情報</a>
+      <a href="news.html">導入事例</a>
+    </nav>
+  </aside>
+
+  <!-- ARTICLE -->
+  <article class="article">
+    <div class="article-meta">
+      <span class="article-tag">お知らせ</span>
+      <span class="article-date">2026年05月10日</span>
+    </div>
+    <h1 class="article-title">Coming Soon</h1>
+
+    <div class="article-body">
+      <div class="coming-soon">
+        <span class="coming-soon-icon">🚧</span>
+        <div class="coming-soon-title">COMING SOON</div>
+        <p class="coming-soon-text">
+          現在、コンテンツを準備中です。<br>
+          公開まで今しばらくお待ちください。
+        </p>
+      </div>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="pagination">
+      <span class="page-prev page-prev-disabled">
+        <span class="page-arrow">‹</span>
+        前のページに戻る
+      </span>
+      <a class="page-next" href="news_detail.html">
+        次のページに進む
+        <span class="page-arrow">›</span>
+      </a>
+    </div>
+  </article>
+</div>
+
+<footer class="footer">
+  <div class="footer-i">
+    <div class="footer-logo">株式会社FiTNESS UNIVERSITY</div>
+    <div class="footer-links">
+      <a href="company.html">会社概要</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="terms.html">利用規約</a>
+      <a href="mailto:fituni.academy@gmail.com">お問い合わせ</a>
+    </div>
+    <div class="footer-copy">© 2026 株式会社FiTNESS UNIVERSITY. All rights reserved.</div>
+  </div>
+</footer>
+</body>
+</html>
