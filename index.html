@@ -183,19 +183,15 @@ a{text-decoration:none;color:inherit;}
 .message-sign{margin-top:40px;padding-top:24px;border-top:1px solid var(--border);font-size:14px;font-weight:700;color:var(--navy);line-height:1.9;}
 
 /* FINAL CTA */
-.final{background:var(--navy);padding:120px 0;text-align:center;position:relative;overflow:hidden;}
-.final::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(10,143,196,.12) 0%,transparent 70%);pointer-events:none;}
-.final h2{font-size:38px;font-weight:700;color:#e8f7fd;line-height:1.55;margin-bottom:16px;position:relative;}
-.final h2 em{color:var(--sky);font-style:normal;}
-.final-sub{font-size:15px;color:rgba(255,255,255,.55);line-height:2;margin-bottom:12px;position:relative;}
-.final-note{font-size:13px;color:#5dbfdd;margin-bottom:48px;position:relative;}
+.final{background:var(--sky);padding:120px 0;text-align:center;position:relative;overflow:hidden;}
+.final h2{font-size:38px;font-weight:700;color:#fff;line-height:1.55;margin-bottom:16px;position:relative;}
+.final-sub{font-size:15px;color:rgba(255,255,255,.85);line-height:2;margin-bottom:12px;position:relative;}
+.final-note{font-size:13px;color:rgba(255,255,255,.75);margin-bottom:48px;position:relative;}
 .final-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;position:relative;}
-.btn-final-main{background:var(--sky);color:#fff;border:none;border-radius:30px;padding:18px 44px;font-size:17px;font-weight:700;font-family:'Noto Sans JP',sans-serif;cursor:pointer;display:flex;align-items:center;gap:10px;transition:background .2s,transform .15s,box-shadow .15s;}
-.btn-final-main:hover{background:var(--sky-d);transform:translateY(-2px);box-shadow:0 8px 32px rgba(10,143,196,.35);}
-.btn-final-sub{background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.2);border-radius:30px;padding:17px 32px;font-size:15px;font-family:'Noto Sans JP',sans-serif;cursor:pointer;transition:border-color .2s,color .2s;}
-.btn-final-sub:hover{border-color:rgba(255,255,255,.4);color:rgba(255,255,255,.85);}
-.final-reassure{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;font-size:12px;color:rgba(255,255,255,.35);position:relative;}
-.final-reassure span::before{content:'✓ ';color:var(--sky);}
+.btn-final-main{background:#fff;color:var(--sky);border:none;border-radius:30px;padding:18px 44px;font-size:17px;font-weight:700;font-family:'Noto Sans JP',sans-serif;cursor:pointer;display:flex;align-items:center;gap:10px;transition:transform .15s,box-shadow .15s;}
+.btn-final-main:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.15);}
+.final-reassure{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;font-size:12px;color:rgba(255,255,255,.7);position:relative;}
+.final-reassure span::before{content:'✓ ';color:rgba(255,255,255,.9);}
 
 /* FOOTER */
 .footer{background:#071a22;padding:36px 0;}
@@ -598,12 +594,11 @@ a{text-decoration:none;color:inherit;}
 <!-- FINAL CTA -->
 <section class="final" id="contact">
   <div class="container">
-    <h2 class="fi">「担当者ひとりで抱え込む<br>健康経営」から、<br><em>卒業しませんか。</em></h2>
+    <h2 class="fi">担当者一人で抱え込む<br>健康経営から<br>卒業しませんか</h2>
     <p class="final-sub fi">施策の立案・実行・効果測定・経営層への説明——<br>その全てをFiTNESS UNIVERSITYが伴走します。</p>
     <p class="final-note fi">まずは現状をお聞かせください。提案・見積りは無料です。</p>
     <div class="final-btns fi">
       <a class="btn-final-main" href="https://forms.gle/g7Dh79hw4PrkZ4qF6" target="_blank" rel="noopener">無料相談を予約する →</a>
-      <button class="btn-final-sub">事業概要資料をダウンロード</button>
     </div>
     <div class="final-reassure fi">
       <span>相談・提案は完全無料</span>
