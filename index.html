@@ -70,6 +70,7 @@ a{text-decoration:none;color:inherit;}
 .section-heading h2{margin:0;font-size:clamp(30px,4vw,46px);line-height:1.35;font-weight:700;color:#0b2a3d;letter-spacing:-0.02em;}
 .section-lead{margin-top:18px;max-width:760px;font-size:16px;line-height:1.9;color:var(--text-mid);}
 .issues-grid{display:flex;flex-direction:column;gap:20px;margin-top:38px;}
+.mob-br{display:none;}
 .issue-card{background:#fff;border:1.5px solid #d9e1e7;border-left:4px solid var(--sky);border-radius:18px;padding:28px 32px;position:relative;overflow:hidden;transition:transform 0.25s ease,box-shadow 0.25s ease;}
 .issue-card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(15,35,52,.09);}
 .issue-card::before{content:'\300C';position:absolute;top:8px;right:20px;font-size:80px;font-family:'Noto Serif JP',serif;color:var(--sky);opacity:0.06;line-height:1;pointer-events:none;}
@@ -222,7 +223,13 @@ a{text-decoration:none;color:inherit;}
   .hero-inner{align-items:flex-start;padding:calc(68px + 32px) 24px 0;}
   .hero-content{max-width:100%;}
   .hero-sub{font-size:14px;}
-  .whyus-grid{grid-template-columns:1fr;}
+  .issues-grid{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .issues-grid::-webkit-scrollbar{display:none;}
+  .issue-card{min-width:82vw;flex-shrink:0;scroll-snap-align:start;}
+  .mob-br{display:block;}
+  .whyus-grid{display:flex;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .whyus-grid::-webkit-scrollbar{display:none;}
+  .whyus-card{min-width:76vw;flex-shrink:0;scroll-snap-align:start;}
   .whyus-head{flex-direction:column;align-items:flex-start;gap:12px;}
   .process-item{grid-template-columns:1fr;}
   .process-text{padding:40px 28px;order:1;}
@@ -375,7 +382,7 @@ a{text-decoration:none;color:inherit;}
     <div class="issues-statement fi">
       <div class="statement-body">
         <p class="statement-label">OUR APPROACH</p>
-        <h3>FiTNESS UNIVERSITYは「制度導入」で終わらせず、<br><span>気づき・実践・継続・文化形成</span>まで設計します。</h3>
+        <h3>FiTNESS UNIVERSITYは<br class="mob-br">「制度導入」で終わらせず、<br><span>気づき・実践・継続・文化形成</span><br class="mob-br">まで設計します。</h3>
       </div>
     </div>
   </div>
