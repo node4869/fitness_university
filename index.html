@@ -224,13 +224,21 @@ a{text-decoration:none;color:inherit;}
   .hero-content{max-width:100%;background:rgba(255,255,255,.78);backdrop-filter:blur(4px);border-radius:var(--r-lg);padding:28px 24px;}
   .hero-sub{font-size:14px;}
   .process-title{font-size:20px;}
-  .issues-grid{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .issues-grid{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:20px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
   .issues-grid::-webkit-scrollbar{display:none;}
-  .issue-card{min-width:82vw;flex-shrink:0;scroll-snap-align:start;}
+  .issue-card{min-width:83%;flex-shrink:0;scroll-snap-align:start;padding:18px 18px;}
+  .issue-card h3{font-size:17px;}
+  .issue-card p{font-size:12px;line-height:1.75;}
+  .issue-voices{margin-top:10px;padding-top:10px;}
+  .issue-voice-label{font-size:11px;}
+  .statement-body h3{font-size:15px;line-height:1.75;}
   .mob-br{display:block;}
-  .whyus-grid{display:flex;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .whyus-grid{display:flex;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:20px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
   .whyus-grid::-webkit-scrollbar{display:none;}
-  .whyus-card{min-width:76vw;flex-shrink:0;scroll-snap-align:start;}
+  .whyus-card{min-width:72%;flex-shrink:0;scroll-snap-align:start;}
+  .wc-icon img{width:60px;height:60px;}
+  .wc-title{font-size:12px;}
+  .wc-text{font-size:10px;}
   .whyus-head{flex-direction:column;align-items:flex-start;gap:12px;}
   .process-item{grid-template-columns:1fr;}
   .process-text{padding:40px 28px;order:1;}
@@ -250,9 +258,7 @@ a{text-decoration:none;color:inherit;}
 }
 @media(max-width:640px){
   .issues-section{padding:72px 0 88px;}
-  .issue-card{padding:22px 20px;}.issue-card h3{font-size:18px;}
-  .issue-card p{font-size:13px;line-height:1.85;}
-  .statement-body h3{font-size:20px;line-height:1.7;}
+  .statement-body h3{font-size:15px;line-height:1.75;}
 }
 @media(max-width:480px){
   .logo-bar-logos img{height:100px;}
