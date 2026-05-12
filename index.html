@@ -25,8 +25,8 @@ a{text-decoration:none;color:inherit;}
 /* HEADER */
 .hd{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
 .hd-i{max-width:1140px;margin:0 auto;padding:0 40px;height:68px;display:flex;align-items:center;justify-content:space-between;}
-.logo{display:flex;align-items:center;}.logo img{height:44px;width:auto;display:block;}
-.logo b{color:var(--navy);}
+.logo{display:flex;align-items:center;gap:10px;}.logo img{height:44px;width:auto;display:block;}
+.logo-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;letter-spacing:.05em;color:#1a1a1a;white-space:nowrap;}
 .hd-nav{display:flex;gap:6px;}
 .hd-nav a{font-size:13px;color:var(--text-mid);padding:7px 16px;border-radius:20px;transition:background .2s,color .2s;}
 .hd-nav a:hover{background:var(--sky);color:#fff;}
@@ -129,7 +129,8 @@ a{text-decoration:none;color:inherit;}
 .process-body{font-size:14px;color:var(--text-mid);line-height:2;}
 .process-img{overflow:hidden;position:relative;}
 .process-img img{width:100%;height:100%;object-fit:cover;display:block;}
-.process-text{padding:64px 56px;display:flex;flex-direction:column;justify-content:center;background:#fff;}
+.process-text{padding:64px 56px;display:flex;flex-direction:column;justify-content:center;background:#fff;transition:transform .35s ease,box-shadow .35s ease;position:relative;}
+.process-text:hover{transform:scale(1.03);box-shadow:0 20px 56px rgba(0,0,0,.1);z-index:2;}
 .service-intro,.svc-checklist,.svc-check,.svc-check-dot,.svc-flow,.svc-flow-label,.svc-step,.svc-step-c,.svc-step-name,.svc-step-desc{display:none;}
 .service-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .svc-card{background:#fff;border-radius:var(--r-lg);padding:28px 24px;border:1px solid var(--border);position:relative;overflow:hidden;display:flex;flex-direction:column;transition:background .3s ease,border-color .3s ease,box-shadow .3s ease,transform .25s ease;}
@@ -196,14 +197,31 @@ a{text-decoration:none;color:inherit;}
 /* FOOTER */
 .footer{background:#071a22;padding:36px 0;}
 .footer-i{max-width:1140px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.footer-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:#5dbfdd;}
+.footer-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:#fff;}
 .footer-links{display:flex;gap:20px;}
 .footer-links a{font-size:11px;color:#fff;}
-.footer-copy{font-size:10px;color:#2a4550;}
+.footer-copy{font-size:10px;color:#fff;}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;justify-content:space-between;width:40px;height:40px;background:var(--sky);border:none;border-radius:8px;padding:10px 8px;cursor:pointer;flex-shrink:0;}
+.hamburger span{display:block;width:100%;height:2px;background:#fff;border-radius:1px;transition:transform .3s,opacity .3s;}
+.hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+.mob-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:12px 20px 24px;z-index:99;box-shadow:0 6px 24px rgba(0,0,0,.1);}
+.mob-menu.open{display:flex;flex-direction:column;}
+.mob-menu-nav{display:flex;flex-direction:column;}
+.mob-menu-nav a{display:block;padding:15px 0;font-size:15px;color:var(--text-mid);border-bottom:1px solid var(--border);}
+.mob-menu-nav a:last-child{border-bottom:none;}
+.mob-menu-cta{display:block;margin-top:16px;background:var(--sky);color:#fff;text-align:center;padding:15px;border-radius:30px;font-size:14px;font-weight:700;font-family:'Noto Sans JP',sans-serif;letter-spacing:.04em;}
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  .hero h1{font-size:30px;}.hero-scroll{display:none;}
+  .hero h1{font-size:28px;}.hero-scroll{display:none;}
+  .hero-bg::after{background:linear-gradient(180deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.88) 38%,rgba(255,255,255,.35) 68%,rgba(255,255,255,0) 100%);}
+  .hero-inner{align-items:flex-start;padding:calc(68px + 32px) 24px 0;}
+  .hero-content{max-width:100%;}
+  .hero-sub{font-size:14px;}
   .whyus-grid{grid-template-columns:1fr;}
   .whyus-head{flex-direction:column;align-items:flex-start;gap:12px;}
   .process-item{grid-template-columns:1fr;}
@@ -216,7 +234,7 @@ a{text-decoration:none;color:inherit;}
   .hw-connector{display:none;}
   .hw-step-title{text-align:left;font-size:14px;}.hw-step-text{text-align:left;}.hw-step-tag{margin-left:0;}
   .flow-cta{flex-direction:column;text-align:center;}
-  .hd-nav{display:none;}.final h2{font-size:26px;}
+  .hd-nav{display:none;}.hd-btn{display:none;}.hamburger{display:flex;}.final h2{font-size:26px;}
   .logo-bar{padding:56px 0;}.logo-bar-inner{gap:32px;padding:0 24px;}
   .logo-bar-logos{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;gap:40px;padding-bottom:8px;-webkit-overflow-scrolling:touch;}
   .logo-bar-logos img{height:120px;max-width:none;flex-shrink:0;}
@@ -240,6 +258,7 @@ a{text-decoration:none;color:inherit;}
   <div class="hd-i">
     <a class="logo" href="#" aria-label="FiTNESS UNIVERSITY トップへ">
       <img src="fu_logo.png" alt="FiTNESS UNIVERSITY">
+      <span class="logo-text">FiTNESS UNIVERSITY</span>
     </a>
     <nav class="hd-nav">
       <a href="news.html">お知らせ</a>
@@ -251,8 +270,25 @@ a{text-decoration:none;color:inherit;}
     <a class="hd-btn" href="https://forms.gle/g7Dh79hw4PrkZ4qF6" target="_blank" rel="noopener">
       無料相談 →
     </a>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <nav class="mob-menu-nav">
+    <a href="news.html">お知らせ</a>
+    <a href="#whyus" onclick="closeMobMenu()">選ばれる理由</a>
+    <a href="#service" onclick="closeMobMenu()">サービス</a>
+    <a href="#flow" onclick="closeMobMenu()">ご支援の流れ</a>
+    <a href="company.html">会社概要</a>
+  </nav>
+  <a class="mob-menu-cta" href="https://forms.gle/g7Dh79hw4PrkZ4qF6" target="_blank" rel="noopener">無料相談 →</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -631,6 +667,19 @@ const io = new IntersectionObserver(entries => {
   });
 },{threshold:0.1});
 document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+function toggleMenu(){
+  const menu = document.getElementById('mobMenu');
+  const btn = document.getElementById('hamburger');
+  const open = menu.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+function closeMobMenu(){
+  document.getElementById('mobMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 function toggleMsg(){
   const acc = document.getElementById('msgAccordion');
