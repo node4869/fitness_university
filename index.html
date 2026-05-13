@@ -67,7 +67,7 @@ a{text-decoration:none;color:inherit;}
 .issues-section{padding:96px 0 110px;background:#f8f7f4;}
 .section-heading{margin-bottom:42px;}
 .section-label{display:inline-block;margin-bottom:14px;font-size:12px;font-weight:700;letter-spacing:0.16em;color:var(--sky);}
-.section-heading h2{margin:0;font-size:clamp(20px,3vw,35px);line-height:1.35;font-weight:700;color:#0b2a3d;letter-spacing:-0.02em;}
+.section-heading h2{margin:0;font-size:clamp(30px,4vw,46px);line-height:1.35;font-weight:700;color:#0b2a3d;letter-spacing:-0.02em;}
 .section-lead{margin-top:18px;max-width:760px;font-size:16px;line-height:1.9;color:var(--text-mid);}
 .issues-grid{display:flex;flex-direction:column;gap:20px;margin-top:38px;}
 .mob-br{display:none;}
@@ -95,7 +95,7 @@ a{text-decoration:none;color:inherit;}
 .statement-body h3 span{color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:4px;}
 .container{max-width:1140px;margin:0 auto;padding:0 40px;}
 .sec-ey{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--sky);margin-bottom:12px;}
-.sec-title{font-size:24px;font-weight:700;line-height:1.5;margin-bottom:16px;color:var(--navy);}
+.sec-title{font-size:36px;font-weight:700;line-height:1.5;margin-bottom:16px;color:var(--navy);}
 .sec-title em{font-style:normal;color:var(--sky);}
 .sec-sub{font-size:15px;color:var(--text-mid);line-height:2;margin-bottom:56px;}
 
@@ -225,21 +225,45 @@ a{text-decoration:none;color:inherit;}
   .hero-content{max-width:100%;background:rgba(255,255,255,.78);backdrop-filter:blur(4px);border-radius:var(--r-lg);padding:28px 24px;}
   .hero-sub{font-size:14px;}
   .process-title{font-size:20px;}
-  .issues-grid{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:20px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
-  .issues-grid::-webkit-scrollbar{display:none;}
-  .issue-card{min-width:83%;flex-shrink:0;scroll-snap-align:start;padding:18px 18px;}
-  .issue-card h3{font-size:17px;}
-  .issue-card p{font-size:12px;line-height:1.75;}
+  .issues-grid{flex-direction:column;gap:14px;overflow-x:visible;padding:0;}
+
+
+  /* issue accordion (mobile) */
+  .issue-card{cursor:pointer;}
+  .issue-card .issue-body{display:none;}
+  .issue-card.acc-open .issue-body{display:block;}
+  .issue-card-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:0;}
+  .issue-acc-toggle{
+    width:24px;height:24px;border-radius:50%;
+    background:var(--sky-pale);color:var(--sky);
+    display:flex;align-items:center;justify-content:center;
+    font-size:16px;line-height:1;flex-shrink:0;
+    transition:transform .3s,background .2s;
+  }
+  .issue-card.acc-open .issue-acc-toggle{transform:rotate(45deg);background:var(--sky);color:#fff;}
+  .issue-card h3{font-size:16px;line-height:1.5;margin:10px 0 0;}
+  .issue-card.acc-open h3{margin-bottom:12px;}
+  .issue-card p{font-size:13px;line-height:1.8;}
+  .issue-voices{margin-top:12px;padding-top:12px;}
+  .issue-card{min-width:unset;width:100%;flex-shrink:unset;scroll-snap-align:unset;padding:18px 20px;}
+  .issue-card h3{font-size:16px;line-height:1.5;}
+  .issue-card p{font-size:13px;line-height:1.8;}
   .issue-voices{margin-top:10px;padding-top:10px;}
   .issue-voice-label{font-size:11px;}
   .statement-body h3{font-size:15px;line-height:1.75;}
   .mob-br{display:block;}
-  .whyus-grid{display:flex;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:20px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
-  .whyus-grid::-webkit-scrollbar{display:none;}
-  .whyus-card{min-width:72%;flex-shrink:0;scroll-snap-align:start;}
-  .wc-icon img{width:60px;height:60px;}
-  .wc-title{font-size:12px;}
-  .wc-text{font-size:10px;}
+  .whyus-grid{display:flex;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 12px;gap:12px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+
+  .whyus-card{min-width:200px;max-width:200px;flex-shrink:0;scroll-snap-align:start;padding-bottom:16px;}
+  .wc-icon img{width:48px;height:48px;}
+  .wc-title{font-size:12px;word-break:normal;padding:0 10px;margin-bottom:6px;}
+  .wc-text{font-size:10px;word-break:normal;padding:0 10px;}
+  .whyus-card .wc-num{margin:12px 0 8px;}
+  .whyus-card .wc-icon{margin-bottom:8px;}
+  .whyus-card .wc-sep{margin-bottom:8px;width:16px;}
+  .whyus-card .wc-tag{margin-top:10px;font-size:9px;}
+  .whyus-grid{padding:0 16px 12px;}
+
   .whyus-head{flex-direction:column;align-items:flex-start;gap:12px;}
   .process-item{grid-template-columns:1fr;}
   .process-text{padding:40px 28px;order:1;}
@@ -259,7 +283,12 @@ a{text-decoration:none;color:inherit;}
   .final-sub{font-size:12px;line-height:1.8;}
   .final-note{font-size:11px;}
 }
-@media(max-width:640px){
+
+  /* carousel dots */
+  .carousel-dots{display:flex;justify-content:center;gap:6px;margin-top:16px;}
+  .carousel-dot{width:6px;height:6px;border-radius:50%;background:var(--border);transition:background .3s,width .3s;cursor:pointer;}
+  .carousel-dot.active{background:var(--sky);width:18px;border-radius:3px;}
+  @media(max-width:640px){
   .issues-section{padding:72px 0 88px;}
   .statement-body h3{font-size:15px;line-height:1.75;}
 }
@@ -288,9 +317,7 @@ a{text-decoration:none;color:inherit;}
       無料相談 →
     </a>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="メニューを開く">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
   </div>
 </header>
@@ -351,44 +378,65 @@ a{text-decoration:none;color:inherit;}
       <h2 class="fi">多くの健康経営担当者が、<br>同じ壁に直面しています。</h2>
       <p class="section-lead fi">単発の施策では終わらず、社内に定着し、行動につながる仕組みまで設計することが求められています。</p>
     </div>
-    <div class="issues-grid">
-      <article class="issue-card fi fi-d1">
-        <div class="issue-card-meta"><span class="issue-num">01</span><span class="issue-tag">施策継続</span></div>
+    <div class="issues-grid" id="issuesGrid">
+      <article class="issue-card fi fi-d1" onclick="toggleAccordion(this)">
+        <div class="issue-card-meta">
+          <div style="display:flex;align-items:center;gap:10px;"><span class="issue-num">01</span><span class="issue-tag">施策継続</span></div>
+          <span class="issue-acc-toggle">+</span>
+        </div>
         <h3>セミナーが一度きりで終わる</h3>
-        <p>参加率は高くても翌月には元通り。継続する仕組みがなければ、施策は単発で終わり、投資対効果も見えにくくなります。</p>
-        <div class="issue-voices">
-          <div class="issue-avatars"><span class="issue-avatar"></span></div>
-          <span class="issue-voice-label">多くの健康経営担当者が同じ壁に直面しています</span>
+        <div class="issue-body">
+          <p>参加率は高くても翌月には元通り。継続する仕組みがなければ、施策は単発で終わり、投資対効果も見えにくくなります。</p>
+          <div class="issue-voices">
+            <div class="issue-avatars"><span class="issue-avatar"></span></div>
+            <span class="issue-voice-label">多くの健康経営担当者が同じ壁に直面しています</span>
+          </div>
         </div>
       </article>
-      <article class="issue-card fi fi-d2">
-        <div class="issue-card-meta"><span class="issue-num">02</span><span class="issue-tag">制度活用</span></div>
+      <article class="issue-card fi fi-d2" onclick="toggleAccordion(this)">
+        <div class="issue-card-meta">
+          <div style="display:flex;align-items:center;gap:10px;"><span class="issue-num">02</span><span class="issue-tag">制度活用</span></div>
+          <span class="issue-acc-toggle">+</span>
+        </div>
         <h3>福利厚生が使われない</h3>
-        <p>制度はあるのに従業員へ届かず、利用も進まない。活用されない施策は、経営層への説明も難しくなります。</p>
-        <div class="issue-voices">
-          <div class="issue-avatars"><span class="issue-avatar"></span></div>
-          <span class="issue-voice-label">業種・規模を問わず、多くの企業で見られる課題です</span>
+        <div class="issue-body">
+          <p>制度はあるのに従業員へ届かず、利用も進まない。活用されない施策は、経営層への説明も難しくなります。</p>
+          <div class="issue-voices">
+            <div class="issue-avatars"><span class="issue-avatar"></span></div>
+            <span class="issue-voice-label">業種・規模を問わず、多くの企業で見られる課題です</span>
+          </div>
         </div>
       </article>
-      <article class="issue-card fi fi-d3">
-        <div class="issue-card-meta"><span class="issue-num">03</span><span class="issue-tag">人材課題</span></div>
+      <article class="issue-card fi fi-d3" onclick="toggleAccordion(this)">
+        <div class="issue-card-meta">
+          <div style="display:flex;align-items:center;gap:10px;"><span class="issue-num">03</span><span class="issue-tag">人材課題</span></div>
+          <span class="issue-acc-toggle">+</span>
+        </div>
         <h3>新入社員のメンタル・体調不調が止まらない</h3>
-        <p>離職や休職が増えるたびに、現場と人事の負担も大きくなります。根本原因に向き合わなければ、同じ問題が繰り返されます。</p>
-        <div class="issue-voices">
-          <div class="issue-avatars"><span class="issue-avatar"></span></div>
-          <span class="issue-voice-label">特に若手社員を抱える企業で共通して起きている問題です</span>
+        <div class="issue-body">
+          <p>離職や休職が増えるたびに、現場と人事の負担も大きくなります。根本原因に向き合わなければ、同じ問題が繰り返されます。</p>
+          <div class="issue-voices">
+            <div class="issue-avatars"><span class="issue-avatar"></span></div>
+            <span class="issue-voice-label">特に若手社員を抱える企業で共通して起きている問題です</span>
+          </div>
         </div>
       </article>
-      <article class="issue-card fi fi-d4">
-        <div class="issue-card-meta"><span class="issue-num">04</span><span class="issue-tag">社内提案</span></div>
+      <article class="issue-card fi fi-d4" onclick="toggleAccordion(this)">
+        <div class="issue-card-meta">
+          <div style="display:flex;align-items:center;gap:10px;"><span class="issue-num">04</span><span class="issue-tag">社内提案</span></div>
+          <span class="issue-acc-toggle">+</span>
+        </div>
         <h3>経営層への説明材料がない</h3>
-        <p>「効果が見えづらい」「予算が取りにくい」など、社内で意思決定を進めるための整理された説明材料が不足しがちです。</p>
-        <div class="issue-voices">
-          <div class="issue-avatars"><span class="issue-avatar"></span></div>
-          <span class="issue-voice-label">担当者が孤立しやすい、よくある組織の構造的課題です</span>
+        <div class="issue-body">
+          <p>「効果が見えづらい」「予算が取りにくい」など、社内で意思決定を進めるための整理された説明材料が不足しがちです。</p>
+          <div class="issue-voices">
+            <div class="issue-avatars"><span class="issue-avatar"></span></div>
+            <span class="issue-voice-label">担当者が孤立しやすい、よくある組織の構造的課題です</span>
+          </div>
         </div>
       </article>
     </div>
+
     <div class="issues-statement fi">
       <div class="statement-body">
         <p class="statement-label">OUR APPROACH</p>
@@ -408,7 +456,7 @@ a{text-decoration:none;color:inherit;}
         <div class="whyus-head-r fi">知識提供で終わる研修会社でも、戦略だけのコンサルでもない。現場実装まで担える会社です。</div>
       </div>
     </div>
-    <div class="whyus-grid">
+    <div class="whyus-grid" id="whyusGrid">
       <div class="whyus-card fi fi-d1">
         <div class="wc-clip"><div class="wc-clip-body"><div class="wc-clip-ring"></div><div class="wc-clip-bar"></div></div></div>
         <div class="wc-num">01</div>
@@ -445,6 +493,13 @@ a{text-decoration:none;color:inherit;}
         <div class="wc-text">効果測定レポートで、担当者が上席に説明しやすい材料をご提供します。</div>
         <div class="wc-tag">DATA DRIVEN</div>
       </div>
+    </div>
+    <!-- carousel dots for whyus -->
+    <div class="carousel-dots" id="whyusDots" style="display:none;">
+      <span class="carousel-dot active" onclick="scrollWhyus(0)"></span>
+      <span class="carousel-dot" onclick="scrollWhyus(1)"></span>
+      <span class="carousel-dot" onclick="scrollWhyus(2)"></span>
+      <span class="carousel-dot" onclick="scrollWhyus(3)"></span>
     </div>
   </div>
 </section>
@@ -537,10 +592,7 @@ a{text-decoration:none;color:inherit;}
       <div class="hw-steps">
         <div class="hw-step">
           <div class="hw-num-label">STEP 01</div>
-          <div class="hw-img-box">
-            <img src="hiw01.png" alt="無料相談">
-            <div class="hw-connector">›</div>
-          </div>
+          <div class="hw-img-box"><img src="hiw01.png" alt="無料相談"><div class="hw-connector">›</div></div>
           <div class="hw-step-body">
             <div class="hw-step-title">無料相談</div>
             <div class="hw-step-text">現状の課題・目標・社内状況をヒアリング。方向性を一緒に整理します。</div>
@@ -549,10 +601,7 @@ a{text-decoration:none;color:inherit;}
         </div>
         <div class="hw-step">
           <div class="hw-num-label">STEP 02</div>
-          <div class="hw-img-box">
-            <img src="hiw02.png" alt="現状分析・提案">
-            <div class="hw-connector">›</div>
-          </div>
+          <div class="hw-img-box"><img src="hiw02.png" alt="現状分析・提案"><div class="hw-connector">›</div></div>
           <div class="hw-step-body">
             <div class="hw-step-title">現状分析・提案</div>
             <div class="hw-step-text">データをもとに課題を可視化。御社に合った実行プランを提案。</div>
@@ -561,10 +610,7 @@ a{text-decoration:none;color:inherit;}
         </div>
         <div class="hw-step">
           <div class="hw-num-label">STEP 03</div>
-          <div class="hw-img-box">
-            <img src="hiw03.png" alt="設計・実行">
-            <div class="hw-connector">›</div>
-          </div>
+          <div class="hw-img-box"><img src="hiw03.png" alt="設計・実行"><div class="hw-connector">›</div></div>
           <div class="hw-step-body">
             <div class="hw-step-title">設計・実行</div>
             <div class="hw-step-text">規模・予算に合わせた施策を設計・実施。担当者の負担を最小化します。</div>
@@ -573,9 +619,7 @@ a{text-decoration:none;color:inherit;}
         </div>
         <div class="hw-step">
           <div class="hw-num-label">STEP 04</div>
-          <div class="hw-img-box">
-            <img src="hiw04.png" alt="継続改善">
-          </div>
+          <div class="hw-img-box"><img src="hiw04.png" alt="継続改善"></div>
           <div class="hw-step-body">
             <div class="hw-step-title">継続改善</div>
             <div class="hw-step-text">データで効果を可視化しながらPDCAを回し、成果が出続ける状態をつくります。</div>
@@ -632,9 +676,7 @@ a{text-decoration:none;color:inherit;}
           <p>担当者が一人で抱えなくていいように。学んだことが現場で終わらないように。人が安心して働き、育ち、続けられるように。</p>
           <p>FiTNESS UNIVERSITYは、そのための伴走者であり、実装者です。今ある課題を、無理なく、でも着実に前へ進めていく——そのご一緒を、楽しみにしています。</p>
         </div>
-        <div class="message-sign">
-          株式会社FiTNESS UNIVERSITY<br>代表　沖中
-        </div>
+        <div class="message-sign">株式会社FiTNESS UNIVERSITY<br>代表　沖中</div>
       </div>
       <button class="message-toggle" id="msgToggle" onclick="toggleMsg()">
         <span class="message-toggle-text">続きを読む</span>
@@ -685,6 +727,46 @@ const io = new IntersectionObserver(entries => {
 },{threshold:0.1});
 document.querySelectorAll('.fi').forEach(el => io.observe(el));
 
+// Carousel dots
+function initCarousel(gridId, dotsId) {
+  const grid = document.getElementById(gridId);
+  const dotsEl = document.getElementById(dotsId);
+  if (!grid || !dotsEl) return;
+  const dots = dotsEl.querySelectorAll('.carousel-dot');
+  if (window.innerWidth <= 768) dotsEl.style.display = 'flex';
+  grid.addEventListener('scroll', () => {
+    const cards = grid.children;
+    if (!cards.length) return;
+    const scrollLeft = grid.scrollLeft;
+    const cardW = cards[0].offsetWidth + 12;
+    const idx = Math.round(scrollLeft / cardW);
+    dots.forEach((d,i) => d.classList.toggle('active', i === idx));
+  });
+}
+function scrollIssue(i) {
+  const grid = document.getElementById('issuesGrid');
+  if (!grid) return;
+  const cardW = grid.children[0].offsetWidth + 12;
+  grid.scrollTo({left: cardW * i, behavior: 'smooth'});
+}
+function scrollWhyus(i) {
+  const grid = document.getElementById('whyusGrid');
+  if (!grid) return;
+  const cardW = grid.children[0].offsetWidth + 12;
+  grid.scrollTo({left: cardW * i, behavior: 'smooth'});
+}
+window.addEventListener('resize', () => {
+  const issueDots = document.getElementById('issueDots');
+  const whyusDots = document.getElementById('whyusDots');
+  const show = window.innerWidth <= 768;
+  if (issueDots) issueDots.style.display = show ? 'flex' : 'none';
+  if (whyusDots) whyusDots.style.display = show ? 'flex' : 'none';
+});
+document.addEventListener('DOMContentLoaded', () => {
+  initCarousel('issuesGrid', 'issueDots');
+  initCarousel('whyusGrid', 'whyusDots');
+});
+
 function toggleMenu(){
   const menu = document.getElementById('mobMenu');
   const btn = document.getElementById('hamburger');
@@ -696,6 +778,13 @@ function closeMobMenu(){
   document.getElementById('mobMenu').classList.remove('open');
   document.getElementById('hamburger').classList.remove('open');
   document.body.style.overflow = '';
+}
+function toggleAccordion(card) {
+  if (window.innerWidth > 768) return; // PCでは無効
+  const isOpen = card.classList.contains('acc-open');
+  // 他を閉じる
+  document.querySelectorAll('.issue-card.acc-open').forEach(c => c.classList.remove('acc-open'));
+  if (!isOpen) card.classList.add('acc-open');
 }
 
 function toggleMsg(){
