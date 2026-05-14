@@ -104,18 +104,13 @@ a{text-decoration:none;color:inherit;}
 .whyus-head{margin-bottom:56px;}
 .whyus-head-r{font-size:15px;color:var(--text-mid);line-height:2;text-align:left;margin-top:12px;}
 .whyus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-.whyus-card{background:var(--cream);border-radius:var(--r-lg);padding:0 0 28px;overflow:hidden;display:flex;flex-direction:column;align-items:center;border:1px solid var(--border);transition:box-shadow .25s,transform .25s;}
+.whyus-card{background:var(--cream);border-radius:var(--r-lg);padding:28px 0 28px;overflow:hidden;display:flex;flex-direction:column;align-items:center;border:1px solid var(--border);transition:box-shadow .25s,transform .25s;}
 .whyus-card:hover{box-shadow:0 10px 40px rgba(0,0,0,.08);transform:translateY(-4px);}
-.wc-clip{width:100%;display:flex;justify-content:center;}
-.wc-clip-body{width:44px;background:#1a1a1a;border-radius:0 0 5px 5px;display:flex;flex-direction:column;align-items:center;padding:9px 0 7px;gap:5px;}
-.wc-clip-ring{width:19px;height:12px;border:2.5px solid #3a3a3a;border-top:none;border-radius:0 0 10px 10px;}
-.wc-clip-bar{width:24px;height:3px;background:#3a3a3a;border-radius:1px;}
-.wc-num{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:.15em;color:#bbb;margin:20px 0 14px;}
-.wc-icon{margin-bottom:16px;}.wc-icon img{width:80px;height:80px;object-fit:contain;display:block;margin:0 auto;}
+.wc-num{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:.15em;color:#bbb;margin:0 0 14px;}
+.wc-icon{margin-bottom:16px;}.wc-icon img{width:110px;height:110px;object-fit:contain;display:block;margin:0 auto;}
 .wc-sep{width:24px;height:1.5px;background:var(--border);margin-bottom:16px;}
 .wc-title{font-size:13px;font-weight:700;color:var(--navy);text-align:center;line-height:1.75;padding:0 20px;margin-bottom:10px;}
 .wc-text{font-size:11px;color:var(--text-mid);text-align:center;line-height:1.9;padding:0 20px;}
-.wc-tag{margin-top:16px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.08em;color:var(--sky);}
 
 /* SERVICE */
 .service{background:var(--cream);padding:96px 0;}
@@ -255,13 +250,12 @@ a{text-decoration:none;color:inherit;}
   .whyus-grid{display:flex;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 12px;gap:12px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
 
   .whyus-card{min-width:200px;max-width:200px;flex-shrink:0;scroll-snap-align:start;padding-bottom:16px;}
-  .wc-icon img{width:48px;height:48px;}
+  .wc-icon img{width:80px;height:80px;}
   .wc-title{font-size:12px;word-break:normal;padding:0 10px;margin-bottom:6px;}
   .wc-text{font-size:10px;word-break:normal;padding:0 10px;}
   .whyus-card .wc-num{margin:12px 0 8px;}
   .whyus-card .wc-icon{margin-bottom:8px;}
   .whyus-card .wc-sep{margin-bottom:8px;width:16px;}
-  .whyus-card .wc-tag{margin-top:10px;font-size:9px;}
   .whyus-grid{padding:0 16px 12px;}
 
   .whyus-head{flex-direction:column;align-items:flex-start;gap:12px;}
@@ -274,7 +268,10 @@ a{text-decoration:none;color:inherit;}
   .hw-img-box{width:96px;min-width:96px;aspect-ratio:1/1;flex-shrink:0;margin-bottom:0;}
   .hw-connector{display:none;}
   .hw-step-title{text-align:left;font-size:14px;}.hw-step-text{text-align:left;}.hw-step-tag{margin-left:0;}
-  .flow-cta{flex-direction:column;text-align:center;}
+  .flow-cta{flex-direction:column;text-align:center;padding:24px 20px;gap:16px;}
+  .flow-cta-l h3{font-size:20px;margin-bottom:6px;}
+  .flow-cta-l p{font-size:13px;}
+  .btn-cta-w{padding:13px 28px;font-size:14px;}
   .hd-nav{display:none;}.hd-btn{display:none;}.hamburger{display:flex;}.final h2{font-size:26px;}
   .logo-bar{padding:56px 0;}.logo-bar-inner{gap:32px;padding:0 24px;}
   .logo-bar-logos{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;gap:40px;padding-bottom:8px;-webkit-overflow-scrolling:touch;}
@@ -458,40 +455,32 @@ a{text-decoration:none;color:inherit;}
     </div>
     <div class="whyus-grid" id="whyusGrid">
       <div class="whyus-card fi fi-d1">
-        <div class="wc-clip"><div class="wc-clip-body"><div class="wc-clip-ring"></div><div class="wc-clip-bar"></div></div></div>
         <div class="wc-num">01</div>
         <div class="wc-icon"><img src="why_fu01.png" alt="行動変容を科学的に設計する"></div>
         <div class="wc-sep"></div>
         <div class="wc-title">行動変容を<br>科学的に設計する</div>
-        <div class="wc-text">気づき・実践・習慣・文化化まで段階的に設計。参加して終わりにしません。</div>
-        <div class="wc-tag">TTM MODEL</div>
+        <div class="wc-text">気づきから文化化まで段階的に設計。参加して終わりにしません。</div>
       </div>
       <div class="whyus-card fi fi-d2">
-        <div class="wc-clip"><div class="wc-clip-body"><div class="wc-clip-ring"></div><div class="wc-clip-bar"></div></div></div>
         <div class="wc-num">02</div>
         <div class="wc-icon"><img src="why_fu02.png" alt="AI・LINE・動画で継続する仕組みを構築"></div>
         <div class="wc-sep"></div>
         <div class="wc-title">AI・LINE・動画で<br>継続する仕組みを構築</div>
-        <div class="wc-text">フォローをテクノロジーで自動化。担当者が毎回動かなくても継続的にアプローチ。</div>
-        <div class="wc-tag">AI / LINE / VIDEO</div>
+        <div class="wc-text">フォローをテクノロジーで自動化し、担当者の手間なく継続。</div>
       </div>
       <div class="whyus-card fi fi-d3">
-        <div class="wc-clip"><div class="wc-clip-body"><div class="wc-clip-ring"></div><div class="wc-clip-bar"></div></div></div>
         <div class="wc-num">03</div>
         <div class="wc-icon"><img src="why_fu03.png" alt="5領域の専門家が一気通貫で支援"></div>
         <div class="wc-sep"></div>
         <div class="wc-title">5領域の専門家が<br>一気通貫で支援</div>
-        <div class="wc-text">健康経営・行動変容・教育・フィットネス・AIが連携。バラバラな外注は不要。</div>
-        <div class="wc-tag">EXPERT TEAM</div>
+        <div class="wc-text">5領域の専門家が連携。バラバラな外注は不要です。</div>
       </div>
       <div class="whyus-card fi fi-d4">
-        <div class="wc-clip"><div class="wc-clip-body"><div class="wc-clip-ring"></div><div class="wc-clip-bar"></div></div></div>
         <div class="wc-num">04</div>
         <div class="wc-icon"><img src="why_fu04.png" alt="データで効果を示し経営層の承認を取りやすく"></div>
         <div class="wc-sep"></div>
         <div class="wc-title">データで効果を示し<br>経営層の承認を取りやすく</div>
-        <div class="wc-text">効果測定レポートで、担当者が上席に説明しやすい材料をご提供します。</div>
-        <div class="wc-tag">DATA DRIVEN</div>
+        <div class="wc-text">効果測定レポートで、経営層への説明材料を提供します。</div>
       </div>
     </div>
     <!-- carousel dots for whyus -->
@@ -575,8 +564,8 @@ a{text-decoration:none;color:inherit;}
       </div>
       <div class="svc-card fi fi-d3">
         <div class="svc-card-top"><div class="svc-card-n">SERVICE 06</div></div>
-        <div class="svc-card-title">CBD/Ciel. 福利厚生支援</div>
-        <div class="svc-card-text">従業員の疲労・ストレスケアにCBD製品を活用した休息支援プログラム。使われる福利厚生を設計。</div>
+        <div class="svc-card-title">社内リラクケア</div>
+        <div class="svc-card-text">従業員の疲労・ストレスケアに特化した休息支援プログラム。使われる福利厚生を設計。</div>
       </div>
     </div>
   </div>
